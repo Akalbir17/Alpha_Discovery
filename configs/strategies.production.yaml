@@ -1,0 +1,183 @@
+# Production Environment Overrides for Strategies Configuration
+
+# Global Strategy Settings - Production Overrides
+global:
+  environment: "production"
+  enable_paper_trading: false
+  enable_live_trading: true
+  initial_capital: 10000000  # $10M for production
+
+# Agent Configuration - Production Overrides
+agents:
+  technical_agent:
+    max_signals_per_day: 5  # Conservative signal count
+    confidence_threshold: 0.75  # Higher confidence required
+    signal_strength_threshold: 0.8
+    
+  fundamental_agent:
+    max_signals_per_day: 3
+    confidence_threshold: 0.8
+    signal_strength_threshold: 0.85
+    
+  sentiment_agent:
+    max_signals_per_day: 8
+    confidence_threshold: 0.7
+    signal_strength_threshold: 0.75
+    
+  risk_agent:
+    max_signals_per_day: 15
+    confidence_threshold: 0.8
+    
+  options_agent:
+    max_signals_per_day: 5
+    confidence_threshold: 0.75
+
+# Strategy Configuration - Production Overrides
+strategies:
+  momentum_strategy:
+    weight: 0.25  # Conservative allocation
+    position_sizing:
+      base_size: 0.015  # Smaller positions
+      max_position_size: 0.05  # Strict position limits
+    risk_controls:
+      max_drawdown: 0.03
+      max_daily_loss: 0.01
+    
+  mean_reversion_strategy:
+    weight: 0.20
+    position_sizing:
+      base_size: 0.01
+      max_position_size: 0.04
+    risk_controls:
+      max_drawdown: 0.025
+      max_daily_loss: 0.008
+    
+  arbitrage_strategy:
+    weight: 0.30  # Higher weight for low-risk strategy
+    position_sizing:
+      base_size: 0.03
+      max_position_size: 0.08
+    risk_controls:
+      max_drawdown: 0.015
+      max_daily_loss: 0.005
+    
+  pairs_trading_strategy:
+    weight: 0.20
+    position_sizing:
+      base_size: 0.02
+      max_position_size: 0.06
+    risk_controls:
+      max_drawdown: 0.02
+      max_daily_loss: 0.01
+    
+  options_strategy:
+    weight: 0.05  # Very conservative allocation
+    position_sizing:
+      base_size: 0.005
+      max_position_size: 0.02
+    risk_controls:
+      max_drawdown: 0.01
+      max_daily_loss: 0.005
+
+# Portfolio Management - Production Overrides
+portfolio:
+  position_limits:
+    max_positions: 30  # More diversification
+    max_position_size: 0.05  # Strict position limits
+    max_sector_exposure: 0.20  # Conservative sector limits
+    max_country_exposure: 0.70  # Mostly US exposure
+    
+  diversification:
+    min_sectors: 5  # More diversification required
+    min_countries: 2
+    max_correlation: 0.6  # Lower correlation tolerance
+    
+  cash_management:
+    min_cash_reserve: 0.03  # Minimum cash
+    max_cash_reserve: 0.15
+    target_cash_reserve: 0.08
+
+# Risk Management - Production Overrides
+risk_management:
+  portfolio_limits:
+    max_daily_var: 0.015     # 1.5% daily VaR (conservative)
+    max_weekly_var: 0.035    # 3.5% weekly VaR
+    max_monthly_var: 0.08    # 8% monthly VaR
+    max_drawdown: 0.10       # 10% maximum drawdown
+    max_leverage: 1.3        # Conservative leverage
+    
+  circuit_breakers:
+    daily_loss_threshold: 0.015    # 1.5% daily loss
+    position_loss_threshold: 0.03  # 3% position loss
+    volatility_threshold: 0.03     # 3% volatility spike
+    cooldown_period: 600           # 10 minutes cooldown
+    max_triggers_per_day: 2        # Fewer triggers allowed
+
+# Execution Parameters - Production Overrides
+execution:
+  order_management:
+    max_order_size: 50000  # Larger orders for production
+    order_timeout: 15      # Shorter timeout
+    max_slippage: 0.0005   # Tighter slippage control
+    min_fill_ratio: 0.95   # Higher fill requirement
+    
+  market_impact:
+    max_participation_rate: 0.05  # Lower participation
+    impact_threshold: 0.0003      # Tighter impact control
+
+# Backtesting Configuration - Production Overrides
+backtesting:
+  periods:
+    default:
+      start_date: "2015-01-01"  # Longer historical period
+      end_date: "2024-12-31"
+      frequency: "1D"
+    
+    validation:
+      start_date: "2020-01-01"  # Recent validation period
+      end_date: "2024-12-31"
+      frequency: "1D"
+  
+  parameters:
+    initial_capital: 10000000  # Match production capital
+    commission: 0.0008         # Institutional rates
+    slippage: 0.0003          # Tighter slippage
+    realistic_execution: true  # Full execution simulation
+    
+  analysis:
+    risk_free_rate: 0.025  # Current risk-free rate
+    benchmark: "SPY"       # S&P 500 benchmark
+
+# Performance Metrics - Production Overrides
+performance:
+  targets:
+    annual_return: 0.12      # 12% annual return target
+    sharpe_ratio: 1.8        # Higher Sharpe target
+    max_drawdown: 0.08       # Lower drawdown tolerance
+    win_rate: 0.65           # Higher win rate target
+    
+  reporting:
+    frequency: "daily"       # Daily reporting
+    attribution: true        # Full attribution analysis
+    factor_exposure: true    # Factor exposure analysis
+
+# Strategy Limits - Production Overrides
+limits:
+  global:
+    max_daily_trades: 25      # Conservative trade count
+    max_open_positions: 30    # Higher position count
+    max_daily_turnover: 0.15  # Lower turnover
+    max_overnight_exposure: 0.7  # Conservative overnight exposure
+    
+  by_symbol:
+    large_cap:
+      max_position_size: 0.05   # 5% max per large cap
+      max_daily_volume: 0.1     # 10% of ADV max
+    
+    mid_cap:
+      max_position_size: 0.03   # 3% max per mid cap
+      max_daily_volume: 0.05    # 5% of ADV max
+    
+    small_cap:
+      max_position_size: 0.01   # 1% max per small cap
+      max_daily_volume: 0.02    # 2% of ADV max 

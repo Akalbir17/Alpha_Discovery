@@ -1,0 +1,568 @@
+# Alpha Discovery Market Data Configuration
+# This file contains configuration for market data sources, symbols, and data processing
+
+# Global Market Data Settings
+global:
+  timezone: "UTC"
+  market_hours:
+    start: "09:30"
+    end: "16:00"
+    timezone: "US/Eastern"
+  
+  # Data Quality
+  data_quality:
+    max_missing_data_pct: 0.05  # 5% maximum missing data
+    outlier_detection: true
+    outlier_threshold: 5.0  # 5 standard deviations
+    data_validation: true
+    min_volume_threshold: 1000
+  
+  # Caching
+  caching:
+    enabled: true
+    ttl_seconds: 300  # 5 minutes
+    max_cache_size: 1000  # MB
+    compression: true
+
+# Data Sources Configuration
+data_sources:
+  # Primary Exchange Data
+  exchanges:
+    nasdaq:
+      enabled: true
+      priority: 1
+      api_key: "${NASDAQ_API_KEY}"
+      rate_limit: 100  # requests per minute
+      endpoints:
+        real_time: "https://api.nasdaq.com/api/quote/{symbol}/info"
+        historical: "https://api.nasdaq.com/api/quote/{symbol}/chart"
+        options: "https://api.nasdaq.com/api/quote/{symbol}/options"
+      
+      symbols:
+        - "AAPL"
+        - "MSFT"
+        - "GOOGL"
+        - "AMZN"
+        - "TSLA"
+        - "META"
+        - "NVDA"
+        - "NFLX"
+        - "ADBE"
+        - "CRM"
+    
+    nyse:
+      enabled: true
+      priority: 2
+      api_key: "${NYSE_API_KEY}"
+      rate_limit: 100
+      endpoints:
+        real_time: "https://api.nyse.com/v1/quote/{symbol}"
+        historical: "https://api.nyse.com/v1/historical/{symbol}"
+      
+      symbols:
+        - "JPM"
+        - "BAC"
+        - "WFC"
+        - "GS"
+        - "MS"
+        - "C"
+        - "BRK.A"
+        - "JNJ"
+        - "PG"
+        - "KO"
+  
+  # Alternative Data Sources
+  alternative_data:
+    alpha_vantage:
+      enabled: true
+      priority: 3
+      api_key: "${ALPHA_VANTAGE_API_KEY}"
+      rate_limit: 5  # requests per minute
+      endpoints:
+        real_time: "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol={symbol}"
+        historical: "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={symbol}"
+        fundamental: "https://www.alphavantage.co/query?function=OVERVIEW&symbol={symbol}"
+    
+    yahoo_finance:
+      enabled: true
+      priority: 4
+      rate_limit: 2000  # requests per hour
+      endpoints:
+        real_time: "https://query1.finance.yahoo.com/v8/finance/chart/{symbol}"
+        historical: "https://query1.finance.yahoo.com/v7/finance/download/{symbol}"
+        options: "https://query1.finance.yahoo.com/v7/finance/options/{symbol}"
+    
+    quandl:
+      enabled: true
+      priority: 5
+      api_key: "${QUANDL_API_KEY}"
+      rate_limit: 300  # requests per 10 minutes
+      endpoints:
+        economic: "https://www.quandl.com/api/v3/datasets/FRED/{code}"
+        commodities: "https://www.quandl.com/api/v3/datasets/CHRIS/{exchange}_{symbol}"
+  
+  # Cryptocurrency Data
+  crypto:
+    coinbase:
+      enabled: true
+      priority: 1
+      api_key: "${COINBASE_API_KEY}"
+      api_secret: "${COINBASE_API_SECRET}"
+      rate_limit: 10  # requests per second
+      endpoints:
+        real_time: "https://api.pro.coinbase.com/products/{symbol}/ticker"
+        historical: "https://api.pro.coinbase.com/products/{symbol}/candles"
+      
+      symbols:
+        - "BTC-USD"
+        - "ETH-USD"
+        - "ADA-USD"
+        - "DOT-USD"
+        - "LINK-USD"
+    
+    binance:
+      enabled: true
+      priority: 2
+      api_key: "${BINANCE_API_KEY}"
+      api_secret: "${BINANCE_API_SECRET}"
+      rate_limit: 1200  # requests per minute
+      endpoints:
+        real_time: "https://api.binance.com/api/v3/ticker/price"
+        historical: "https://api.binance.com/api/v3/klines"
+      
+      symbols:
+        - "BTCUSDT"
+        - "ETHUSDT"
+        - "ADAUSDT"
+        - "DOTUSDT"
+        - "LINKUSDT"
+  
+  # Options Data
+  options:
+    cboe:
+      enabled: true
+      priority: 1
+      api_key: "${CBOE_API_KEY}"
+      rate_limit: 100
+      endpoints:
+        options_chain: "https://api.cboe.com/v1/options/{symbol}"
+        volatility: "https://api.cboe.com/v1/volatility/{symbol}"
+      
+      symbols:
+        - "AAPL"
+        - "SPY"
+        - "QQQ"
+        - "TSLA"
+        - "AMZN"
+    
+    tradier:
+      enabled: true
+      priority: 2
+      api_key: "${TRADIER_API_KEY}"
+      rate_limit: 120
+      endpoints:
+        options_chain: "https://api.tradier.com/v1/markets/options/chains"
+        options_strikes: "https://api.tradier.com/v1/markets/options/strikes"
+
+# Symbol Configuration
+symbols:
+  # Equity Symbols
+  equities:
+    large_cap:
+      - symbol: "AAPL"
+        name: "Apple Inc."
+        sector: "Technology"
+        market_cap: 2800000000000  # $2.8T
+        avg_volume: 50000000
+        volatility: 0.25
+        beta: 1.2
+        enabled: true
+        priority: 1
+      
+      - symbol: "MSFT"
+        name: "Microsoft Corporation"
+        sector: "Technology"
+        market_cap: 2500000000000  # $2.5T
+        avg_volume: 30000000
+        volatility: 0.22
+        beta: 1.1
+        enabled: true
+        priority: 1
+      
+      - symbol: "GOOGL"
+        name: "Alphabet Inc."
+        sector: "Technology"
+        market_cap: 1700000000000  # $1.7T
+        avg_volume: 25000000
+        volatility: 0.28
+        beta: 1.05
+        enabled: true
+        priority: 1
+      
+      - symbol: "AMZN"
+        name: "Amazon.com Inc."
+        sector: "Consumer Discretionary"
+        market_cap: 1500000000000  # $1.5T
+        avg_volume: 35000000
+        volatility: 0.30
+        beta: 1.3
+        enabled: true
+        priority: 1
+      
+      - symbol: "TSLA"
+        name: "Tesla Inc."
+        sector: "Consumer Discretionary"
+        market_cap: 800000000000  # $800B
+        avg_volume: 100000000
+        volatility: 0.45
+        beta: 1.8
+        enabled: true
+        priority: 2
+    
+    mid_cap:
+      - symbol: "ROKU"
+        name: "Roku Inc."
+        sector: "Technology"
+        market_cap: 50000000000  # $50B
+        avg_volume: 15000000
+        volatility: 0.55
+        beta: 1.9
+        enabled: true
+        priority: 3
+      
+      - symbol: "PLTR"
+        name: "Palantir Technologies Inc."
+        sector: "Technology"
+        market_cap: 40000000000  # $40B
+        avg_volume: 25000000
+        volatility: 0.60
+        beta: 2.2
+        enabled: true
+        priority: 3
+    
+    small_cap:
+      - symbol: "SPCE"
+        name: "Virgin Galactic Holdings Inc."
+        sector: "Industrials"
+        market_cap: 5000000000  # $5B
+        avg_volume: 10000000
+        volatility: 0.70
+        beta: 2.5
+        enabled: false
+        priority: 4
+  
+  # ETF Symbols
+  etfs:
+    broad_market:
+      - symbol: "SPY"
+        name: "SPDR S&P 500 ETF"
+        category: "Large Cap Blend"
+        expense_ratio: 0.0945
+        avg_volume: 80000000
+        enabled: true
+        priority: 1
+      
+      - symbol: "QQQ"
+        name: "Invesco QQQ ETF"
+        category: "Large Cap Growth"
+        expense_ratio: 0.20
+        avg_volume: 40000000
+        enabled: true
+        priority: 1
+      
+      - symbol: "IWM"
+        name: "iShares Russell 2000 ETF"
+        category: "Small Cap Blend"
+        expense_ratio: 0.19
+        avg_volume: 25000000
+        enabled: true
+        priority: 2
+    
+    sector_etfs:
+      - symbol: "XLK"
+        name: "Technology Select Sector SPDR Fund"
+        sector: "Technology"
+        expense_ratio: 0.13
+        avg_volume: 15000000
+        enabled: true
+        priority: 2
+      
+      - symbol: "XLF"
+        name: "Financial Select Sector SPDR Fund"
+        sector: "Financial"
+        expense_ratio: 0.13
+        avg_volume: 20000000
+        enabled: true
+        priority: 2
+  
+  # Cryptocurrency Symbols
+  cryptocurrencies:
+    major:
+      - symbol: "BTC-USD"
+        name: "Bitcoin"
+        market_cap: 800000000000  # $800B
+        avg_volume: 20000000000  # $20B
+        volatility: 0.80
+        enabled: true
+        priority: 1
+      
+      - symbol: "ETH-USD"
+        name: "Ethereum"
+        market_cap: 300000000000  # $300B
+        avg_volume: 10000000000  # $10B
+        volatility: 0.85
+        enabled: true
+        priority: 1
+    
+    altcoins:
+      - symbol: "ADA-USD"
+        name: "Cardano"
+        market_cap: 50000000000  # $50B
+        avg_volume: 1000000000  # $1B
+        volatility: 1.20
+        enabled: false
+        priority: 3
+
+# Data Processing Configuration
+data_processing:
+  # Real-time Processing
+  real_time:
+    enabled: true
+    update_frequency: 1  # seconds
+    batch_size: 100
+    max_latency: 0.1  # seconds
+    
+    # Data Normalization
+    normalization:
+      price_precision: 4
+      volume_precision: 0
+      timestamp_format: "ISO8601"
+      timezone_conversion: true
+    
+    # Quality Checks
+    quality_checks:
+      price_spike_threshold: 0.1  # 10% price spike
+      volume_spike_threshold: 5.0  # 5x volume spike
+      missing_data_threshold: 0.05  # 5% missing data
+      duplicate_detection: true
+  
+  # Historical Processing
+  historical:
+    enabled: true
+    batch_size: 1000
+    parallel_processing: true
+    max_workers: 4
+    
+    # Data Cleaning
+    cleaning:
+      remove_outliers: true
+      fill_missing_data: true
+      fill_method: "forward_fill"
+      smooth_data: false
+    
+    # Data Enrichment
+    enrichment:
+      calculate_returns: true
+      calculate_volatility: true
+      calculate_indicators: true
+      calculate_correlations: true
+  
+  # Options Processing
+  options:
+    enabled: true
+    update_frequency: 5  # seconds
+    expiration_filter: 60  # days
+    
+    # Greeks Calculation
+    greeks:
+      calculate_delta: true
+      calculate_gamma: true
+      calculate_theta: true
+      calculate_vega: true
+      calculate_rho: true
+    
+    # Volatility Surface
+    volatility_surface:
+      enabled: true
+      interpolation_method: "cubic"
+      extrapolation_method: "linear"
+      min_moneyness: 0.8
+      max_moneyness: 1.2
+
+# Data Storage Configuration
+storage:
+  # Time Series Database
+  timeseries:
+    type: "timescaledb"
+    host: "${TIMESCALE_HOST}"
+    port: 5432
+    database: "market_data"
+    username: "${TIMESCALE_USER}"
+    password: "${TIMESCALE_PASSWORD}"
+    
+    # Retention Policies
+    retention:
+      tick_data: "7 days"
+      minute_data: "1 year"
+      hourly_data: "5 years"
+      daily_data: "20 years"
+    
+    # Compression
+    compression:
+      enabled: true
+      algorithm: "lz4"
+      chunk_time_interval: "1 day"
+  
+  # Cache Storage
+  cache:
+    type: "redis"
+    host: "${REDIS_HOST}"
+    port: 6379
+    database: 0
+    password: "${REDIS_PASSWORD}"
+    
+    # Cache Policies
+    policies:
+      real_time_data: 300  # 5 minutes
+      historical_data: 3600  # 1 hour
+      fundamental_data: 86400  # 24 hours
+      options_data: 600  # 10 minutes
+  
+  # Backup Storage
+  backup:
+    type: "s3"
+    bucket: "${S3_BUCKET}"
+    region: "${AWS_REGION}"
+    access_key: "${AWS_ACCESS_KEY}"
+    secret_key: "${AWS_SECRET_KEY}"
+    
+    # Backup Schedule
+    schedule:
+      frequency: "daily"
+      retention: "1 year"
+      compression: true
+
+# Data Feeds Configuration
+feeds:
+  # Market Data Feeds
+  market_data:
+    level_1:
+      enabled: true
+      symbols: ["AAPL", "MSFT", "GOOGL", "AMZN", "TSLA"]
+      fields: ["last_price", "bid", "ask", "volume", "timestamp"]
+      update_frequency: 1  # seconds
+    
+    level_2:
+      enabled: true
+      symbols: ["AAPL", "MSFT", "GOOGL"]
+      fields: ["order_book", "market_depth", "trade_data"]
+      update_frequency: 0.1  # seconds
+    
+    options:
+      enabled: true
+      symbols: ["AAPL", "SPY", "QQQ", "TSLA"]
+      fields: ["option_price", "implied_volatility", "greeks", "open_interest"]
+      update_frequency: 5  # seconds
+  
+  # News Feeds
+  news:
+    reuters:
+      enabled: true
+      api_key: "${REUTERS_API_KEY}"
+      categories: ["markets", "technology", "earnings"]
+      languages: ["en"]
+      update_frequency: 60  # seconds
+    
+    bloomberg:
+      enabled: true
+      api_key: "${BLOOMBERG_API_KEY}"
+      categories: ["equities", "bonds", "commodities"]
+      priority: 1
+      update_frequency: 30  # seconds
+  
+  # Economic Data
+  economic:
+    federal_reserve:
+      enabled: true
+      series: ["GDP", "INFLATION", "UNEMPLOYMENT", "INTEREST_RATES"]
+      update_frequency: 3600  # 1 hour
+    
+    treasury:
+      enabled: true
+      series: ["YIELD_CURVE", "TREASURY_RATES"]
+      update_frequency: 900  # 15 minutes
+
+# Monitoring Configuration
+monitoring:
+  # Data Quality Monitoring
+  data_quality:
+    enabled: true
+    check_frequency: 60  # seconds
+    
+    # Alerts
+    alerts:
+      missing_data_threshold: 0.1  # 10%
+      stale_data_threshold: 300  # 5 minutes
+      price_anomaly_threshold: 0.2  # 20%
+      volume_anomaly_threshold: 10.0  # 10x
+    
+    # Notifications
+    notifications:
+      email: ["data-team@company.com"]
+      slack: "#data-alerts"
+      pagerduty: true
+  
+  # Performance Monitoring
+  performance:
+    enabled: true
+    metrics: ["latency", "throughput", "error_rate", "uptime"]
+    
+    # Thresholds
+    thresholds:
+      max_latency: 0.1  # 100ms
+      min_throughput: 1000  # messages per second
+      max_error_rate: 0.01  # 1%
+      min_uptime: 0.999  # 99.9%
+  
+  # Cost Monitoring
+  cost:
+    enabled: true
+    budget_alerts: true
+    monthly_budget: 10000  # $10,000
+    
+    # Cost Optimization
+    optimization:
+      auto_scaling: true
+      data_compression: true
+      cache_optimization: true
+      query_optimization: true
+
+# Failover Configuration
+failover:
+  # Data Source Failover
+  data_sources:
+    enabled: true
+    failover_timeout: 5  # seconds
+    max_retries: 3
+    backoff_multiplier: 2
+    
+    # Failover Priority
+    priority_order:
+      - "nasdaq"
+      - "nyse"
+      - "alpha_vantage"
+      - "yahoo_finance"
+  
+  # Geographic Failover
+  geographic:
+    enabled: true
+    primary_region: "us-east-1"
+    secondary_region: "us-west-2"
+    failover_threshold: 10  # seconds
+  
+  # Circuit Breaker
+  circuit_breaker:
+    enabled: true
+    failure_threshold: 5
+    recovery_timeout: 30  # seconds
+    half_open_max_calls: 3 

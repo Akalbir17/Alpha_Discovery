@@ -1,0 +1,75 @@
+# Default Configuration for Alpha Discovery Platform
+
+# Environment
+env: development
+
+# API Keys (replace with your actual keys)
+api_keys:
+  openai: "your-openai-api-key"
+  anthropic: "your-anthropic-api-key"
+  alpha_vantage: "your-alpha-vantage-api-key"
+  polygon: "your-polygon-api-key"
+  alpaca:
+    key: "your-alpaca-api-key"
+    secret: "your-alpaca-api-secret"
+
+# LLM Configuration
+llm:
+  provider: "openai" # or "anthropic"
+  model: "gpt-4-turbo" # or "claude-3-opus-20240229"
+  temperature: 0.7
+  max_tokens: 4096
+
+# Database Configuration
+database:
+  type: "sqlite"
+  path: "alpha_discovery.db"
+
+# Redis Configuration
+redis:
+  host: "localhost"
+  port: 6379
+  db: 0
+
+# Market Data Configuration
+market_data:
+  provider: "yfinance" # or "alpha_vantage", "polygon", "alpaca"
+  update_interval: 60 # seconds
+  symbols:
+    - "AAPL"
+    - "GOOGL"
+    - "MSFT"
+    - "AMZN"
+    - "TSLA"
+    - "META"
+    - "NVDA"
+
+# Reddit Configuration
+reddit:
+  client_id: "your-reddit-client-id"
+  client_secret: "your-reddit-client-secret"
+  user_agent: "AlphaDiscovery/1.0"
+  username: "your-reddit-username"
+  password: "your-reddit-password"
+  subreddits:
+    - "wallstreetbets"
+    - "stocks"
+    - "investing"
+  update_interval: 300 # seconds
+
+# Risk Management Configuration
+risk:
+  max_position_size: 100000 # in USD
+  max_portfolio_var: 0.05 # 5% Value at Risk
+  max_sector_concentration: 0.3 # 30% concentration in any sector
+
+# Trading Configuration
+trading:
+  provider: "alpaca"
+  paper_trading: true
+
+# Monitoring Configuration
+monitoring:
+  prometheus_port: 9090
+  log_level: "INFO"
+  log_file: "/var/log/alpha-discovery/main.log" 

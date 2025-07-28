@@ -1,0 +1,727 @@
+# Alpha Discovery Monitoring Configuration
+# This file contains configuration for Reddit monitoring, alerts, and system monitoring
+
+# Global Monitoring Settings
+global:
+  environment: "production"
+  timezone: "UTC"
+  monitoring_interval: 60  # seconds
+  alert_cooldown: 300  # 5 minutes
+  enable_notifications: true
+  notification_channels: ["email", "slack", "pagerduty"]
+
+# Reddit Monitoring Configuration
+reddit:
+  # Authentication
+  authentication:
+    client_id: "${REDDIT_CLIENT_ID}"
+    client_secret: "${REDDIT_CLIENT_SECRET}"
+    user_agent: "AlphaDiscovery/1.0"
+    username: "${REDDIT_USERNAME}"
+    password: "${REDDIT_PASSWORD}"
+  
+  # Subreddits to Monitor
+  subreddits:
+    trading:
+      - name: "wallstreetbets"
+        enabled: true
+        priority: 1
+        weight: 0.3
+        min_upvotes: 100
+        max_posts_per_hour: 50
+        sentiment_threshold: 0.6
+      
+      - name: "stocks"
+        enabled: true
+        priority: 2
+        weight: 0.25
+        min_upvotes: 50
+        max_posts_per_hour: 30
+        sentiment_threshold: 0.65
+      
+      - name: "investing"
+        enabled: true
+        priority: 2
+        weight: 0.2
+        min_upvotes: 25
+        max_posts_per_hour: 20
+        sentiment_threshold: 0.7
+      
+      - name: "SecurityAnalysis"
+        enabled: true
+        priority: 3
+        weight: 0.15
+        min_upvotes: 10
+        max_posts_per_hour: 10
+        sentiment_threshold: 0.75
+      
+      - name: "ValueInvesting"
+        enabled: true
+        priority: 3
+        weight: 0.1
+        min_upvotes: 5
+        max_posts_per_hour: 5
+        sentiment_threshold: 0.8
+    
+    crypto:
+      - name: "CryptoCurrency"
+        enabled: true
+        priority: 1
+        weight: 0.4
+        min_upvotes: 100
+        max_posts_per_hour: 100
+        sentiment_threshold: 0.6
+      
+      - name: "Bitcoin"
+        enabled: true
+        priority: 2
+        weight: 0.3
+        min_upvotes: 50
+        max_posts_per_hour: 50
+        sentiment_threshold: 0.65
+      
+      - name: "ethereum"
+        enabled: true
+        priority: 2
+        weight: 0.3
+        min_upvotes: 50
+        max_posts_per_hour: 50
+        sentiment_threshold: 0.65
+    
+    company_specific:
+      - name: "AAPL"
+        enabled: true
+        priority: 1
+        weight: 0.5
+        min_upvotes: 10
+        max_posts_per_hour: 20
+        sentiment_threshold: 0.7
+      
+      - name: "teslamotors"
+        enabled: true
+        priority: 1
+        weight: 0.5
+        min_upvotes: 20
+        max_posts_per_hour: 30
+        sentiment_threshold: 0.65
+  
+  # Keywords to Monitor
+  keywords:
+    # Stock Symbols
+    stock_symbols:
+      high_priority:
+        - "AAPL"
+        - "MSFT"
+        - "GOOGL"
+        - "AMZN"
+        - "TSLA"
+        - "META"
+        - "NVDA"
+        - "NFLX"
+        - "SPY"
+        - "QQQ"
+      
+      medium_priority:
+        - "JPM"
+        - "BAC"
+        - "WFC"
+        - "GS"
+        - "MS"
+        - "ROKU"
+        - "PLTR"
+        - "COIN"
+        - "HOOD"
+        - "AMD"
+      
+      low_priority:
+        - "F"
+        - "GE"
+        - "T"
+        - "VZ"
+        - "KO"
+        - "PG"
+        - "JNJ"
+        - "PFE"
+        - "XOM"
+        - "CVX"
+    
+    # Trading Terms
+    trading_terms:
+      bullish:
+        - "moon"
+        - "rocket"
+        - "bull"
+        - "buy the dip"
+        - "diamond hands"
+        - "hold"
+        - "squeeze"
+        - "gamma squeeze"
+        - "short squeeze"
+        - "to the moon"
+        - "HODL"
+        - "calls"
+        - "long"
+        - "bullish"
+        - "pump"
+      
+      bearish:
+        - "crash"
+        - "dump"
+        - "bear"
+        - "puts"
+        - "short"
+        - "bearish"
+        - "sell off"
+        - "red day"
+        - "paper hands"
+        - "bag holder"
+        - "dead cat bounce"
+        - "falling knife"
+        - "correction"
+        - "recession"
+        - "bubble"
+      
+      neutral:
+        - "sideways"
+        - "consolidation"
+        - "range bound"
+        - "theta gang"
+        - "iron condor"
+        - "covered call"
+        - "cash secured put"
+        - "wheel strategy"
+        - "dividend"
+        - "earnings"
+    
+    # Market Events
+    market_events:
+      earnings:
+        - "earnings"
+        - "ER"
+        - "quarterly report"
+        - "guidance"
+        - "beat estimates"
+        - "miss estimates"
+        - "revenue"
+        - "EPS"
+        - "forward guidance"
+        - "analyst call"
+      
+      news:
+        - "FDA approval"
+        - "merger"
+        - "acquisition"
+        - "partnership"
+        - "product launch"
+        - "recall"
+        - "lawsuit"
+        - "regulation"
+        - "SEC"
+        - "investigation"
+      
+      technical:
+        - "breakout"
+        - "support"
+        - "resistance"
+        - "moving average"
+        - "RSI"
+        - "MACD"
+        - "volume"
+        - "chart pattern"
+        - "technical analysis"
+        - "fibonacci"
+  
+  # Sentiment Analysis
+  sentiment_analysis:
+    enabled: true
+    model: "vader"  # vader, textblob, transformer
+    confidence_threshold: 0.6
+    
+    # Sentiment Scoring
+    scoring:
+      positive_words_weight: 1.0
+      negative_words_weight: 1.0
+      emoji_weight: 0.5
+      caps_lock_weight: 0.3
+      exclamation_weight: 0.2
+    
+    # Time Decay
+    time_decay:
+      enabled: true
+      decay_rate: 0.9
+      max_age_hours: 24
+    
+    # Volume Weighting
+    volume_weighting:
+      enabled: true
+      upvotes_weight: 0.4
+      comments_weight: 0.3
+      awards_weight: 0.2
+      author_karma_weight: 0.1
+  
+  # Data Processing
+  data_processing:
+    update_frequency: 300  # 5 minutes
+    batch_size: 100
+    max_posts_per_batch: 1000
+    
+    # Filtering
+    filtering:
+      min_post_length: 50
+      max_post_length: 10000
+      filter_deleted: true
+      filter_removed: true
+      filter_bot_posts: true
+      min_account_age_days: 30
+      min_karma: 100
+    
+    # Deduplication
+    deduplication:
+      enabled: true
+      similarity_threshold: 0.8
+      time_window_hours: 24
+  
+  # Storage
+  storage:
+    database: "postgresql"
+    retention_days: 90
+    compression: true
+    indexing: ["symbol", "timestamp", "sentiment_score", "subreddit"]
+
+# Alert Configuration
+alerts:
+  # Alert Thresholds
+  thresholds:
+    # Portfolio Alerts
+    portfolio:
+      daily_loss_threshold: 0.02        # 2% daily loss
+      weekly_loss_threshold: 0.05       # 5% weekly loss
+      monthly_loss_threshold: 0.10      # 10% monthly loss
+      drawdown_threshold: 0.15          # 15% drawdown
+      var_breach_threshold: 0.9         # 90% of VaR limit
+      leverage_threshold: 1.4           # 140% of max leverage
+      cash_reserve_threshold: 0.03      # 3% cash reserve
+    
+    # Position Alerts
+    position:
+      position_loss_threshold: 0.05     # 5% position loss
+      position_size_threshold: 0.09     # 9% position size
+      concentration_threshold: 0.25     # 25% concentration
+      correlation_threshold: 0.85       # 85% correlation
+      volatility_threshold: 0.4         # 40% volatility
+      beta_threshold: 2.5               # 2.5 beta
+    
+    # Risk Alerts
+    risk:
+      var_95_threshold: 0.045           # 4.5% VaR 95%
+      var_99_threshold: 0.08            # 8% VaR 99%
+      expected_shortfall_threshold: 0.1 # 10% expected shortfall
+      stress_test_threshold: 0.2        # 20% stress test loss
+      correlation_spike_threshold: 0.3  # 30% correlation increase
+      volatility_spike_threshold: 0.05  # 5% volatility increase
+    
+    # Performance Alerts
+    performance:
+      sharpe_ratio_threshold: 1.0       # 1.0 Sharpe ratio
+      sortino_ratio_threshold: 1.2      # 1.2 Sortino ratio
+      calmar_ratio_threshold: 0.8       # 0.8 Calmar ratio
+      win_rate_threshold: 0.5           # 50% win rate
+      profit_factor_threshold: 1.2      # 1.2 profit factor
+      alpha_threshold: -0.02            # -2% alpha
+    
+    # System Alerts
+    system:
+      cpu_usage_threshold: 80           # 80% CPU usage
+      memory_usage_threshold: 85        # 85% memory usage
+      disk_usage_threshold: 90          # 90% disk usage
+      network_latency_threshold: 100    # 100ms network latency
+      error_rate_threshold: 0.05        # 5% error rate
+      uptime_threshold: 0.995           # 99.5% uptime
+    
+    # Data Alerts
+    data:
+      missing_data_threshold: 0.1       # 10% missing data
+      stale_data_threshold: 300         # 5 minutes stale data
+      data_quality_threshold: 0.9       # 90% data quality
+      feed_latency_threshold: 1.0       # 1 second feed latency
+      price_anomaly_threshold: 0.2      # 20% price anomaly
+      volume_anomaly_threshold: 5.0     # 5x volume anomaly
+    
+    # Reddit Sentiment Alerts
+    reddit_sentiment:
+      sentiment_spike_threshold: 0.3    # 30% sentiment spike
+      mention_spike_threshold: 5.0      # 5x mention spike
+      viral_post_threshold: 1000        # 1000 upvotes
+      negative_sentiment_threshold: -0.5 # -50% negative sentiment
+      sentiment_volatility_threshold: 0.4 # 40% sentiment volatility
+  
+  # Alert Severity Levels
+  severity_levels:
+    critical:
+      portfolio_loss: 0.05              # 5% portfolio loss
+      system_down: true
+      data_feed_down: true
+      security_breach: true
+    
+    high:
+      portfolio_loss: 0.03              # 3% portfolio loss
+      position_loss: 0.08               # 8% position loss
+      risk_limit_breach: true
+      performance_degradation: true
+    
+    medium:
+      portfolio_loss: 0.02              # 2% portfolio loss
+      position_loss: 0.05               # 5% position loss
+      data_quality_issue: true
+      system_performance_issue: true
+    
+    low:
+      portfolio_loss: 0.01              # 1% portfolio loss
+      position_loss: 0.03               # 3% position loss
+      minor_system_issue: true
+      informational: true
+  
+  # Alert Routing
+  routing:
+    critical:
+      channels: ["email", "slack", "pagerduty", "sms"]
+      recipients: ["trading-team@company.com", "risk-team@company.com", "cto@company.com"]
+      escalation_time: 300  # 5 minutes
+    
+    high:
+      channels: ["email", "slack", "pagerduty"]
+      recipients: ["trading-team@company.com", "risk-team@company.com"]
+      escalation_time: 900  # 15 minutes
+    
+    medium:
+      channels: ["email", "slack"]
+      recipients: ["trading-team@company.com"]
+      escalation_time: 1800  # 30 minutes
+    
+    low:
+      channels: ["slack"]
+      recipients: ["trading-team@company.com"]
+      escalation_time: 3600  # 1 hour
+  
+  # Alert Suppression
+  suppression:
+    enabled: true
+    duplicate_threshold: 3  # suppress after 3 identical alerts
+    time_window: 3600       # 1 hour window
+    
+    # Maintenance Windows
+    maintenance_windows:
+      - name: "daily_maintenance"
+        start_time: "02:00"
+        end_time: "04:00"
+        timezone: "UTC"
+        suppress_levels: ["low", "medium"]
+      
+      - name: "weekend_maintenance"
+        days: ["saturday", "sunday"]
+        start_time: "01:00"
+        end_time: "06:00"
+        timezone: "UTC"
+        suppress_levels: ["low"]
+
+# System Monitoring
+system_monitoring:
+  # Infrastructure Monitoring
+  infrastructure:
+    servers:
+      - name: "trading-server-01"
+        ip: "10.0.1.10"
+        role: "primary"
+        metrics: ["cpu", "memory", "disk", "network"]
+        check_interval: 30
+      
+      - name: "trading-server-02"
+        ip: "10.0.1.11"
+        role: "secondary"
+        metrics: ["cpu", "memory", "disk", "network"]
+        check_interval: 30
+      
+      - name: "data-server-01"
+        ip: "10.0.1.20"
+        role: "data"
+        metrics: ["cpu", "memory", "disk", "network", "io"]
+        check_interval: 60
+    
+    databases:
+      - name: "postgres-primary"
+        host: "${POSTGRES_HOST}"
+        port: 5432
+        metrics: ["connections", "queries", "locks", "replication"]
+        check_interval: 60
+      
+      - name: "redis-cache"
+        host: "${REDIS_HOST}"
+        port: 6379
+        metrics: ["memory", "connections", "operations", "keys"]
+        check_interval: 30
+      
+      - name: "timescaledb"
+        host: "${TIMESCALE_HOST}"
+        port: 5432
+        metrics: ["hypertables", "compression", "retention", "queries"]
+        check_interval: 120
+  
+  # Application Monitoring
+  application:
+    services:
+      - name: "trading-engine"
+        port: 8000
+        health_check: "/health"
+        metrics: ["response_time", "error_rate", "throughput"]
+        check_interval: 30
+      
+      - name: "market-data-service"
+        port: 8001
+        health_check: "/health"
+        metrics: ["latency", "feed_status", "data_quality"]
+        check_interval: 30
+      
+      - name: "risk-service"
+        port: 8002
+        health_check: "/health"
+        metrics: ["calculation_time", "risk_metrics", "alerts"]
+        check_interval: 60
+      
+      - name: "dashboard"
+        port: 8501
+        health_check: "/_stcore/health"
+        metrics: ["page_load_time", "user_sessions", "errors"]
+        check_interval: 120
+    
+    # Custom Metrics
+    custom_metrics:
+      - name: "trades_per_minute"
+        query: "SELECT COUNT(*) FROM trades WHERE timestamp > NOW() - INTERVAL '1 minute'"
+        threshold: 100
+        check_interval: 60
+      
+      - name: "portfolio_value"
+        query: "SELECT SUM(value) FROM positions"
+        threshold: 900000  # Alert if below $900k
+        check_interval: 300
+      
+      - name: "active_positions"
+        query: "SELECT COUNT(*) FROM positions WHERE quantity > 0"
+        threshold: 50  # Alert if more than 50 positions
+        check_interval: 300
+  
+  # Log Monitoring
+  log_monitoring:
+    enabled: true
+    log_level: "INFO"
+    
+    # Log Sources
+    sources:
+      - name: "application_logs"
+        path: "/var/log/alpha_discovery/*.log"
+        format: "json"
+        parser: "structured"
+      
+      - name: "system_logs"
+        path: "/var/log/syslog"
+        format: "syslog"
+        parser: "regex"
+      
+      - name: "nginx_logs"
+        path: "/var/log/nginx/*.log"
+        format: "combined"
+        parser: "apache"
+    
+    # Log Patterns
+    patterns:
+      errors:
+        - "ERROR"
+        - "CRITICAL"
+        - "FATAL"
+        - "Exception"
+        - "Traceback"
+      
+      warnings:
+        - "WARNING"
+        - "WARN"
+        - "deprecated"
+        - "timeout"
+      
+      security:
+        - "authentication failed"
+        - "unauthorized"
+        - "permission denied"
+        - "security violation"
+    
+    # Log Alerts
+    alerts:
+      error_rate_threshold: 10  # errors per minute
+      warning_rate_threshold: 50  # warnings per minute
+      security_event_threshold: 1  # security events per minute
+  
+  # Performance Monitoring
+  performance:
+    enabled: true
+    
+    # APM (Application Performance Monitoring)
+    apm:
+      enabled: true
+      service_name: "alpha-discovery"
+      environment: "production"
+      sample_rate: 0.1
+      
+      # Tracing
+      tracing:
+        enabled: true
+        trace_all_requests: false
+        slow_request_threshold: 1000  # ms
+        
+        # Instrumentation
+        instrumentation:
+          - "requests"
+          - "sqlalchemy"
+          - "redis"
+          - "kafka"
+    
+    # Profiling
+    profiling:
+      enabled: true
+      profile_cpu: true
+      profile_memory: true
+      profile_duration: 300  # 5 minutes
+      profile_frequency: 3600  # 1 hour
+    
+    # Synthetic Monitoring
+    synthetic:
+      enabled: true
+      
+      # Health Checks
+      health_checks:
+        - name: "api_health"
+          url: "http://localhost:8000/health"
+          interval: 30
+          timeout: 5
+          expected_status: 200
+        
+        - name: "dashboard_health"
+          url: "http://localhost:8501"
+          interval: 60
+          timeout: 10
+          expected_status: 200
+      
+      # End-to-End Tests
+      e2e_tests:
+        - name: "trading_flow"
+          script: "tests/e2e/trading_flow.py"
+          interval: 300
+          timeout: 60
+        
+        - name: "data_pipeline"
+          script: "tests/e2e/data_pipeline.py"
+          interval: 600
+          timeout: 120
+
+# Notification Configuration
+notifications:
+  # Email Notifications
+  email:
+    enabled: true
+    smtp_server: "${SMTP_SERVER}"
+    smtp_port: 587
+    username: "${SMTP_USERNAME}"
+    password: "${SMTP_PASSWORD}"
+    from_address: "alerts@alphadiscovery.com"
+    
+    # Templates
+    templates:
+      critical_alert: "templates/critical_alert.html"
+      high_alert: "templates/high_alert.html"
+      medium_alert: "templates/medium_alert.html"
+      low_alert: "templates/low_alert.html"
+  
+  # Slack Notifications
+  slack:
+    enabled: true
+    webhook_url: "${SLACK_WEBHOOK_URL}"
+    
+    # Channels
+    channels:
+      critical: "#critical-alerts"
+      high: "#high-alerts"
+      medium: "#medium-alerts"
+      low: "#low-alerts"
+      general: "#trading-alerts"
+    
+    # Message Formatting
+    formatting:
+      use_emoji: true
+      include_charts: true
+      include_links: true
+  
+  # PagerDuty Notifications
+  pagerduty:
+    enabled: true
+    integration_key: "${PAGERDUTY_INTEGRATION_KEY}"
+    
+    # Escalation Policies
+    escalation_policies:
+      critical: "P1-Critical"
+      high: "P2-High"
+      medium: "P3-Medium"
+  
+  # SMS Notifications
+  sms:
+    enabled: true
+    provider: "twilio"
+    account_sid: "${TWILIO_ACCOUNT_SID}"
+    auth_token: "${TWILIO_AUTH_TOKEN}"
+    from_number: "${TWILIO_FROM_NUMBER}"
+    
+    # Recipients
+    recipients:
+      critical: ["+1234567890", "+1234567891"]
+      high: ["+1234567890"]
+
+# Dashboards and Visualization
+dashboards:
+  # Grafana Configuration
+  grafana:
+    enabled: true
+    url: "http://localhost:3000"
+    api_key: "${GRAFANA_API_KEY}"
+    
+    # Dashboards
+    dashboards:
+      - name: "Trading Overview"
+        file: "dashboards/trading_overview.json"
+        refresh_interval: "30s"
+      
+      - name: "Risk Monitoring"
+        file: "dashboards/risk_monitoring.json"
+        refresh_interval: "1m"
+      
+      - name: "System Health"
+        file: "dashboards/system_health.json"
+        refresh_interval: "30s"
+      
+      - name: "Reddit Sentiment"
+        file: "dashboards/reddit_sentiment.json"
+        refresh_interval: "5m"
+  
+  # Custom Dashboards
+  custom:
+    enabled: true
+    
+    # Real-time Monitoring
+    realtime:
+      - name: "Live Trading"
+        components: ["portfolio", "positions", "orders", "pnl"]
+        refresh_interval: 1
+      
+      - name: "Market Data"
+        components: ["prices", "volume", "volatility", "news"]
+        refresh_interval: 5
+      
+      - name: "Risk Dashboard"
+        components: ["var", "drawdown", "exposure", "limits"]
+        refresh_interval: 30 

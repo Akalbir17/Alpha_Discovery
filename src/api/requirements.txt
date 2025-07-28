@@ -1,0 +1,74 @@
+# FastAPI and Web Framework
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+python-multipart==0.0.6
+websockets==12.0
+
+# Authentication and Security
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+python-multipart==0.0.6
+
+# Database and ORM
+sqlalchemy==2.0.23
+alembic==1.13.1
+asyncpg==0.29.0
+psycopg2-binary==2.9.9
+
+# Redis and Caching
+redis==5.0.1
+hiredis==2.2.3
+
+# Rate Limiting
+slowapi==0.1.9
+
+# Monitoring and Metrics
+prometheus-client==0.19.0
+prometheus-fastapi-instrumentator==6.1.0
+structlog==23.2.0
+
+# Data Processing
+pandas==2.1.4
+numpy==1.24.4
+scipy==1.11.4
+
+# Financial Analysis
+quantlib==1.32
+empyrical==0.5.5
+pyfolio==0.9.2
+quantstats==0.0.62
+
+# Machine Learning
+scikit-learn==1.3.2
+statsmodels==0.14.1
+
+# HTTP Client
+httpx==0.25.2
+aiohttp==3.9.1
+
+# Configuration
+pydantic==2.5.2
+python-dotenv==1.0.0
+
+# Utilities
+python-dateutil==2.8.2
+pytz==2023.3
+click==8.1.7
+
+# Development and Testing
+pytest==7.4.3
+pytest-asyncio==0.21.1
+pytest-cov==4.1.0
+httpx==0.25.2
+
+# Documentation
+mkdocs==1.5.3
+mkdocs-material==9.4.8
+
+# Deployment
+gunicorn==21.2.0
+docker==6.1.3
+
+# Optional: For enhanced performance
+orjson==3.9.10
+ujson==5.8.0 

@@ -1,0 +1,163 @@
+# Production Docker Compose for Alpha Discovery
+# MCP Server runs separately on RunPod GPU cluster
+# This compose file runs the main application services
+
+version: '3.8'
+
+services:
+  # PostgreSQL with TimescaleDB for time-series data
+  postgres:
+    image: timescale/timescaledb:latest-pg15
+    container_name: alpha_discovery_postgres
+    environment:
+      POSTGRES_DB: alpha_discovery
+      POSTGRES_USER: alpha_user
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-alpha_secure_pass}
+      TIMESCALEDB_TELEMETRY: 'off'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./configs/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+    networks:
+      - alpha_network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U alpha_user -d alpha_discovery"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # Redis for caching and message queuing
+  redis:
+    image: redis:7-alpine
+    container_name: alpha_discovery_redis
+    command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD:-redis_secure_pass}
+    volumes:
+      - redis_data:/data
+    ports:
+      - "6379:6379"
+    networks:
+      - alpha_network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # Main API Service (lightweight without ML models)
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.compatible
+    container_name: alpha_discovery_api
+    command: python -m src.api.main
+    environment:
+      - DATABASE_URL=postgresql://alpha_user:${POSTGRES_PASSWORD:-alpha_secure_pass}@postgres:5432/alpha_discovery
+      - REDIS_URL=redis://:${REDIS_PASSWORD:-redis_secure_pass}@redis:6379/0
+      - MCP_SERVER_URL=${MCP_SERVER_URL:-http://localhost:8002}
+      - ENVIRONMENT=production
+      - LOG_LEVEL=INFO
+      - SENTRY_DSN=${SENTRY_DSN}
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - alpha_network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Background Worker Service (lightweight without ML models)
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile.compatible
+    container_name: alpha_discovery_worker
+    command: python -m src.workers.main
+    environment:
+      - DATABASE_URL=postgresql://alpha_user:${POSTGRES_PASSWORD:-alpha_secure_pass}@postgres:5432/alpha_discovery
+      - REDIS_URL=redis://:${REDIS_PASSWORD:-redis_secure_pass}@redis:6379/0
+      - MCP_SERVER_URL=${MCP_SERVER_URL:-http://localhost:8002}
+      - ENVIRONMENT=production
+      - LOG_LEVEL=INFO
+      - SENTRY_DSN=${SENTRY_DSN}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - alpha_network
+    restart: unless-stopped
+
+  # Prometheus for metrics collection
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: alpha_discovery_prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--storage.tsdb.retention.time=200h'
+      - '--web.enable-lifecycle'
+    volumes:
+      - ./configs/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    ports:
+      - "9090:9090"
+    networks:
+      - alpha_network
+    restart: unless-stopped
+
+  # Grafana for visualization
+  grafana:
+    image: grafana/grafana:latest
+    container_name: alpha_discovery_grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=${GRAFANA_USER:-admin}
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD:-admin_secure_pass}
+      - GF_USERS_ALLOW_SIGN_UP=false
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./configs/grafana/provisioning:/etc/grafana/provisioning
+      - ./configs/grafana/dashboards:/var/lib/grafana/dashboards
+    ports:
+      - "3000:3000"
+    networks:
+      - alpha_network
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+  prometheus_data:
+    driver: local
+  grafana_data:
+    driver: local
+
+networks:
+  alpha_network:
+    driver: bridge
+
+# Production Environment Variables Template
+# Copy to .env and customize for your deployment
+#
+# POSTGRES_PASSWORD=your_secure_postgres_password
+# REDIS_PASSWORD=your_secure_redis_password
+# MCP_SERVER_URL=http://your-runpod-ip:8002
+# SENTRY_DSN=your_sentry_dsn
+# GRAFANA_USER=admin
+# GRAFANA_PASSWORD=your_secure_grafana_password 

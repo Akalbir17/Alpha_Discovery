@@ -1,0 +1,163 @@
+services:
+  # Database
+  postgres:
+    image: timescale/timescaledb:latest-pg15
+    container_name: alpha_discovery_postgres
+    environment:
+      POSTGRES_DB: alpha_discovery
+      POSTGRES_USER: alpha_user
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-alpha_password}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./configs/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+    networks:
+      - alpha_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U alpha_user -d alpha_discovery"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Caching & Message Broker
+  redis:
+    image: redis:7-alpine
+    container_name: alpha_discovery_redis
+    command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD:-redis_password}
+    volumes:
+      - redis_data:/data
+    ports:
+      - "6379:6379"
+    networks:
+      - alpha_network
+    healthcheck:
+      test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Monitoring & Visualization
+  grafana:
+    image: grafana/grafana:10.2.0
+    container_name: alpha_discovery_grafana
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_PASSWORD:-admin}
+      GF_INSTALL_PLUGINS: grafana-clock-panel,grafana-simple-json-datasource
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./configs/grafana/provisioning:/etc/grafana/provisioning
+      - ./configs/grafana/dashboards:/var/lib/grafana/dashboards
+    ports:
+      - "3000:3000"
+    networks:
+      - alpha_network
+    depends_on:
+      - postgres
+      - redis
+
+  # Metrics Collection
+  prometheus:
+    image: prom/prometheus:v2.47.0
+    container_name: alpha_discovery_prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--storage.tsdb.retention.time=200h'
+      - '--web.enable-lifecycle'
+    volumes:
+      - ./configs/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    ports:
+      - "9090:9090"
+    networks:
+      - alpha_network
+
+  # Application API
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.compatible
+    container_name: alpha_discovery_api
+    command: python -m src.api.main
+    environment:
+      - DATABASE_URL=postgresql://alpha_user:${POSTGRES_PASSWORD:-alpha_password}@postgres:5432/alpha_discovery
+      - REDIS_URL=redis://:${REDIS_PASSWORD:-redis_password}@redis:6379/0
+      - NUMBA_CACHE_DIR=/tmp/numba_cache
+      - MPLCONFIGDIR=/tmp/matplotlib
+    volumes:
+      - ./src:/app/src
+      - ./configs:/app/configs
+    ports:
+      - "8000:8000"
+    networks:
+      - alpha_network
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # Background Workers
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile.compatible
+    container_name: alpha_discovery_worker
+    command: python -m src.workers.main
+    environment:
+      - DATABASE_URL=postgresql://alpha_user:${POSTGRES_PASSWORD:-alpha_password}@postgres:5432/alpha_discovery
+      - REDIS_URL=redis://:${REDIS_PASSWORD:-redis_password}@redis:6379/0
+      - NUMBA_CACHE_DIR=/tmp/numba_cache
+      - MPLCONFIGDIR=/tmp/matplotlib
+    volumes:
+      - ./src:/app/src
+      - ./configs:/app/configs
+    networks:
+      - alpha_network
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # MCP Server
+  mcp_server:
+    build:
+      context: .
+      dockerfile: Dockerfile.compatible
+    container_name: alpha_discovery_mcp
+    command: python -m src.mcp.mcp_server
+    environment:
+      - DATABASE_URL=postgresql://alpha_user:${POSTGRES_PASSWORD:-alpha_password}@postgres:5432/alpha_discovery
+      - REDIS_URL=redis://:${REDIS_PASSWORD:-redis_password}@redis:6379/0
+      - NUMBA_CACHE_DIR=/tmp/numba_cache
+      - MPLCONFIGDIR=/tmp/matplotlib
+    volumes:
+      - ./src:/app/src
+      - ./configs:/app/configs
+    ports:
+      - "8001:8001"  # WebSocket MCP server
+      - "8002:8002"  # HTTP ML services
+    networks:
+      - alpha_network
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  redis_data:
+  grafana_data:
+  prometheus_data:
+
+networks:
+  alpha_network:
+    driver: bridge 

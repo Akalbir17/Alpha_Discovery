@@ -1,0 +1,711 @@
+# Alpha Discovery Machine Learning Models Configuration
+# This file contains configuration for all ML models and their hyperparameters
+
+# Global Model Settings
+global:
+  environment: "production"
+  model_framework: "pytorch"  # pytorch, tensorflow, scikit-learn
+  model_registry: "mlflow"
+  experiment_tracking: "wandb"
+  random_seed: 42
+  device: "cuda"  # cuda, cpu, auto
+  
+  # Model Lifecycle
+  lifecycle:
+    training_frequency: "weekly"
+    retraining_threshold: 0.05  # 5% performance degradation
+    model_retirement_age: 180   # days
+    a_b_testing_enabled: true
+    shadow_mode_duration: 7     # days
+
+# Technical Analysis Models
+technical_models:
+  # LSTM Price Prediction Model
+  lstm_price_predictor:
+    enabled: true
+    model_type: "lstm"
+    framework: "pytorch"
+    
+    # Architecture
+    architecture:
+      input_size: 20        # number of features
+      hidden_size: 128      # LSTM hidden units
+      num_layers: 3         # LSTM layers
+      dropout: 0.2          # dropout rate
+      output_size: 1        # price prediction
+      
+    # Training Parameters
+    training:
+      epochs: 100
+      batch_size: 64
+      learning_rate: 0.001
+      weight_decay: 1e-5
+      early_stopping_patience: 10
+      validation_split: 0.2
+      
+    # Data Parameters
+    data:
+      sequence_length: 60   # 60 time steps
+      prediction_horizon: 1 # 1 step ahead
+      features: ["open", "high", "low", "close", "volume", "rsi", "macd", "bollinger"]
+      normalization: "min_max"
+      
+    # Hyperparameters
+    hyperparameters:
+      optimizer: "adam"
+      loss_function: "mse"
+      scheduler: "reduce_on_plateau"
+      gradient_clipping: 1.0
+  
+  # Transformer Attention Model
+  transformer_attention:
+    enabled: true
+    model_type: "transformer"
+    framework: "pytorch"
+    
+    # Architecture
+    architecture:
+      d_model: 256          # model dimension
+      n_heads: 8            # attention heads
+      n_layers: 6           # transformer layers
+      d_ff: 1024            # feedforward dimension
+      dropout: 0.1
+      max_sequence_length: 100
+      
+    # Training Parameters
+    training:
+      epochs: 150
+      batch_size: 32
+      learning_rate: 0.0001
+      warmup_steps: 4000
+      beta1: 0.9
+      beta2: 0.98
+      epsilon: 1e-9
+      
+    # Data Parameters
+    data:
+      sequence_length: 100
+      prediction_horizon: 5
+      features: ["price_returns", "volume_returns", "volatility", "momentum", "sentiment"]
+      positional_encoding: true
+      
+    # Hyperparameters
+    hyperparameters:
+      optimizer: "adamw"
+      loss_function: "huber"
+      label_smoothing: 0.1
+      gradient_accumulation_steps: 4
+  
+  # CNN Feature Extractor
+  cnn_feature_extractor:
+    enabled: true
+    model_type: "cnn"
+    framework: "pytorch"
+    
+    # Architecture
+    architecture:
+      conv_layers:
+        - filters: 64
+          kernel_size: 3
+          stride: 1
+          padding: 1
+        - filters: 128
+          kernel_size: 3
+          stride: 2
+          padding: 1
+        - filters: 256
+          kernel_size: 3
+          stride: 2
+          padding: 1
+      
+      pooling: "adaptive_avg"
+      fc_layers: [512, 256, 1]
+      activation: "relu"
+      dropout: 0.3
+      
+    # Training Parameters
+    training:
+      epochs: 80
+      batch_size: 128
+      learning_rate: 0.01
+      momentum: 0.9
+      weight_decay: 1e-4
+      
+    # Data Parameters
+    data:
+      input_channels: 10    # number of technical indicators
+      sequence_length: 50
+      image_size: [50, 10]  # 2D representation
+      augmentation: true
+
+# Fundamental Analysis Models
+fundamental_models:
+  # XGBoost Value Predictor
+  xgboost_value_predictor:
+    enabled: true
+    model_type: "xgboost"
+    framework: "xgboost"
+    
+    # Hyperparameters
+    hyperparameters:
+      n_estimators: 1000
+      max_depth: 8
+      learning_rate: 0.1
+      subsample: 0.8
+      colsample_bytree: 0.8
+      min_child_weight: 1
+      reg_alpha: 0.1
+      reg_lambda: 1.0
+      random_state: 42
+      
+    # Training Parameters
+    training:
+      objective: "reg:squarederror"
+      eval_metric: "rmse"
+      early_stopping_rounds: 50
+      validation_split: 0.2
+      
+    # Features
+    features:
+      financial_ratios: ["pe_ratio", "pb_ratio", "roe", "roa", "debt_to_equity"]
+      growth_metrics: ["revenue_growth", "earnings_growth", "fcf_growth"]
+      profitability: ["gross_margin", "operating_margin", "net_margin"]
+      efficiency: ["asset_turnover", "inventory_turnover", "receivables_turnover"]
+      valuation: ["ev_revenue", "ev_ebitda", "peg_ratio"]
+  
+  # Random Forest Sector Classifier
+  rf_sector_classifier:
+    enabled: true
+    model_type: "random_forest"
+    framework: "scikit-learn"
+    
+    # Hyperparameters
+    hyperparameters:
+      n_estimators: 500
+      max_depth: 15
+      min_samples_split: 5
+      min_samples_leaf: 2
+      max_features: "sqrt"
+      bootstrap: true
+      random_state: 42
+      
+    # Training Parameters
+    training:
+      criterion: "gini"
+      class_weight: "balanced"
+      validation_split: 0.3
+      
+    # Features
+    features:
+      business_metrics: ["employees", "market_cap", "revenue", "assets"]
+      financial_health: ["current_ratio", "quick_ratio", "cash_ratio"]
+      performance: ["roa", "roe", "roic", "operating_margin"]
+  
+  # Neural Network DCF Model
+  nn_dcf_model:
+    enabled: true
+    model_type: "neural_network"
+    framework: "pytorch"
+    
+    # Architecture
+    architecture:
+      input_size: 25
+      hidden_layers: [256, 128, 64, 32]
+      output_size: 1
+      activation: "relu"
+      dropout: 0.25
+      batch_norm: true
+      
+    # Training Parameters
+    training:
+      epochs: 200
+      batch_size: 64
+      learning_rate: 0.001
+      weight_decay: 1e-5
+      optimizer: "adamw"
+      loss_function: "mse"
+      
+    # Features
+    features:
+      cash_flow: ["operating_cf", "investing_cf", "financing_cf", "free_cf"]
+      growth_rates: ["revenue_growth_1y", "revenue_growth_3y", "revenue_growth_5y"]
+      margins: ["gross_margin", "operating_margin", "ebitda_margin", "net_margin"]
+      efficiency: ["capital_efficiency", "working_capital_efficiency"]
+
+# Sentiment Analysis Models
+sentiment_models:
+  # BERT Sentiment Classifier
+  bert_sentiment:
+    enabled: true
+    model_type: "bert"
+    framework: "transformers"
+    
+    # Model Configuration
+    model_config:
+      model_name: "bert-base-uncased"
+      num_labels: 3  # negative, neutral, positive
+      max_length: 512
+      truncation: true
+      padding: true
+      
+    # Training Parameters
+    training:
+      epochs: 5
+      batch_size: 16
+      learning_rate: 2e-5
+      weight_decay: 0.01
+      warmup_steps: 500
+      gradient_accumulation_steps: 2
+      
+    # Fine-tuning
+    fine_tuning:
+      freeze_embeddings: false
+      freeze_encoder_layers: 0  # layers to freeze
+      dropout: 0.1
+      attention_dropout: 0.1
+      
+    # Data Parameters
+    data:
+      text_preprocessing: true
+      remove_urls: true
+      remove_mentions: true
+      lowercase: true
+      max_vocab_size: 50000
+  
+  # VADER Sentiment Analyzer
+  vader_sentiment:
+    enabled: true
+    model_type: "vader"
+    framework: "vaderSentiment"
+    
+    # Configuration
+    config:
+      punctuation_emphasis: 0.293
+      capitalization_emphasis: 0.733
+      exclamation_emphasis: 0.292
+      question_emphasis: 0.181
+      
+    # Thresholds
+    thresholds:
+      positive_threshold: 0.05
+      negative_threshold: -0.05
+      compound_threshold: 0.5
+      
+    # Text Processing
+    text_processing:
+      emoji_handling: true
+      negation_handling: true
+      degree_modifiers: true
+      punctuation_emphasis: true
+  
+  # FinBERT Financial Sentiment
+  finbert_sentiment:
+    enabled: true
+    model_type: "finbert"
+    framework: "transformers"
+    
+    # Model Configuration
+    model_config:
+      model_name: "ProsusAI/finbert"
+      num_labels: 3
+      max_length: 512
+      
+    # Inference Parameters
+    inference:
+      batch_size: 8
+      temperature: 1.0
+      top_k: 50
+      top_p: 0.95
+      
+    # Domain Adaptation
+    domain_adaptation:
+      financial_vocabulary: true
+      market_terminology: true
+      trading_jargon: true
+
+# Regime Detection Models
+regime_models:
+  # Hidden Markov Model
+  hmm_regime_detector:
+    enabled: true
+    model_type: "hmm"
+    framework: "hmmlearn"
+    
+    # Model Parameters
+    model_params:
+      n_components: 4       # number of regimes
+      covariance_type: "full"
+      n_iter: 1000
+      tol: 1e-6
+      random_state: 42
+      
+    # Regime Definitions
+    regimes:
+      - name: "bull_market"
+        characteristics: ["high_returns", "low_volatility", "positive_sentiment"]
+      - name: "bear_market"
+        characteristics: ["negative_returns", "high_volatility", "negative_sentiment"]
+      - name: "sideways_market"
+        characteristics: ["low_returns", "medium_volatility", "neutral_sentiment"]
+      - name: "crisis_market"
+        characteristics: ["very_negative_returns", "very_high_volatility", "panic_sentiment"]
+    
+    # Features
+    features:
+      market_data: ["returns", "volatility", "volume"]
+      technical: ["rsi", "macd", "bollinger_position"]
+      sentiment: ["news_sentiment", "social_sentiment"]
+      macro: ["vix", "yield_curve", "credit_spreads"]
+  
+  # Markov Switching Model
+  markov_switching:
+    enabled: true
+    model_type: "markov_switching"
+    framework: "statsmodels"
+    
+    # Model Parameters
+    model_params:
+      k_regimes: 3
+      trend: "c"            # constant term
+      switching_trend: true
+      switching_variance: true
+      
+    # Estimation
+    estimation:
+      method: "mle"         # maximum likelihood estimation
+      maxiter: 1000
+      tolerance: 1e-6
+      
+    # Regime Interpretation
+    regime_interpretation:
+      volatility_threshold: 0.02
+      return_threshold: 0.01
+      persistence_threshold: 0.8
+
+# Options Pricing Models
+options_models:
+  # Black-Scholes Model
+  black_scholes:
+    enabled: true
+    model_type: "black_scholes"
+    framework: "quantlib"
+    
+    # Parameters
+    parameters:
+      risk_free_rate: 0.02  # 2% annual
+      dividend_yield: 0.015 # 1.5% annual
+      
+    # Greeks Calculation
+    greeks:
+      calculate_delta: true
+      calculate_gamma: true
+      calculate_theta: true
+      calculate_vega: true
+      calculate_rho: true
+      
+    # Volatility Estimation
+    volatility_estimation:
+      method: "garch"       # garch, ewma, historical
+      lookback_period: 30
+      confidence_level: 0.95
+  
+  # Heston Stochastic Volatility Model
+  heston_model:
+    enabled: true
+    model_type: "heston"
+    framework: "quantlib"
+    
+    # Model Parameters
+    model_params:
+      initial_variance: 0.04
+      kappa: 2.0            # mean reversion speed
+      theta: 0.04           # long-term variance
+      sigma: 0.3            # volatility of volatility
+      rho: -0.5             # correlation
+      
+    # Calibration
+    calibration:
+      method: "least_squares"
+      instruments: ["options", "volatility_surface"]
+      optimization_algorithm: "levenberg_marquardt"
+      
+    # Monte Carlo Simulation
+    monte_carlo:
+      num_simulations: 100000
+      time_steps: 252
+      antithetic_variates: true
+      control_variates: true
+
+# Risk Models
+risk_models:
+  # VaR Neural Network
+  var_neural_network:
+    enabled: true
+    model_type: "neural_network"
+    framework: "pytorch"
+    
+    # Architecture
+    architecture:
+      input_size: 50        # risk factors
+      hidden_layers: [256, 128, 64]
+      output_size: 2        # VaR and ES
+      activation: "leaky_relu"
+      dropout: 0.2
+      
+    # Training Parameters
+    training:
+      epochs: 300
+      batch_size: 128
+      learning_rate: 0.001
+      loss_function: "quantile_loss"
+      quantiles: [0.05, 0.01]  # for 95% and 99% VaR
+      
+    # Features
+    features:
+      market_factors: ["equity_index", "bond_yield", "fx_rate", "commodity_price"]
+      volatility_factors: ["implied_vol", "realized_vol", "vol_of_vol"]
+      credit_factors: ["credit_spread", "default_probability"]
+      liquidity_factors: ["bid_ask_spread", "market_depth"]
+  
+  # GARCH Volatility Model
+  garch_volatility:
+    enabled: true
+    model_type: "garch"
+    framework: "arch"
+    
+    # Model Specification
+    model_spec:
+      vol_model: "GARCH"
+      p: 1                  # GARCH order
+      q: 1                  # ARCH order
+      mean: "Constant"
+      distribution: "StudentT"
+      
+    # Parameters
+    parameters:
+      max_iter: 1000
+      tolerance: 1e-8
+      
+    # Forecasting
+    forecasting:
+      horizon: 30           # 30 days ahead
+      method: "simulation"
+      simulations: 10000
+  
+  # Principal Component Analysis
+  pca_risk_model:
+    enabled: true
+    model_type: "pca"
+    framework: "scikit-learn"
+    
+    # Parameters
+    parameters:
+      n_components: 0.95    # explain 95% of variance
+      svd_solver: "auto"
+      random_state: 42
+      
+    # Risk Factor Decomposition
+    risk_factors:
+      systematic_factors: 10
+      idiosyncratic_factors: true
+      factor_exposure_calculation: "regression"
+      
+    # Model Validation
+    validation:
+      explained_variance_threshold: 0.95
+      factor_stability_test: true
+      out_of_sample_testing: true
+
+# Reinforcement Learning Models
+reinforcement_learning:
+  # Deep Q-Network (DQN)
+  dqn_trading_agent:
+    enabled: true
+    model_type: "dqn"
+    framework: "stable_baselines3"
+    
+    # Network Architecture
+    architecture:
+      hidden_layers: [256, 256]
+      activation: "relu"
+      learning_rate: 1e-4
+      
+    # Training Parameters
+    training:
+      total_timesteps: 1000000
+      buffer_size: 100000
+      learning_starts: 10000
+      batch_size: 32
+      target_update_interval: 1000
+      
+    # Exploration
+    exploration:
+      exploration_fraction: 0.1
+      exploration_initial_eps: 1.0
+      exploration_final_eps: 0.02
+      
+    # Environment
+    environment:
+      state_space: ["price", "volume", "technical_indicators", "portfolio_state"]
+      action_space: ["hold", "buy", "sell"]
+      reward_function: "sharpe_ratio"
+      transaction_costs: 0.001
+  
+  # Proximal Policy Optimization (PPO)
+  ppo_portfolio_manager:
+    enabled: true
+    model_type: "ppo"
+    framework: "stable_baselines3"
+    
+    # Network Architecture
+    architecture:
+      policy_network: [256, 256]
+      value_network: [256, 256]
+      activation: "tanh"
+      
+    # Training Parameters
+    training:
+      learning_rate: 3e-4
+      n_steps: 2048
+      batch_size: 64
+      n_epochs: 10
+      gamma: 0.99
+      gae_lambda: 0.95
+      
+    # Policy
+    policy:
+      clip_range: 0.2
+      ent_coef: 0.0
+      vf_coef: 0.5
+      max_grad_norm: 0.5
+      
+    # Environment
+    environment:
+      observation_space: "continuous"
+      action_space: "continuous"  # portfolio weights
+      reward_function: "risk_adjusted_return"
+
+# Ensemble Models
+ensemble_models:
+  # Voting Classifier
+  voting_ensemble:
+    enabled: true
+    model_type: "voting"
+    framework: "scikit-learn"
+    
+    # Base Models
+    base_models:
+      - name: "xgboost"
+        weight: 0.4
+      - name: "random_forest"
+        weight: 0.3
+      - name: "neural_network"
+        weight: 0.3
+        
+    # Voting Strategy
+    voting_strategy: "soft"     # soft, hard
+    
+    # Performance Weighting
+    performance_weighting:
+      enabled: true
+      metric: "sharpe_ratio"
+      lookback_period: 252
+  
+  # Stacking Ensemble
+  stacking_ensemble:
+    enabled: true
+    model_type: "stacking"
+    framework: "scikit-learn"
+    
+    # Base Models
+    base_models:
+      - "lstm_price_predictor"
+      - "xgboost_value_predictor"
+      - "transformer_attention"
+      
+    # Meta-Learner
+    meta_learner:
+      model_type: "ridge_regression"
+      alpha: 1.0
+      
+    # Cross-Validation
+    cross_validation:
+      cv_folds: 5
+      stratified: true
+
+# Model Evaluation
+evaluation:
+  # Metrics
+  metrics:
+    regression:
+      - "mse"
+      - "mae"
+      - "r2_score"
+      - "directional_accuracy"
+      
+    classification:
+      - "accuracy"
+      - "precision"
+      - "recall"
+      - "f1_score"
+      - "auc_roc"
+      
+    trading:
+      - "sharpe_ratio"
+      - "sortino_ratio"
+      - "calmar_ratio"
+      - "max_drawdown"
+      - "win_rate"
+      - "profit_factor"
+  
+  # Validation Strategy
+  validation:
+    method: "time_series_split"
+    n_splits: 5
+    test_size: 0.2
+    gap: 0              # no gap between train/test
+    
+  # Backtesting
+  backtesting:
+    start_date: "2020-01-01"
+    end_date: "2024-12-31"
+    initial_capital: 1000000
+    transaction_costs: 0.001
+    
+  # Model Comparison
+  comparison:
+    baseline_models: ["buy_and_hold", "random_strategy"]
+    statistical_tests: ["t_test", "wilcoxon_test"]
+    significance_level: 0.05
+
+# Model Deployment
+deployment:
+  # Serving Configuration
+  serving:
+    framework: "fastapi"
+    host: "0.0.0.0"
+    port: 8080
+    workers: 4
+    
+  # Model Versioning
+  versioning:
+    registry: "mlflow"
+    model_store: "s3"
+    versioning_strategy: "semantic"
+    
+  # A/B Testing
+  ab_testing:
+    enabled: true
+    traffic_split: 0.1      # 10% to new model
+    success_metric: "sharpe_ratio"
+    statistical_power: 0.8
+    
+  # Monitoring
+  monitoring:
+    data_drift_detection: true
+    model_drift_detection: true
+    performance_monitoring: true
+    alert_thresholds:
+      performance_degradation: 0.05
+      prediction_drift: 0.1
+      data_quality: 0.9 

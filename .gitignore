@@ -1,0 +1,87 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
+venv/
+alpha_discovery_env/
+env/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Environment files (contains secrets)
+.env
+sentry.env
+
+# Docker
+.dockerignore
+
+# Cache and temporary files
+*.tmp
+*.temp
+.cache/
+.pytest_cache/
+
+# Database
+*.db
+*.sqlite3
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+
+# Model cache (these will be downloaded on RunPod)
+cache/
+models/
+*.pkl
+*.joblib
+
+# Test files (we'll exclude test files for now to keep repo clean)
+test_*.py
+*_test.py
+
+# Sensitive or large files
+*.key
+*.pem
+*.crt
+secrets/ 

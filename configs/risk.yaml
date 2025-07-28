@@ -1,0 +1,461 @@
+# Alpha Discovery Risk Management Configuration
+# This file contains configuration for risk parameters, limits, and thresholds
+
+# Global Risk Settings
+global:
+  environment: "production"
+  risk_framework: "var_es"  # VaR + Expected Shortfall
+  base_currency: "USD"
+  risk_free_rate: 0.02  # 2% annual
+  confidence_levels: [0.95, 0.99]
+  calculation_frequency: "real_time"
+  
+  # Risk Budget
+  risk_budget:
+    annual_var: 0.20      # 20% annual VaR
+    daily_var: 0.02       # 2% daily VaR
+    max_drawdown: 0.15    # 15% maximum drawdown
+    tracking_error: 0.05  # 5% tracking error
+    information_ratio: 1.5 # 1.5 information ratio
+
+# VaR Configuration
+var_config:
+  # Calculation Methods
+  methods:
+    historical_simulation:
+      enabled: true
+      lookback_period: 252  # 1 year
+      weight: 0.4
+      overlapping: false
+      
+    parametric:
+      enabled: true
+      distribution: "normal"  # normal, t-distribution, skewed-t
+      ewma_lambda: 0.94
+      weight: 0.3
+      
+    monte_carlo:
+      enabled: true
+      simulations: 10000
+      time_horizon: 1  # days
+      random_seed: 42
+      weight: 0.3
+  
+  # Time Horizons
+  time_horizons:
+    intraday:
+      horizon_hours: [1, 4, 8]
+      confidence_levels: [0.95, 0.99]
+      
+    daily:
+      horizon_days: [1, 5, 10]
+      confidence_levels: [0.95, 0.99]
+      
+    long_term:
+      horizon_days: [20, 60, 252]
+      confidence_levels: [0.95, 0.99]
+  
+  # Model Validation
+  validation:
+    backtesting:
+      enabled: true
+      test_period: 252  # 1 year
+      violation_threshold: 0.05  # 5%
+      
+    stress_testing:
+      enabled: true
+      scenarios: ["2008_crisis", "covid_crash", "flash_crash"]
+      frequency: "weekly"
+
+# Expected Shortfall Configuration
+expected_shortfall:
+  enabled: true
+  confidence_levels: [0.95, 0.97, 0.99]
+  calculation_method: "historical"  # historical, parametric, monte_carlo
+  
+  # Coherent Risk Measures
+  coherent_measures:
+    subadditivity: true
+    monotonicity: true
+    positive_homogeneity: true
+    translation_invariance: true
+
+# Position Risk Limits
+position_limits:
+  # Individual Position Limits
+  individual:
+    max_position_size: 0.10        # 10% of portfolio
+    max_position_var: 0.01         # 1% position VaR
+    max_position_beta: 2.0         # 2.0 maximum beta
+    max_position_volatility: 0.50  # 50% maximum volatility
+    max_position_leverage: 1.5     # 1.5x maximum leverage
+    
+    # Concentration Limits
+    concentration:
+      max_single_name: 0.10        # 10% single name
+      max_issuer: 0.15             # 15% single issuer
+      max_counterparty: 0.20       # 20% single counterparty
+      max_geography: 0.50          # 50% single country
+      max_currency: 0.80           # 80% single currency
+  
+  # Sector Limits
+  sector:
+    technology: 0.30        # 30% technology
+    financial: 0.25         # 25% financial
+    healthcare: 0.20        # 20% healthcare
+    consumer_discretionary: 0.20  # 20% consumer discretionary
+    energy: 0.15            # 15% energy
+    materials: 0.10         # 10% materials
+    utilities: 0.10         # 10% utilities
+    real_estate: 0.10       # 10% real estate
+    telecommunications: 0.10 # 10% telecommunications
+    industrials: 0.15       # 15% industrials
+    consumer_staples: 0.15  # 15% consumer staples
+  
+  # Market Cap Limits
+  market_cap:
+    large_cap: 0.80         # 80% large cap
+    mid_cap: 0.30           # 30% mid cap
+    small_cap: 0.10         # 10% small cap
+    micro_cap: 0.05         # 5% micro cap
+  
+  # Asset Class Limits
+  asset_class:
+    equities: 0.80          # 80% equities
+    fixed_income: 0.30      # 30% fixed income
+    commodities: 0.20       # 20% commodities
+    currencies: 0.20        # 20% currencies
+    derivatives: 0.30       # 30% derivatives
+    alternatives: 0.20      # 20% alternatives
+
+# Portfolio Risk Limits
+portfolio_limits:
+  # Total Risk Limits
+  total:
+    max_portfolio_var_95: 0.02     # 2% daily VaR 95%
+    max_portfolio_var_99: 0.04     # 4% daily VaR 99%
+    max_portfolio_es_95: 0.03      # 3% daily ES 95%
+    max_portfolio_es_99: 0.06      # 6% daily ES 99%
+    max_leverage: 1.5              # 1.5x maximum leverage
+    max_gross_exposure: 1.8        # 180% gross exposure
+    max_net_exposure: 1.0          # 100% net exposure
+  
+  # Volatility Limits
+  volatility:
+    max_portfolio_volatility: 0.20 # 20% annualized volatility
+    max_tracking_volatility: 0.05  # 5% tracking volatility
+    target_volatility: 0.15        # 15% target volatility
+    volatility_tolerance: 0.03     # 3% volatility tolerance
+  
+  # Correlation Limits
+  correlation:
+    max_pairwise_correlation: 0.80 # 80% maximum pairwise correlation
+    max_sector_correlation: 0.70   # 70% maximum sector correlation
+    max_style_correlation: 0.60    # 60% maximum style correlation
+    diversification_ratio_min: 0.60 # 60% minimum diversification ratio
+  
+  # Drawdown Limits
+  drawdown:
+    max_daily_drawdown: 0.03       # 3% daily drawdown
+    max_weekly_drawdown: 0.06      # 6% weekly drawdown
+    max_monthly_drawdown: 0.10     # 10% monthly drawdown
+    max_annual_drawdown: 0.15      # 15% annual drawdown
+    drawdown_recovery_time: 60     # 60 days maximum recovery time
+
+# Liquidity Risk
+liquidity_risk:
+  # Liquidity Metrics
+  metrics:
+    average_daily_volume:
+      min_adv_ratio: 0.05          # 5% of ADV maximum
+      lookback_period: 20          # 20 days
+      
+    bid_ask_spread:
+      max_spread: 0.01             # 1% maximum spread
+      min_depth: 10000             # $10k minimum depth
+      
+    market_impact:
+      max_impact: 0.005            # 0.5% maximum impact
+      impact_model: "square_root"   # square_root, linear
+  
+  # Liquidity Limits
+  limits:
+    illiquid_assets_max: 0.20      # 20% maximum illiquid assets
+    daily_liquidity_min: 0.25     # 25% daily liquidity minimum
+    emergency_liquidity_min: 0.10 # 10% emergency liquidity
+    
+    # Liquidity Buckets
+    buckets:
+      t0_liquid: 0.30              # 30% same-day liquid
+      t1_liquid: 0.50              # 50% next-day liquid
+      t3_liquid: 0.70              # 70% 3-day liquid
+      t7_liquid: 0.85              # 85% 1-week liquid
+      t30_liquid: 0.95             # 95% 1-month liquid
+  
+  # Liquidity Stress Testing
+  stress_testing:
+    scenarios:
+      - name: "market_stress"
+        liquidity_haircut: 0.50    # 50% liquidity reduction
+        time_horizon: 5            # 5 days
+        
+      - name: "funding_stress"
+        funding_cost_increase: 0.02 # 2% funding cost increase
+        margin_increase: 0.50      # 50% margin increase
+        
+      - name: "redemption_stress"
+        redemption_rate: 0.25      # 25% redemption
+        time_horizon: 1            # 1 day
+
+# Credit Risk
+credit_risk:
+  # Counterparty Limits
+  counterparty:
+    broker_dealers:
+      goldman_sachs: 0.20          # 20% Goldman Sachs
+      morgan_stanley: 0.20         # 20% Morgan Stanley
+      jp_morgan: 0.20              # 20% JP Morgan
+      barclays: 0.15               # 15% Barclays
+      deutsche_bank: 0.10          # 10% Deutsche Bank
+    
+    exchanges:
+      cme_group: 0.50              # 50% CME Group
+      ice: 0.30                    # 30% ICE
+      nasdaq: 0.30                 # 30% NASDAQ
+      cboe: 0.20                   # 20% CBOE
+    
+    custodians:
+      state_street: 0.60           # 60% State Street
+      bank_of_ny_mellon: 0.40      # 40% BNY Mellon
+      jp_morgan_custody: 0.40      # 40% JP Morgan Custody
+  
+  # Credit Quality Limits
+  credit_quality:
+    investment_grade_min: 0.80     # 80% investment grade minimum
+    aaa_max: 0.40                  # 40% AAA maximum
+    bbb_max: 0.30                  # 30% BBB maximum
+    high_yield_max: 0.20           # 20% high yield maximum
+    unrated_max: 0.05              # 5% unrated maximum
+  
+  # Credit Exposure Limits
+  exposure:
+    single_issuer_max: 0.05        # 5% single issuer maximum
+    single_sector_max: 0.25        # 25% single sector maximum
+    single_country_max: 0.40       # 40% single country maximum
+
+# Operational Risk
+operational_risk:
+  # System Risk
+  system:
+    max_system_downtime: 0.01      # 1% maximum downtime
+    data_integrity_min: 0.999      # 99.9% data integrity
+    backup_frequency: "daily"      # daily backups
+    disaster_recovery_time: 4      # 4 hours RTO
+    
+  # Key Person Risk
+  key_person:
+    max_strategy_dependency: 0.30  # 30% max dependency on single person
+    cross_training_required: true
+    succession_planning: true
+  
+  # Process Risk
+  process:
+    trade_settlement_accuracy: 0.999  # 99.9% accuracy
+    reconciliation_frequency: "daily"  # daily reconciliation
+    exception_handling: "automated"    # automated exception handling
+    
+  # Vendor Risk
+  vendor:
+    vendor_due_diligence: "annual"     # annual due diligence
+    backup_vendors_required: 2         # 2 backup vendors minimum
+    vendor_concentration_max: 0.50     # 50% maximum vendor concentration
+
+# Model Risk
+model_risk:
+  # Model Validation
+  validation:
+    frequency: "quarterly"         # quarterly validation
+    independent_validation: true   # independent validation required
+    backtesting_period: 252       # 1 year backtesting
+    
+  # Model Limits
+  limits:
+    max_model_var_contribution: 0.30  # 30% max VaR from single model
+    model_override_threshold: 0.05    # 5% threshold for override
+    
+  # Model Governance
+  governance:
+    model_approval_committee: true     # model approval committee required
+    model_documentation: "complete"   # complete documentation required
+    model_change_control: true        # change control process
+
+# Stress Testing
+stress_testing:
+  # Stress Scenarios
+  scenarios:
+    historical:
+      - name: "black_monday_1987"
+        date: "1987-10-19"
+        market_drop: -0.22
+        volatility_spike: 3.0
+        
+      - name: "asian_crisis_1997"
+        date: "1997-10-27"
+        market_drop: -0.07
+        currency_crisis: true
+        
+      - name: "dotcom_crash_2000"
+        start_date: "2000-03-10"
+        end_date: "2002-10-09"
+        market_drop: -0.78
+        duration_months: 31
+        
+      - name: "financial_crisis_2008"
+        start_date: "2007-10-09"
+        end_date: "2009-03-09"
+        market_drop: -0.57
+        credit_crisis: true
+        
+      - name: "covid_crash_2020"
+        start_date: "2020-02-19"
+        end_date: "2020-03-23"
+        market_drop: -0.34
+        volatility_spike: 5.0
+    
+    hypothetical:
+      - name: "interest_rate_shock"
+        rate_increase: 0.03        # 3% rate increase
+        duration_impact: true
+        
+      - name: "commodity_shock"
+        oil_price_change: 0.50     # 50% oil price increase
+        gold_price_change: 0.20    # 20% gold price increase
+        
+      - name: "currency_crisis"
+        usd_strengthening: 0.20    # 20% USD strengthening
+        emerging_market_impact: true
+        
+      - name: "geopolitical_crisis"
+        risk_off_sentiment: true
+        flight_to_quality: true
+        volatility_spike: 2.0
+  
+  # Stress Testing Frequency
+  frequency:
+    daily_stress: ["market_crash", "volatility_spike"]
+    weekly_stress: ["sector_rotation", "currency_crisis"]
+    monthly_stress: ["all_scenarios"]
+    quarterly_stress: ["comprehensive_stress"]
+  
+  # Stress Testing Limits
+  limits:
+    max_stress_loss: 0.25          # 25% maximum stress loss
+    max_scenario_impact: 0.15      # 15% maximum single scenario impact
+    stress_capital_requirement: 0.20 # 20% stress capital requirement
+
+# Circuit Breakers
+circuit_breakers:
+  # Portfolio Level Circuit Breakers
+  portfolio:
+    daily_loss_threshold: 0.02     # 2% daily loss
+    intraday_loss_threshold: 0.015 # 1.5% intraday loss
+    var_breach_threshold: 1.5      # 1.5x VaR breach
+    volatility_threshold: 0.05     # 5% volatility spike
+    correlation_threshold: 0.30    # 30% correlation change
+    
+    # Actions
+    actions:
+      level_1: "reduce_exposure"    # reduce exposure by 25%
+      level_2: "hedge_portfolio"    # implement hedges
+      level_3: "halt_trading"       # halt all trading
+  
+  # Position Level Circuit Breakers
+  position:
+    position_loss_threshold: 0.05  # 5% position loss
+    position_var_threshold: 2.0    # 2x position VaR
+    position_volatility_threshold: 0.10 # 10% position volatility spike
+    
+    # Actions
+    actions:
+      level_1: "reduce_position"    # reduce position by 50%
+      level_2: "close_position"     # close position
+      level_3: "block_symbol"       # block symbol trading
+  
+  # Market Level Circuit Breakers
+  market:
+    market_volatility_threshold: 0.03 # 3% market volatility
+    liquidity_threshold: 0.50      # 50% liquidity reduction
+    spread_threshold: 0.02         # 2% spread widening
+    
+    # Actions
+    actions:
+      level_1: "reduce_frequency"   # reduce trading frequency
+      level_2: "increase_spreads"   # increase bid-ask spreads
+      level_3: "halt_market_making" # halt market making
+  
+  # Recovery Procedures
+  recovery:
+    cooldown_period: 300           # 5 minutes cooldown
+    gradual_resumption: true       # gradual resumption of trading
+    risk_committee_approval: true  # risk committee approval required
+    documentation_required: true   # incident documentation required
+
+# Risk Reporting
+risk_reporting:
+  # Report Frequency
+  frequency:
+    real_time: ["var", "positions", "pnl"]
+    hourly: ["risk_summary", "limit_utilization"]
+    daily: ["comprehensive_risk", "stress_results"]
+    weekly: ["risk_attribution", "model_performance"]
+    monthly: ["risk_committee", "regulatory_reports"]
+  
+  # Report Recipients
+  recipients:
+    real_time: ["trading_team", "risk_team"]
+    daily: ["management", "compliance"]
+    weekly: ["board", "investors"]
+    monthly: ["regulators", "auditors"]
+  
+  # Key Risk Indicators (KRIs)
+  kris:
+    - name: "portfolio_var_utilization"
+      threshold: 0.80              # 80% utilization
+      frequency: "real_time"
+      
+    - name: "concentration_risk"
+      threshold: 0.75              # 75% concentration
+      frequency: "daily"
+      
+    - name: "liquidity_risk"
+      threshold: 0.70              # 70% illiquid assets
+      frequency: "daily"
+      
+    - name: "model_performance"
+      threshold: 0.05              # 5% model deviation
+      frequency: "weekly"
+
+# Risk Governance
+risk_governance:
+  # Risk Committee
+  risk_committee:
+    members: ["cro", "cto", "head_of_trading", "compliance_officer"]
+    meeting_frequency: "weekly"
+    quorum: 3
+    decision_authority: "risk_limits"
+    
+  # Risk Policies
+  policies:
+    risk_appetite_statement: true
+    risk_management_framework: true
+    stress_testing_policy: true
+    model_validation_policy: true
+    limit_setting_policy: true
+    
+  # Risk Controls
+  controls:
+    pre_trade_checks: true
+    post_trade_monitoring: true
+    exception_reporting: true
+    breach_escalation: true
+    audit_trail: true 

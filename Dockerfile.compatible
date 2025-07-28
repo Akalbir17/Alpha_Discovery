@@ -1,0 +1,93 @@
+# Compatible Dockerfile for Alpha Discovery Platform - Debian-based with optimizations
+FROM python:3.12-slim as builder
+
+# Set environment variables for optimization
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PYTHONPATH=/app \
+    PIP_NO_CACHE_DIR=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1 \
+    PIP_DEFAULT_TIMEOUT=100
+
+# Install build dependencies in a single layer
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        build-essential \
+        curl \
+        git \
+        libpq-dev \
+        gcc \
+        g++ \
+        pkg-config \
+        libyaml-dev \
+        && rm -rf /var/lib/apt/lists/*
+
+# Set work directory
+WORKDIR /app
+
+# Copy requirements first for better layer caching
+COPY requirements.txt .
+
+# Install Python dependencies with aggressive optimization
+RUN pip install --no-cache-dir --upgrade pip setuptools wheel && \
+    pip install --no-cache-dir Cython && \
+    pip install --no-cache-dir pyyaml==6.0.2 --no-build-isolation && \
+    pip install --no-cache-dir -r requirements.txt && \
+    find /usr/local/lib/python3.12/site-packages -name "*.pyc" -delete && \
+    find /usr/local/lib/python3.12/site-packages -name "__pycache__" -type d -exec rm -rf {} + 2>/dev/null || true
+
+# Production stage - Use slim Debian for compatibility
+FROM python:3.12-slim as production
+
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PYTHONPATH=/app \
+    PIP_NO_CACHE_DIR=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1 \
+    HOME=/home/alpha \
+    XDG_DATA_HOME=/app/data \
+    XDG_CONFIG_HOME=/app/configs \
+    XDG_CACHE_HOME=/app/data/.cache
+
+# Install runtime dependencies only
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        libpq5 \
+        curl \
+        libyaml-0-2 \
+        procps \
+        && rm -rf /var/lib/apt/lists/*
+
+# Create non-root user with home directory
+RUN groupadd -r alpha && useradd -r -g alpha -m alpha
+
+# Set work directory
+WORKDIR /app
+
+# Copy Python dependencies from builder stage
+COPY --from=builder /usr/local/lib/python3.12/site-packages /usr/local/lib/python3.12/site-packages
+COPY --from=builder /usr/local/bin /usr/local/bin
+
+# Copy only essential application code (excludes large files via .dockerignore)
+COPY src/ ./src/
+COPY configs/ ./configs/
+COPY run_alpha_discovery.py .
+COPY setup_and_test.py .
+
+# Create necessary directories with proper permissions
+RUN mkdir -p /app/data /app/logs /app/models /app/research /home/alpha/.local/share && \
+    chown -R alpha:alpha /app /home/alpha
+
+# Switch to non-root user
+USER alpha
+
+# Expose ports
+EXPOSE 8000 8001
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost:8000/health || exit 1
+
+# Default command
+CMD ["python", "run_alpha_discovery.py"] 

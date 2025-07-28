@@ -1,0 +1,641 @@
+# Alpha Discovery API Configuration
+# This file contains configuration for API endpoints, rate limits, and authentication
+
+# Global API Settings
+global:
+  environment: "production"
+  api_version: "v1"
+  base_url: "https://api.alphadiscovery.com"
+  documentation_url: "https://docs.alphadiscovery.com"
+  timeout: 30  # seconds
+  max_connections: 1000
+  keep_alive: true
+  
+  # Security
+  security:
+    enable_https: true
+    enable_cors: true
+    enable_csrf_protection: true
+    max_request_size: "10MB"
+    enable_compression: true
+
+# Authentication Configuration
+authentication:
+  # JWT Configuration
+  jwt:
+    enabled: true
+    secret_key: "${JWT_SECRET_KEY}"
+    algorithm: "HS256"
+    expiration_time: 3600  # 1 hour
+    refresh_token_expiration: 604800  # 7 days
+    
+  # API Keys
+  api_keys:
+    enabled: true
+    key_length: 64
+    key_prefix: "ak_"
+    rate_limit_per_key: true
+    
+  # OAuth 2.0
+  oauth2:
+    enabled: true
+    client_id: "${OAUTH2_CLIENT_ID}"
+    client_secret: "${OAUTH2_CLIENT_SECRET}"
+    authorization_url: "https://auth.alphadiscovery.com/oauth2/authorize"
+    token_url: "https://auth.alphadiscovery.com/oauth2/token"
+    scopes: ["read", "write", "admin"]
+  
+  # Basic Authentication
+  basic_auth:
+    enabled: false  # Disabled for security
+    realm: "Alpha Discovery API"
+
+# Rate Limiting Configuration
+rate_limiting:
+  # Global Rate Limits
+  global:
+    requests_per_second: 100
+    requests_per_minute: 5000
+    requests_per_hour: 100000
+    requests_per_day: 1000000
+    
+    # Burst Limits
+    burst_size: 200
+    burst_replenish_rate: 10  # per second
+  
+  # User-Based Rate Limits
+  user_based:
+    free_tier:
+      requests_per_minute: 60
+      requests_per_hour: 1000
+      requests_per_day: 10000
+      concurrent_requests: 5
+      
+    premium_tier:
+      requests_per_minute: 600
+      requests_per_hour: 10000
+      requests_per_day: 100000
+      concurrent_requests: 20
+      
+    enterprise_tier:
+      requests_per_minute: 6000
+      requests_per_hour: 100000
+      requests_per_day: 1000000
+      concurrent_requests: 100
+  
+  # Endpoint-Specific Rate Limits
+  endpoint_specific:
+    # Market Data Endpoints
+    "/api/v1/market-data/real-time":
+      requests_per_second: 10
+      requests_per_minute: 600
+      requests_per_hour: 10000
+      
+    "/api/v1/market-data/historical":
+      requests_per_minute: 100
+      requests_per_hour: 1000
+      requests_per_day: 10000
+      
+    # Trading Endpoints
+    "/api/v1/trading/orders":
+      requests_per_second: 5
+      requests_per_minute: 300
+      requests_per_hour: 5000
+      
+    "/api/v1/trading/portfolio":
+      requests_per_minute: 600
+      requests_per_hour: 10000
+      
+    # Analytics Endpoints
+    "/api/v1/analytics/signals":
+      requests_per_minute: 100
+      requests_per_hour: 2000
+      requests_per_day: 20000
+      
+    "/api/v1/analytics/backtests":
+      requests_per_hour: 10
+      requests_per_day: 100
+  
+  # Rate Limit Actions
+  actions:
+    on_limit_exceeded:
+      action: "reject"  # reject, queue, throttle
+      status_code: 429
+      retry_after: 60  # seconds
+      
+    on_burst_exceeded:
+      action: "throttle"
+      delay: 1  # second
+      
+    on_abuse_detected:
+      action: "block"
+      duration: 3600  # 1 hour
+
+# API Endpoints Configuration
+endpoints:
+  # Market Data Endpoints
+  market_data:
+    base_path: "/api/v1/market-data"
+    
+    endpoints:
+      real_time:
+        path: "/real-time/{symbol}"
+        methods: ["GET"]
+        authentication: "required"
+        rate_limit: "high"
+        cache_ttl: 1  # second
+        
+      historical:
+        path: "/historical/{symbol}"
+        methods: ["GET"]
+        authentication: "required"
+        rate_limit: "medium"
+        cache_ttl: 300  # 5 minutes
+        
+      options:
+        path: "/options/{symbol}"
+        methods: ["GET"]
+        authentication: "required"
+        rate_limit: "medium"
+        cache_ttl: 60  # 1 minute
+        
+      news:
+        path: "/news"
+        methods: ["GET"]
+        authentication: "required"
+        rate_limit: "low"
+        cache_ttl: 300  # 5 minutes
+        
+      economic:
+        path: "/economic"
+        methods: ["GET"]
+        authentication: "required"
+        rate_limit: "low"
+        cache_ttl: 3600  # 1 hour
+  
+  # Trading Endpoints
+  trading:
+    base_path: "/api/v1/trading"
+    
+    endpoints:
+      orders:
+        path: "/orders"
+        methods: ["GET", "POST", "PUT", "DELETE"]
+        authentication: "required"
+        authorization: "trading_permission"
+        rate_limit: "high"
+        cache_ttl: 0  # no cache
+        
+      portfolio:
+        path: "/portfolio"
+        methods: ["GET"]
+        authentication: "required"
+        rate_limit: "high"
+        cache_ttl: 5  # seconds
+        
+      positions:
+        path: "/positions"
+        methods: ["GET"]
+        authentication: "required"
+        rate_limit: "high"
+        cache_ttl: 5  # seconds
+        
+      executions:
+        path: "/executions"
+        methods: ["GET"]
+        authentication: "required"
+        rate_limit: "medium"
+        cache_ttl: 30  # seconds
+        
+      balance:
+        path: "/balance"
+        methods: ["GET"]
+        authentication: "required"
+        rate_limit: "medium"
+        cache_ttl: 60  # 1 minute
+  
+  # Analytics Endpoints
+  analytics:
+    base_path: "/api/v1/analytics"
+    
+    endpoints:
+      signals:
+        path: "/signals"
+        methods: ["GET"]
+        authentication: "required"
+        rate_limit: "medium"
+        cache_ttl: 60  # 1 minute
+        
+      backtests:
+        path: "/backtests"
+        methods: ["GET", "POST"]
+        authentication: "required"
+        rate_limit: "low"
+        cache_ttl: 3600  # 1 hour
+        
+      performance:
+        path: "/performance"
+        methods: ["GET"]
+        authentication: "required"
+        rate_limit: "medium"
+        cache_ttl: 300  # 5 minutes
+        
+      risk:
+        path: "/risk"
+        methods: ["GET"]
+        authentication: "required"
+        rate_limit: "medium"
+        cache_ttl: 60  # 1 minute
+        
+      sentiment:
+        path: "/sentiment"
+        methods: ["GET"]
+        authentication: "required"
+        rate_limit: "medium"
+        cache_ttl: 300  # 5 minutes
+  
+  # System Endpoints
+  system:
+    base_path: "/api/v1/system"
+    
+    endpoints:
+      health:
+        path: "/health"
+        methods: ["GET"]
+        authentication: "optional"
+        rate_limit: "none"
+        cache_ttl: 0
+        
+      status:
+        path: "/status"
+        methods: ["GET"]
+        authentication: "required"
+        rate_limit: "low"
+        cache_ttl: 30  # seconds
+        
+      metrics:
+        path: "/metrics"
+        methods: ["GET"]
+        authentication: "required"
+        authorization: "admin_permission"
+        rate_limit: "low"
+        cache_ttl: 60  # 1 minute
+        
+      logs:
+        path: "/logs"
+        methods: ["GET"]
+        authentication: "required"
+        authorization: "admin_permission"
+        rate_limit: "very_low"
+        cache_ttl: 0
+
+# External API Configuration
+external_apis:
+  # Market Data Providers
+  market_data_providers:
+    alpha_vantage:
+      base_url: "https://www.alphavantage.co/query"
+      api_key: "${ALPHA_VANTAGE_API_KEY}"
+      rate_limit: 5  # requests per minute
+      timeout: 30
+      retry_count: 3
+      retry_delay: 1  # second
+      
+    yahoo_finance:
+      base_url: "https://query1.finance.yahoo.com"
+      rate_limit: 2000  # requests per hour
+      timeout: 15
+      retry_count: 2
+      retry_delay: 0.5
+      
+    quandl:
+      base_url: "https://www.quandl.com/api/v3"
+      api_key: "${QUANDL_API_KEY}"
+      rate_limit: 300  # requests per 10 minutes
+      timeout: 30
+      retry_count: 3
+      retry_delay: 2
+      
+    iex_cloud:
+      base_url: "https://cloud.iexapis.com/stable"
+      api_key: "${IEX_CLOUD_API_KEY}"
+      rate_limit: 100  # requests per second
+      timeout: 10
+      retry_count: 2
+      retry_delay: 0.1
+  
+  # Broker APIs
+  broker_apis:
+    interactive_brokers:
+      base_url: "https://api.ibkr.com"
+      client_id: "${IB_CLIENT_ID}"
+      client_secret: "${IB_CLIENT_SECRET}"
+      rate_limit: 50  # requests per second
+      timeout: 30
+      retry_count: 3
+      retry_delay: 1
+      
+    alpaca:
+      base_url: "https://api.alpaca.markets"
+      api_key: "${ALPACA_API_KEY}"
+      api_secret: "${ALPACA_API_SECRET}"
+      rate_limit: 200  # requests per minute
+      timeout: 30
+      retry_count: 3
+      retry_delay: 1
+      
+    td_ameritrade:
+      base_url: "https://api.tdameritrade.com"
+      client_id: "${TD_CLIENT_ID}"
+      refresh_token: "${TD_REFRESH_TOKEN}"
+      rate_limit: 120  # requests per minute
+      timeout: 30
+      retry_count: 3
+      retry_delay: 2
+  
+  # Social Media APIs
+  social_media_apis:
+    reddit:
+      base_url: "https://oauth.reddit.com"
+      client_id: "${REDDIT_CLIENT_ID}"
+      client_secret: "${REDDIT_CLIENT_SECRET}"
+      user_agent: "AlphaDiscovery/1.0"
+      rate_limit: 60  # requests per minute
+      timeout: 30
+      retry_count: 3
+      retry_delay: 1
+      
+    twitter:
+      base_url: "https://api.twitter.com/2"
+      bearer_token: "${TWITTER_BEARER_TOKEN}"
+      rate_limit: 300  # requests per 15 minutes
+      timeout: 30
+      retry_count: 3
+      retry_delay: 5
+      
+    discord:
+      base_url: "https://discord.com/api/v10"
+      bot_token: "${DISCORD_BOT_TOKEN}"
+      rate_limit: 50  # requests per second
+      timeout: 15
+      retry_count: 2
+      retry_delay: 1
+
+# WebSocket Configuration
+websocket:
+  # Server Configuration
+  server:
+    host: "0.0.0.0"
+    port: 8765
+    max_connections: 1000
+    message_size_limit: "1MB"
+    compression: true
+    
+  # Authentication
+  authentication:
+    required: true
+    token_validation: true
+    connection_timeout: 30  # seconds
+    
+  # Rate Limiting
+  rate_limiting:
+    messages_per_second: 100
+    messages_per_minute: 5000
+    connection_limit_per_ip: 10
+    
+  # Channels
+  channels:
+    market_data:
+      - "real_time_prices"
+      - "order_book_updates"
+      - "trade_executions"
+      - "market_news"
+      
+    trading:
+      - "order_updates"
+      - "portfolio_changes"
+      - "position_updates"
+      - "account_notifications"
+      
+    analytics:
+      - "signal_alerts"
+      - "risk_alerts"
+      - "performance_updates"
+      - "sentiment_updates"
+  
+  # Message Types
+  message_types:
+    subscription:
+      format: "json"
+      schema_validation: true
+      
+    data:
+      format: "json"
+      compression: "gzip"
+      batch_size: 100
+      
+    heartbeat:
+      interval: 30  # seconds
+      timeout: 60   # seconds
+
+# API Gateway Configuration
+api_gateway:
+  # Load Balancing
+  load_balancing:
+    algorithm: "round_robin"  # round_robin, least_connections, ip_hash
+    health_check_interval: 30  # seconds
+    max_fails: 3
+    fail_timeout: 30  # seconds
+    
+  # Backend Servers
+  backend_servers:
+    - host: "10.0.1.10"
+      port: 8000
+      weight: 3
+      max_conns: 100
+      
+    - host: "10.0.1.11"
+      port: 8000
+      weight: 2
+      max_conns: 100
+      
+    - host: "10.0.1.12"
+      port: 8000
+      weight: 1
+      max_conns: 50
+  
+  # Caching
+  caching:
+    enabled: true
+    cache_store: "redis"
+    default_ttl: 300  # 5 minutes
+    max_cache_size: "1GB"
+    
+    # Cache Rules
+    cache_rules:
+      - path: "/api/v1/market-data/historical/*"
+        ttl: 3600  # 1 hour
+        
+      - path: "/api/v1/analytics/backtests/*"
+        ttl: 7200  # 2 hours
+        
+      - path: "/api/v1/market-data/real-time/*"
+        ttl: 1  # 1 second
+  
+  # Request/Response Transformation
+  transformation:
+    request:
+      add_headers:
+        - "X-API-Version: v1"
+        - "X-Request-ID: ${request_id}"
+        
+      remove_headers:
+        - "X-Internal-Token"
+        
+    response:
+      add_headers:
+        - "X-RateLimit-Remaining: ${rate_limit_remaining}"
+        - "X-Response-Time: ${response_time}"
+
+# API Monitoring
+monitoring:
+  # Metrics Collection
+  metrics:
+    enabled: true
+    collection_interval: 30  # seconds
+    
+    # Metrics to Collect
+    metrics_list:
+      - "request_count"
+      - "response_time"
+      - "error_rate"
+      - "active_connections"
+      - "rate_limit_hits"
+      - "cache_hit_ratio"
+      - "throughput"
+      - "latency_percentiles"
+  
+  # Health Checks
+  health_checks:
+    enabled: true
+    check_interval: 30  # seconds
+    
+    # Health Check Endpoints
+    endpoints:
+      - path: "/api/v1/system/health"
+        timeout: 5
+        expected_status: 200
+        
+      - path: "/api/v1/market-data/health"
+        timeout: 10
+        expected_status: 200
+        
+      - path: "/api/v1/trading/health"
+        timeout: 5
+        expected_status: 200
+  
+  # Alerting
+  alerting:
+    enabled: true
+    
+    # Alert Thresholds
+    thresholds:
+      error_rate: 0.05          # 5% error rate
+      response_time: 1000       # 1 second
+      availability: 0.99        # 99% availability
+      rate_limit_hits: 100     # rate limit hits per minute
+    
+    # Alert Channels
+    channels:
+      email: ["api-team@company.com"]
+      slack: "#api-alerts"
+      pagerduty: "API_SERVICE"
+
+# API Documentation
+documentation:
+  # OpenAPI/Swagger Configuration
+  openapi:
+    enabled: true
+    version: "3.0.0"
+    title: "Alpha Discovery API"
+    description: "Algorithmic Trading Platform API"
+    contact:
+      name: "API Support"
+      email: "api-support@alphadiscovery.com"
+      url: "https://support.alphadiscovery.com"
+    
+    # Documentation UI
+    ui:
+      enabled: true
+      path: "/docs"
+      theme: "swagger-ui"
+      
+    # API Specification
+    spec:
+      path: "/openapi.json"
+      auto_generate: true
+      include_examples: true
+      
+  # Rate Limit Documentation
+  rate_limit_docs:
+    include_headers: true
+    include_examples: true
+    describe_tiers: true
+    
+  # Error Documentation
+  error_docs:
+    include_error_codes: true
+    include_examples: true
+    include_troubleshooting: true
+
+# Security Configuration
+security:
+  # CORS Configuration
+  cors:
+    enabled: true
+    allow_origins: ["https://app.alphadiscovery.com", "https://dashboard.alphadiscovery.com"]
+    allow_methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
+    allow_headers: ["Authorization", "Content-Type", "X-API-Key"]
+    allow_credentials: true
+    max_age: 3600  # 1 hour
+    
+  # Content Security Policy
+  csp:
+    enabled: true
+    default_src: "'self'"
+    script_src: "'self' 'unsafe-inline'"
+    style_src: "'self' 'unsafe-inline'"
+    img_src: "'self' data: https:"
+    connect_src: "'self' wss:"
+    
+  # Input Validation
+  input_validation:
+    enabled: true
+    max_request_size: "10MB"
+    sanitize_inputs: true
+    validate_json_schema: true
+    
+    # Parameter Validation
+    parameter_validation:
+      symbol: "^[A-Z]{1,5}$"
+      date: "^\\d{4}-\\d{2}-\\d{2}$"
+      datetime: "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$"
+      limit: "^[1-9]\\d{0,2}$"  # 1-999
+      offset: "^\\d+$"
+  
+  # Request Logging
+  request_logging:
+    enabled: true
+    log_level: "INFO"
+    include_request_body: false
+    include_response_body: false
+    include_headers: true
+    mask_sensitive_data: true
+    
+    # Sensitive Fields to Mask
+    sensitive_fields:
+      - "password"
+      - "api_key"
+      - "token"
+      - "secret"
+      - "authorization" 

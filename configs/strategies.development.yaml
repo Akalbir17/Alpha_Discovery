@@ -1,0 +1,123 @@
+# Development Environment Overrides for Strategies Configuration
+
+# Global Strategy Settings - Development Overrides
+global:
+  environment: "development"
+  enable_paper_trading: true
+  enable_live_trading: false
+  initial_capital: 100000  # $100k for development
+
+# Agent Configuration - Development Overrides
+agents:
+  technical_agent:
+    max_signals_per_day: 20  # More signals for testing
+    confidence_threshold: 0.5  # Lower threshold for more signals
+    
+  fundamental_agent:
+    max_signals_per_day: 10
+    confidence_threshold: 0.5
+    
+  sentiment_agent:
+    max_signals_per_day: 30  # More sentiment signals for testing
+    confidence_threshold: 0.4
+    
+  risk_agent:
+    max_signals_per_day: 50  # More risk checks in development
+    
+  options_agent:
+    max_signals_per_day: 15
+
+# Strategy Configuration - Development Overrides
+strategies:
+  momentum_strategy:
+    weight: 0.4  # Higher weight for testing
+    position_sizing:
+      base_size: 0.05  # Larger positions for visibility
+      max_position_size: 0.2  # Higher max for testing
+    
+  mean_reversion_strategy:
+    weight: 0.3
+    position_sizing:
+      base_size: 0.03
+      max_position_size: 0.15
+    
+  arbitrage_strategy:
+    enabled: false  # Disable in development
+    
+  pairs_trading_strategy:
+    weight: 0.2
+    position_sizing:
+      base_size: 0.05
+      max_position_size: 0.15
+    
+  options_strategy:
+    weight: 0.1
+    position_sizing:
+      base_size: 0.02
+      max_position_size: 0.1
+
+# Portfolio Management - Development Overrides
+portfolio:
+  position_limits:
+    max_positions: 10  # Fewer positions for simplicity
+    max_position_size: 0.2  # Higher for testing
+    max_sector_exposure: 0.5  # Relaxed limits
+    
+  cash_management:
+    min_cash_reserve: 0.1  # Higher cash reserve
+    target_cash_reserve: 0.2
+
+# Risk Management - Development Overrides
+risk_management:
+  portfolio_limits:
+    max_daily_var: 0.05      # 5% daily VaR (higher for dev)
+    max_weekly_var: 0.10     # 10% weekly VaR
+    max_drawdown: 0.25       # 25% maximum drawdown
+    max_leverage: 1.2        # Lower leverage
+    
+  circuit_breakers:
+    daily_loss_threshold: 0.05     # 5% daily loss
+    position_loss_threshold: 0.08  # 8% position loss
+    cooldown_period: 60            # 1 minute cooldown
+
+# Execution Parameters - Development Overrides
+execution:
+  order_management:
+    max_order_size: 1000  # Smaller orders
+    order_timeout: 60     # Longer timeout
+    max_slippage: 0.002   # Higher slippage tolerance
+
+# Backtesting Configuration - Development Overrides
+backtesting:
+  periods:
+    default:
+      start_date: "2023-01-01"  # Shorter period
+      end_date: "2024-06-30"
+      frequency: "1H"  # Higher frequency for development
+    
+    short_term:
+      start_date: "2024-01-01"
+      end_date: "2024-06-30"
+      frequency: "15m"
+  
+  parameters:
+    initial_capital: 100000  # Match development capital
+    commission: 0.002        # Higher commission for realism
+    realistic_execution: false  # Simplified execution
+
+# Performance Metrics - Development Overrides
+performance:
+  targets:
+    annual_return: 0.10      # 10% annual return (lower target)
+    sharpe_ratio: 1.0        # 1.0 Sharpe ratio
+    max_drawdown: 0.20       # 20% maximum drawdown
+    
+  reporting:
+    frequency: "hourly"  # More frequent reporting
+
+# Strategy Limits - Development Overrides
+limits:
+  global:
+    max_daily_trades: 50  # Fewer trades
+    max_open_positions: 20
+    max_daily_turnover: 1.0  # Higher turnover allowed 

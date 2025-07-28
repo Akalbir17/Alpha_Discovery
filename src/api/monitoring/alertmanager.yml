@@ -1,0 +1,121 @@
+global:
+  smtp_smarthost: 'localhost:587'
+  smtp_from: 'alerts@alpha-discovery.com'
+  smtp_auth_username: 'alerts@alpha-discovery.com'
+  smtp_auth_password: 'your-email-password'
+
+route:
+  group_by: ['alertname']
+  group_wait: 10s
+  group_interval: 10s
+  repeat_interval: 1h
+  receiver: 'web.hook'
+  routes:
+  - match:
+      severity: critical
+    receiver: 'critical-alerts'
+  - match:
+      severity: warning
+    receiver: 'warning-alerts'
+  - match:
+      service: alpha-discovery-api
+    receiver: 'api-alerts'
+  - match:
+      service: timescaledb
+    receiver: 'database-alerts'
+  - match:
+      service: kafka
+    receiver: 'kafka-alerts'
+
+receivers:
+- name: 'web.hook'
+  webhook_configs:
+  - url: 'http://alpha-discovery-api:8000/webhooks/alerts'
+    send_resolved: true
+
+- name: 'critical-alerts'
+  email_configs:
+  - to: 'admin@alpha-discovery.com'
+    subject: 'CRITICAL: Alpha Discovery Alert'
+    body: |
+      {{ range .Alerts }}
+      Alert: {{ .Annotations.summary }}
+      Description: {{ .Annotations.description }}
+      Labels: {{ range .Labels.SortedPairs }}{{ .Name }}: {{ .Value }}{{ end }}
+      {{ end }}
+  webhook_configs:
+  - url: 'http://alpha-discovery-api:8000/webhooks/alerts'
+    send_resolved: true
+  slack_configs:
+  - api_url: 'https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK'
+    channel: '#alerts-critical'
+    title: 'Critical Alert: {{ .GroupLabels.alertname }}'
+    text: '{{ range .Alerts }}{{ .Annotations.summary }}{{ end }}'
+
+- name: 'warning-alerts'
+  email_configs:
+  - to: 'team@alpha-discovery.com'
+    subject: 'WARNING: Alpha Discovery Alert'
+    body: |
+      {{ range .Alerts }}
+      Alert: {{ .Annotations.summary }}
+      Description: {{ .Annotations.description }}
+      Labels: {{ range .Labels.SortedPairs }}{{ .Name }}: {{ .Value }}{{ end }}
+      {{ end }}
+  slack_configs:
+  - api_url: 'https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK'
+    channel: '#alerts-warning'
+    title: 'Warning: {{ .GroupLabels.alertname }}'
+    text: '{{ range .Alerts }}{{ .Annotations.summary }}{{ end }}'
+
+- name: 'api-alerts'
+  webhook_configs:
+  - url: 'http://alpha-discovery-api:8000/webhooks/alerts'
+    send_resolved: true
+  email_configs:
+  - to: 'devops@alpha-discovery.com'
+    subject: 'API Alert: {{ .GroupLabels.alertname }}'
+    body: |
+      API Service Alert
+      {{ range .Alerts }}
+      Alert: {{ .Annotations.summary }}
+      Description: {{ .Annotations.description }}
+      Instance: {{ .Labels.instance }}
+      {{ end }}
+
+- name: 'database-alerts'
+  email_configs:
+  - to: 'dba@alpha-discovery.com'
+    subject: 'Database Alert: {{ .GroupLabels.alertname }}'
+    body: |
+      Database Service Alert
+      {{ range .Alerts }}
+      Alert: {{ .Annotations.summary }}
+      Description: {{ .Annotations.description }}
+      Instance: {{ .Labels.instance }}
+      {{ end }}
+  webhook_configs:
+  - url: 'http://alpha-discovery-api:8000/webhooks/alerts'
+    send_resolved: true
+
+- name: 'kafka-alerts'
+  email_configs:
+  - to: 'platform@alpha-discovery.com'
+    subject: 'Kafka Alert: {{ .GroupLabels.alertname }}'
+    body: |
+      Kafka Service Alert
+      {{ range .Alerts }}
+      Alert: {{ .Annotations.summary }}
+      Description: {{ .Annotations.description }}
+      Instance: {{ .Labels.instance }}
+      {{ end }}
+  webhook_configs:
+  - url: 'http://alpha-discovery-api:8000/webhooks/alerts'
+    send_resolved: true
+
+inhibit_rules:
+- source_match:
+    severity: 'critical'
+  target_match:
+    severity: 'warning'
+  equal: ['alertname', 'dev', 'instance'] 

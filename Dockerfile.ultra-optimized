@@ -1,0 +1,92 @@
+# Ultra-optimized Dockerfile for Alpha Discovery Platform
+FROM python:3.12-alpine as builder
+
+# Set environment variables for optimization
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PYTHONPATH=/app \
+    PIP_NO_CACHE_DIR=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1 \
+    PIP_DEFAULT_TIMEOUT=100
+
+# Install build dependencies in a single layer
+RUN apk add --no-cache \
+    build-base \
+    libffi-dev \
+    openssl-dev \
+    postgresql-dev \
+    linux-headers \
+    gcc \
+    musl-dev \
+    pkgconfig \
+    yaml-dev \
+    git \
+    && rm -rf /var/cache/apk/*
+
+# Set work directory
+WORKDIR /app
+
+# Copy requirements first for better layer caching
+COPY requirements.txt .
+
+# Install Python dependencies with aggressive optimization
+RUN pip install --no-cache-dir --upgrade pip setuptools wheel && \
+    pip install --no-cache-dir Cython && \
+    pip install --no-cache-dir pyyaml==6.0.2 --no-build-isolation && \
+    pip install --no-cache-dir -r requirements.txt && \
+    find /usr/local/lib/python3.12/site-packages -name "*.pyc" -delete && \
+    find /usr/local/lib/python3.12/site-packages -name "__pycache__" -type d -exec rm -rf {} + 2>/dev/null || true
+
+# Production stage - Use Alpine for minimal size
+FROM python:3.12-alpine as production
+
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PYTHONPATH=/app \
+    PIP_NO_CACHE_DIR=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1
+
+# Install runtime dependencies only
+RUN apk add --no-cache \
+    postgresql-libs \
+    curl \
+    yaml \
+    libffi \
+    openssl \
+    procps \
+    && rm -rf /var/cache/apk/*
+
+# Create non-root user
+RUN addgroup -g 1000 alpha && \
+    adduser -D -s /bin/sh -u 1000 -G alpha alpha
+
+# Set work directory
+WORKDIR /app
+
+# Copy Python dependencies from builder stage
+COPY --from=builder /usr/local/lib/python3.12/site-packages /usr/local/lib/python3.12/site-packages
+COPY --from=builder /usr/local/bin /usr/local/bin
+
+# Copy only essential application code (excludes large files via .dockerignore)
+COPY src/ ./src/
+COPY configs/ ./configs/
+COPY run_alpha_discovery.py .
+COPY setup_and_test.py .
+
+# Create necessary directories with proper permissions
+RUN mkdir -p /app/data /app/logs /app/models /app/research && \
+    chown -R alpha:alpha /app
+
+# Switch to non-root user
+USER alpha
+
+# Expose ports
+EXPOSE 8000 8001
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost:8000/health || exit 1
+
+# Default command
+CMD ["python", "run_alpha_discovery.py"] 

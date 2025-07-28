@@ -1,0 +1,543 @@
+# Alpha Discovery Strategy Configuration
+# This file contains configuration for all trading strategies, agents, and risk parameters
+
+# Global Strategy Settings
+global:
+  environment: "production"  # development, staging, production
+  timezone: "UTC"
+  base_currency: "USD"
+  initial_capital: 1000000
+  max_leverage: 1.5
+  enable_paper_trading: false
+  enable_live_trading: true
+
+# Agent Configuration
+agents:
+  technical_agent:
+    enabled: true
+    confidence_threshold: 0.6
+    signal_strength_threshold: 0.7
+    max_signals_per_day: 10
+    
+    # Technical Indicators
+    indicators:
+      rsi:
+        enabled: true
+        period: 14
+        overbought_threshold: 70
+        oversold_threshold: 30
+        weight: 0.25
+      
+      macd:
+        enabled: true
+        fast_period: 12
+        slow_period: 26
+        signal_period: 9
+        weight: 0.3
+      
+      bollinger_bands:
+        enabled: true
+        period: 20
+        std_dev: 2.0
+        weight: 0.2
+      
+      moving_averages:
+        enabled: true
+        short_period: 10
+        long_period: 30
+        weight: 0.15
+      
+      volume_indicators:
+        enabled: true
+        volume_sma_period: 20
+        volume_threshold: 1.5
+        weight: 0.1
+    
+    # Timeframe Analysis
+    timeframes:
+      - "1h"
+      - "4h"
+      - "1d"
+    
+    # Signal Confirmation
+    confirmation:
+      require_volume_confirmation: true
+      require_multiple_timeframes: true
+      min_timeframes_agreement: 2
+
+  fundamental_agent:
+    enabled: true
+    confidence_threshold: 0.65
+    signal_strength_threshold: 0.75
+    max_signals_per_day: 5
+    
+    # Valuation Models
+    valuation_models:
+      dcf:
+        enabled: true
+        discount_rate: 0.10
+        terminal_growth_rate: 0.03
+        weight: 0.4
+      
+      pe_ratio:
+        enabled: true
+        fair_value_pe: 20
+        undervalued_threshold: 15
+        overvalued_threshold: 30
+        weight: 0.25
+      
+      peg_ratio:
+        enabled: true
+        fair_value_peg: 1.0
+        undervalued_threshold: 0.8
+        overvalued_threshold: 1.5
+        weight: 0.2
+      
+      ev_ebitda:
+        enabled: true
+        fair_value_ev_ebitda: 12
+        undervalued_threshold: 8
+        overvalued_threshold: 18
+        weight: 0.15
+    
+    # Quality Metrics
+    quality_metrics:
+      roe_threshold: 0.15
+      debt_to_equity_max: 2.0
+      revenue_growth_min: 0.05
+      earnings_growth_min: 0.08
+      free_cash_flow_positive: true
+    
+    # Growth Thresholds
+    growth_thresholds:
+      revenue_growth_excellent: 0.20
+      revenue_growth_good: 0.10
+      earnings_growth_excellent: 0.25
+      earnings_growth_good: 0.15
+
+  sentiment_agent:
+    enabled: true
+    confidence_threshold: 0.55
+    signal_strength_threshold: 0.65
+    max_signals_per_day: 15
+    
+    # Data Sources
+    sources:
+      reddit:
+        enabled: true
+        weight: 0.4
+        min_mentions: 10
+        sentiment_threshold: 0.6
+      
+      twitter:
+        enabled: true
+        weight: 0.3
+        min_mentions: 20
+        sentiment_threshold: 0.65
+      
+      news:
+        enabled: true
+        weight: 0.3
+        min_articles: 5
+        sentiment_threshold: 0.7
+    
+    # Time Decay
+    time_decay:
+      enabled: true
+      decay_rate: 0.9
+      max_age_hours: 24
+    
+    # Volume Weighting
+    volume_weighting:
+      enabled: true
+      volume_threshold: 100
+      max_volume_multiplier: 2.0
+
+  risk_agent:
+    enabled: true
+    confidence_threshold: 0.7
+    signal_strength_threshold: 0.8
+    max_signals_per_day: 20
+    
+    # VaR Configuration
+    var_config:
+      confidence_levels: [0.95, 0.99]
+      lookback_period: 252
+      monte_carlo_simulations: 10000
+    
+    # Stress Testing
+    stress_scenarios:
+      - name: "2008_crisis"
+        market_drop: -0.45
+        volatility_spike: 2.5
+        correlation_increase: 0.3
+      
+      - name: "covid_crash"
+        market_drop: -0.35
+        volatility_spike: 3.0
+        correlation_increase: 0.4
+      
+      - name: "flash_crash"
+        market_drop: -0.15
+        volatility_spike: 5.0
+        correlation_increase: 0.2
+    
+    # Risk Thresholds
+    thresholds:
+      max_portfolio_var: 0.05
+      max_position_var: 0.02
+      max_correlation: 0.8
+      min_diversification_ratio: 0.6
+
+  options_agent:
+    enabled: true
+    confidence_threshold: 0.65
+    signal_strength_threshold: 0.7
+    max_signals_per_day: 8
+    
+    # Volatility Analysis
+    volatility_analysis:
+      iv_percentile_threshold: 0.8
+      iv_rank_threshold: 0.7
+      term_structure_analysis: true
+    
+    # Greeks Thresholds
+    greeks_thresholds:
+      delta_threshold: 0.5
+      gamma_threshold: 0.1
+      theta_threshold: -0.05
+      vega_threshold: 0.2
+    
+    # Options Flow
+    options_flow:
+      unusual_volume_threshold: 2.0
+      put_call_ratio_threshold: 1.5
+      open_interest_threshold: 1000
+
+# Strategy Configuration
+strategies:
+  momentum_strategy:
+    enabled: true
+    weight: 0.3
+    
+    parameters:
+      lookback_period: 20
+      momentum_threshold: 0.05
+      stop_loss: 0.03
+      take_profit: 0.08
+      max_holding_period: 30
+    
+    position_sizing:
+      base_size: 0.02  # 2% of portfolio
+      volatility_scaling: true
+      confidence_scaling: true
+      max_position_size: 0.1
+    
+    risk_controls:
+      max_drawdown: 0.05
+      max_daily_loss: 0.02
+      correlation_limit: 0.7
+
+  mean_reversion_strategy:
+    enabled: true
+    weight: 0.25
+    
+    parameters:
+      lookback_period: 50
+      deviation_threshold: 2.0
+      entry_threshold: 2.5
+      exit_threshold: 0.5
+      max_holding_period: 15
+    
+    position_sizing:
+      base_size: 0.015  # 1.5% of portfolio
+      volatility_scaling: true
+      confidence_scaling: true
+      max_position_size: 0.08
+    
+    risk_controls:
+      max_drawdown: 0.04
+      max_daily_loss: 0.015
+      correlation_limit: 0.6
+
+  arbitrage_strategy:
+    enabled: true
+    weight: 0.2
+    
+    parameters:
+      min_spread: 0.001
+      max_spread: 0.01
+      execution_delay: 0.1
+      max_holding_period: 1
+    
+    position_sizing:
+      base_size: 0.05  # 5% of portfolio
+      volatility_scaling: false
+      confidence_scaling: false
+      max_position_size: 0.15
+    
+    risk_controls:
+      max_drawdown: 0.02
+      max_daily_loss: 0.01
+      correlation_limit: 0.3
+
+  pairs_trading_strategy:
+    enabled: true
+    weight: 0.15
+    
+    parameters:
+      cointegration_threshold: 0.05
+      entry_z_score: 2.0
+      exit_z_score: 0.5
+      lookback_period: 60
+      max_holding_period: 20
+    
+    position_sizing:
+      base_size: 0.03  # 3% of portfolio
+      volatility_scaling: true
+      confidence_scaling: true
+      max_position_size: 0.12
+    
+    risk_controls:
+      max_drawdown: 0.03
+      max_daily_loss: 0.015
+      correlation_limit: 0.5
+
+  options_strategy:
+    enabled: true
+    weight: 0.1
+    
+    parameters:
+      iv_threshold: 0.3
+      delta_target: 0.3
+      theta_target: -0.02
+      max_dte: 45
+      min_dte: 7
+    
+    position_sizing:
+      base_size: 0.01  # 1% of portfolio
+      volatility_scaling: true
+      confidence_scaling: true
+      max_position_size: 0.05
+    
+    risk_controls:
+      max_drawdown: 0.02
+      max_daily_loss: 0.01
+      correlation_limit: 0.4
+
+# Portfolio Management
+portfolio:
+  # Position Limits
+  position_limits:
+    max_positions: 20
+    max_position_size: 0.1  # 10% of portfolio
+    max_sector_exposure: 0.3  # 30% per sector
+    max_country_exposure: 0.5  # 50% per country
+    max_currency_exposure: 0.8  # 80% per currency
+  
+  # Diversification
+  diversification:
+    min_sectors: 3
+    min_countries: 2
+    max_correlation: 0.8
+    target_beta: 1.0
+    beta_tolerance: 0.2
+  
+  # Rebalancing
+  rebalancing:
+    frequency: "daily"
+    threshold: 0.05  # 5% deviation from target
+    max_turnover: 0.2  # 20% daily turnover
+    transaction_cost_threshold: 0.001
+  
+  # Cash Management
+  cash_management:
+    min_cash_reserve: 0.05  # 5% minimum cash
+    max_cash_reserve: 0.2   # 20% maximum cash
+    target_cash_reserve: 0.1  # 10% target cash
+
+# Risk Management
+risk_management:
+  # Portfolio Risk Limits
+  portfolio_limits:
+    max_daily_var: 0.02      # 2% daily VaR
+    max_weekly_var: 0.05     # 5% weekly VaR
+    max_monthly_var: 0.10    # 10% monthly VaR
+    max_annual_var: 0.20     # 20% annual VaR
+    max_drawdown: 0.15       # 15% maximum drawdown
+    max_leverage: 1.5        # 1.5x maximum leverage
+  
+  # Position Risk Limits
+  position_limits:
+    max_position_var: 0.01   # 1% position VaR
+    max_position_beta: 2.0   # 2.0 maximum position beta
+    max_position_volatility: 0.5  # 50% maximum position volatility
+  
+  # Correlation Limits
+  correlation_limits:
+    max_pairwise_correlation: 0.8
+    max_sector_correlation: 0.7
+    max_strategy_correlation: 0.6
+  
+  # Stress Testing
+  stress_testing:
+    frequency: "daily"
+    scenarios: ["2008_crisis", "covid_crash", "flash_crash", "interest_rate_shock"]
+    max_stress_loss: 0.25  # 25% maximum stress loss
+  
+  # Circuit Breakers
+  circuit_breakers:
+    daily_loss_threshold: 0.02     # 2% daily loss
+    position_loss_threshold: 0.05  # 5% position loss
+    volatility_threshold: 0.05     # 5% volatility spike
+    volume_threshold: 2.0          # 2x volume spike
+    correlation_threshold: 0.3     # 30% correlation change
+    cooldown_period: 300           # 5 minutes cooldown
+    max_triggers_per_day: 3
+
+# Execution Parameters
+execution:
+  # Order Management
+  order_management:
+    default_order_type: "LIMIT"
+    max_order_size: 10000
+    order_timeout: 30  # seconds
+    max_slippage: 0.001  # 0.1%
+    min_fill_ratio: 0.9  # 90% minimum fill
+  
+  # Market Impact
+  market_impact:
+    enabled: true
+    impact_model: "square_root"
+    max_participation_rate: 0.1  # 10% of volume
+    impact_threshold: 0.0005  # 0.05%
+  
+  # Execution Algorithms
+  algorithms:
+    twap:
+      enabled: true
+      time_horizon: 300  # 5 minutes
+      slice_size: 0.1    # 10% of order
+    
+    vwap:
+      enabled: true
+      time_horizon: 600  # 10 minutes
+      volume_participation: 0.1  # 10% of volume
+    
+    implementation_shortfall:
+      enabled: true
+      risk_aversion: 0.5
+      urgency: 0.3
+
+# Backtesting Configuration
+backtesting:
+  # Time Periods
+  periods:
+    default:
+      start_date: "2020-01-01"
+      end_date: "2024-12-31"
+      frequency: "1D"
+    
+    short_term:
+      start_date: "2024-01-01"
+      end_date: "2024-12-31"
+      frequency: "1H"
+    
+    long_term:
+      start_date: "2015-01-01"
+      end_date: "2024-12-31"
+      frequency: "1D"
+  
+  # Parameters
+  parameters:
+    initial_capital: 1000000
+    commission: 0.001  # 0.1%
+    slippage: 0.0005   # 0.05%
+    market_impact: true
+    realistic_execution: true
+    benchmark: "SPY"
+  
+  # Analysis
+  analysis:
+    risk_free_rate: 0.02  # 2%
+    benchmark_beta: true
+    factor_analysis: true
+    regime_analysis: true
+    drawdown_analysis: true
+  
+  # Optimization
+  optimization:
+    enabled: true
+    method: "walk_forward"
+    train_period: 252  # 1 year
+    test_period: 63    # 3 months
+    step_size: 21      # 1 month
+    max_iterations: 100
+
+# Performance Metrics
+performance:
+  # Target Metrics
+  targets:
+    annual_return: 0.15      # 15% annual return
+    sharpe_ratio: 1.5        # 1.5 Sharpe ratio
+    max_drawdown: 0.10       # 10% maximum drawdown
+    win_rate: 0.60           # 60% win rate
+    profit_factor: 1.8       # 1.8 profit factor
+    sortino_ratio: 2.0       # 2.0 Sortino ratio
+  
+  # Benchmarks
+  benchmarks:
+    - symbol: "SPY"
+      name: "S&P 500"
+      weight: 0.6
+    
+    - symbol: "QQQ"
+      name: "NASDAQ 100"
+      weight: 0.4
+  
+  # Reporting
+  reporting:
+    frequency: "daily"
+    metrics: ["return", "volatility", "sharpe", "drawdown", "var"]
+    attribution: true
+    factor_exposure: true
+
+# Strategy Limits
+limits:
+  # Global Limits
+  global:
+    max_daily_trades: 100
+    max_open_positions: 50
+    max_daily_turnover: 0.5  # 50%
+    max_overnight_exposure: 0.8  # 80%
+  
+  # Strategy-Specific Limits
+  by_strategy:
+    momentum_strategy:
+      max_positions: 10
+      max_daily_trades: 20
+      max_exposure: 0.3
+    
+    mean_reversion_strategy:
+      max_positions: 8
+      max_daily_trades: 15
+      max_exposure: 0.25
+    
+    arbitrage_strategy:
+      max_positions: 15
+      max_daily_trades: 50
+      max_exposure: 0.2
+  
+  # Symbol-Specific Limits
+  by_symbol:
+    default:
+      max_position_size: 0.05  # 5%
+      max_daily_volume: 0.1    # 10% of ADV
+    
+    large_cap:
+      max_position_size: 0.1   # 10%
+      max_daily_volume: 0.2    # 20% of ADV
+    
+    small_cap:
+      max_position_size: 0.02  # 2%
+      max_daily_volume: 0.05   # 5% of ADV 
