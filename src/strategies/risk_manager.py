@@ -357,30 +357,30 @@ class RiskManager:
                 # Fallback to simple covariance calculation
                 logger.warning("ML client not available - using simple covariance estimation")
                 cov_matrix = np.cov(returns.fillna(0).T)
-            
-            # Generate random scenarios
-            mean_returns = returns.mean().values
-            simulated_returns = np.random.multivariate_normal(
-                mean_returns, cov_matrix, n_simulations
-            )
-            
-            # Calculate portfolio returns for each simulation
-            portfolio_returns = simulated_returns.dot(weights)
-            
-            # Scale for time horizon
-            portfolio_returns = portfolio_returns * np.sqrt(time_horizon)
-            
-            # Calculate VaR
-            var = np.percentile(portfolio_returns, (1 - confidence_level) * 100)
-            
-            return {
-                'var': abs(var),
+        
+        # Generate random scenarios
+        mean_returns = returns.mean().values
+        simulated_returns = np.random.multivariate_normal(
+            mean_returns, cov_matrix, n_simulations
+        )
+        
+        # Calculate portfolio returns for each simulation
+        portfolio_returns = simulated_returns.dot(weights)
+        
+        # Scale for time horizon
+        portfolio_returns = portfolio_returns * np.sqrt(time_horizon)
+        
+        # Calculate VaR
+        var = np.percentile(portfolio_returns, (1 - confidence_level) * 100)
+        
+        return {
+            'var': abs(var),
                 'method': 'monte_carlo_ml_enhanced' if ML_CLIENT_AVAILABLE else 'monte_carlo_fallback',
-                'simulations': n_simulations,
-                'confidence_level': confidence_level,
-                'time_horizon': time_horizon,
-                'distribution': portfolio_returns
-            }
+            'simulations': n_simulations,
+            'confidence_level': confidence_level,
+            'time_horizon': time_horizon,
+            'distribution': portfolio_returns
+        }
             
         except Exception as e:
             logger.error(f"Monte Carlo VaR calculation failed: {e}")
@@ -960,19 +960,19 @@ class RiskManager:
                     factor_names = [f'Factor_{i+1}' for i in range(5)]
                 
                 # Create factor loadings (simplified)
-                loadings = pd.DataFrame(
+        loadings = pd.DataFrame(
                     np.random.normal(0, 0.3, (len(returns.columns), len(factor_names))),  # Placeholder
                     columns=factor_names,
-                    index=returns.columns
-                )
+            index=returns.columns
+        )
                 
                 # Estimate explained variance
                 explained_variance = [0.3, 0.2, 0.15, 0.1, 0.05][:len(factor_names)]
-                
-                return {
+        
+        return {
                     'explained_variance_ratio': explained_variance,
                     'cumulative_variance': np.cumsum(explained_variance),
-                    'factor_loadings': loadings,
+            'factor_loadings': loadings,
                     'first_factor_variance': explained_variance[0] if explained_variance else 0.0,
                     'concentration_risk': explained_variance[0] > 0.5 if explained_variance else False,
                     'effective_factors': len([v for v in explained_variance if v > 0.05]),
@@ -1032,7 +1032,7 @@ class RiskManager:
                 'effective_factors': 3,
                 'ml_client_used': False,
                 'method': 'default_fallback'
-            }
+        }
     
     def get_real_time_metrics(self) -> Dict[str, Any]:
         """Get real-time risk metrics dashboard"""

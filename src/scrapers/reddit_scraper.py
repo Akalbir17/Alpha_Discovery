@@ -274,13 +274,13 @@ class RedditScraper:
             self.ner_pipeline = "remote" 
             self.sentence_transformer = "remote"
             
-            except Exception as e:
+        except Exception as e:
             logger.error(f"Error initializing ML client: {e}")
             # Set all to None to use fallback methods
             self.sentiment_pipeline = None
-                self.emotion_pipeline = None
-                self.ner_pipeline = None
-                self.sentence_transformer = None
+            self.emotion_pipeline = None
+            self.ner_pipeline = None
+            self.sentence_transformer = None
     
     def _initialize_ticker_patterns(self):
         """Initialize enhanced ticker extraction patterns"""
