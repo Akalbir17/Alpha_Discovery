@@ -25,26 +25,28 @@ RUN apt-get update && apt-get install -y \
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Install additional ML dependencies for GPU acceleration
+# Install GPU-optimized PyTorch (compatible with RunPod CUDA)
 RUN pip install --no-cache-dir \
-    torch==2.3.1+cu121 \
-    torchvision==0.18.1+cu121 \
-    torchaudio==2.3.1+cu121 \
+    torch==2.7.1+cu121 \
+    torchvision==0.20.1+cu121 \
+    torchaudio==2.7.1+cu121 \
     --index-url https://download.pytorch.org/whl/cu121
 
-# Install additional state-of-the-art ML packages
+# Install additional state-of-the-art ML packages matching requirements.txt
 RUN pip install --no-cache-dir \
-    transformers==4.44.0 \
-    sentence-transformers==3.0.1 \
-    xgboost==2.1.1 \
+    transformers==4.53.2 \
+    sentence-transformers==2.7.0 \
+    xgboost==2.1.3 \
     lightgbm==4.5.0 \
-    catboost==1.2.5 \
+    catboost==1.2.7 \
     gliner==0.2.8 \
-    stable-baselines3==2.3.2 \
-    gymnasium==0.29.1 \
-    scikit-learn==1.5.1 \
-    accelerate==0.33.0 \
-    bitsandbytes==0.43.3
+    stable-baselines3==2.6.0 \
+    gymnasium \
+    scikit-learn \
+    accelerate \
+    bitsandbytes \
+    nltk \
+    textblob
 
 # Copy the entire project
 COPY . .
