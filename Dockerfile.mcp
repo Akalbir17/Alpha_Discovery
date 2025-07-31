@@ -21,9 +21,10 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy requirements and install Python dependencies
+# Copy requirements and constraints, then install Python dependencies with version constraints
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+COPY constraints.txt /tmp/constraints.txt
+RUN pip install --no-cache-dir --constraint /tmp/constraints.txt -r requirements.txt
 
 # Install GPU-optimized PyTorch (compatible with RunPod CUDA)
 RUN pip install --no-cache-dir \

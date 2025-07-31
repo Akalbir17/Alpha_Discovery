@@ -418,7 +418,7 @@ class RiskManager:
                 'confidence_level': confidence_level,
                 'time_horizon': time_horizon,
                 'distribution': []
-            }
+        }
     
     def _calculate_parametric_var(self,
                                  portfolio_returns: pd.Series,
