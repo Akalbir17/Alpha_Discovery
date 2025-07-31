@@ -122,5 +122,5 @@ passlib[bcrypt]
 opencv-python
 pytrends
 feedparser
-arch
+arch==5.3.1
 asyncpraw 
