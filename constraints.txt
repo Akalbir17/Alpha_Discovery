@@ -4,3 +4,7 @@ clarabel==0.9.0
 vectorbt==0.25.0
 numba==0.56.4
 llvmlite==0.39.1
+# Fix FastAPI and tokenizers conflicts
+fastapi==0.115.9
+tokenizers==0.20.3
+chromadb==1.0.15
