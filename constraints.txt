@@ -3,7 +3,7 @@ cvxpy==1.3.2
 clarabel==0.9.0
 vectorbt==0.25.0
 numba==0.58.1
-llvmlite==0.39.1
+llvmlite==0.41.1
 # Fix FastAPI and tokenizers conflicts
 fastapi==0.115.9
 tokenizers==0.20.3
