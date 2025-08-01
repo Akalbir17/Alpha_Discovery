@@ -20,7 +20,7 @@ mcp==1.12.0
 
 # Data processing and analysis
 pandas
-numpy==1.24.3
+numpy==1.26.4
 scipy
 scikit-learn
 # State-of-the-art ML models (2025 upgrades)

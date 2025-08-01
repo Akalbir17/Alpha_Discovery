@@ -12,4 +12,4 @@ transformers==4.46.3
 # Fix arch build issue (5.0/5.0.1 have broken setup.py)
 arch==5.3.1
 # Fix numpy compilation issue - ensure we get wheels
-numpy==1.24.3
+numpy==1.26.4
