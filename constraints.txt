@@ -25,3 +25,5 @@ matplotlib==3.10.5
 ml-dtypes==0.5.3
 # Fix statsmodels Cython compilation issue
 statsmodels==0.14.0
+# Fix pyfolio wsgiref Python 2/3 syntax issue
+pyfolio==0.9.2

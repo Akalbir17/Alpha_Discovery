@@ -32,7 +32,7 @@ gliner==0.2.8
 # Analytics and performance libraries
 empyrical==0.5.5
 quantstats
-pyfolio
+pyfolio==0.9.2
 statsmodels==0.14.0
 
 yfinance
