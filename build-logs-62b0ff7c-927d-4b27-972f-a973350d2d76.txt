@@ -1,0 +1,549 @@
+2025-08-01T21:58:29.740Z [INFO] Creating cache directory.
+2025-08-01T21:58:34.647Z [INFO] Build using docker
+2025-08-01T21:58:34.716Z [INFO] #0 building with "nifty_brahmagupta" instance using docker-container driver
+2025-08-01T21:58:34.717Z [INFO] 
+2025-08-01T21:58:34.718Z [INFO] #1 [internal] booting buildkit
+2025-08-01T21:58:34.867Z [INFO] #1 pulling image moby/buildkit:v0.17.2
+2025-08-01T21:58:35.960Z [INFO] #1 pulling image moby/buildkit:v0.17.2 1.2s done
+2025-08-01T21:58:36.111Z [INFO] #1 creating container buildx_buildkit_nifty_brahmagupta0
+2025-08-01T21:58:40.187Z [INFO] #1 creating container buildx_buildkit_nifty_brahmagupta0 4.2s done
+2025-08-01T21:58:40.380Z [INFO] #1 DONE 5.5s
+2025-08-01T21:58:40.381Z [INFO] 
+2025-08-01T21:58:40.382Z [INFO] #2 [internal] load build definition from Dockerfile.mcp
+2025-08-01T21:58:40.382Z [INFO] #2 transferring dockerfile: 3.12kB done
+2025-08-01T21:58:40.383Z [INFO] #2 DONE 0.0s
+2025-08-01T21:58:40.384Z [INFO] 
+2025-08-01T21:58:40.384Z [INFO] #3 [internal] load metadata for docker.io/pytorch/pytorch:2.3.1-cuda12.1-cudnn8-runtime
+2025-08-01T21:58:40.776Z [INFO] #3 ...
+2025-08-01T21:58:40.777Z [INFO] 
+2025-08-01T21:58:40.778Z [INFO] #4 [auth] pytorch/pytorch:pull token for registry-1.docker.io
+2025-08-01T21:58:40.779Z [INFO] #4 DONE 0.0s
+2025-08-01T21:58:40.927Z [INFO] 
+2025-08-01T21:58:40.928Z [INFO] #3 [internal] load metadata for docker.io/pytorch/pytorch:2.3.1-cuda12.1-cudnn8-runtime
+2025-08-01T21:58:41.608Z [INFO] #3 DONE 1.4s
+2025-08-01T21:58:41.778Z [INFO] 
+2025-08-01T21:58:41.780Z [INFO] #5 [internal] load .dockerignore
+2025-08-01T21:58:41.780Z [INFO] #5 transferring context: 2B done
+2025-08-01T21:58:41.781Z [INFO] #5 DONE 0.0s
+2025-08-01T21:58:41.781Z [INFO] 
+2025-08-01T21:58:41.782Z [INFO] #6 [internal] load build context
+2025-08-01T21:58:41.783Z [INFO] #6 transferring context: 3.44MB 0.0s done
+2025-08-01T21:58:41.783Z [INFO] #6 DONE 0.0s
+2025-08-01T21:58:41.784Z [INFO] 
+2025-08-01T21:58:41.784Z [INFO] #7 [ 1/12] FROM docker.io/pytorch/pytorch:2.3.1-cuda12.1-cudnn8-runtime@sha256:fc47f8018254e6df30f48c48f2db1c758d44de21a8c553de1a1c451a65baa70a
+2025-08-01T21:58:41.785Z [INFO] #7 resolve docker.io/pytorch/pytorch:2.3.1-cuda12.1-cudnn8-runtime@sha256:fc47f8018254e6df30f48c48f2db1c758d44de21a8c553de1a1c451a65baa70a done
+2025-08-01T21:58:41.786Z [INFO] #7 sha256:56aefa055df8838775b05f7d751e79d23c05019d3cba76b5e8eafde9d6e5c215 0B / 99B 0.2s
+2025-08-01T21:58:41.929Z [INFO] #7 sha256:56aefa055df8838775b05f7d751e79d23c05019d3cba76b5e8eafde9d6e5c215 99B / 99B 0.2s done
+2025-08-01T21:58:41.930Z [INFO] #7 sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1 32B / 32B 0.3s
+2025-08-01T21:58:41.931Z [INFO] #7 sha256:e65ed687208ba4c9878e8960d746a03f154aa9b4f37ac05153364445d539162f 0B / 3.69GB 0.2s
+2025-08-01T21:58:41.931Z [INFO] #7 sha256:7e61b0f758fc9403904ce4d142bac68d88d6f3721bcec8056a24ccae47c75edb 0B / 7.21MB 0.2s
+2025-08-01T21:58:42.081Z [INFO] #7 sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1 32B / 32B 0.3s done
+2025-08-01T21:58:42.082Z [INFO] #7 sha256:7e61b0f758fc9403904ce4d142bac68d88d6f3721bcec8056a24ccae47c75edb 4.19MB / 7.21MB 0.5s
+2025-08-01T21:58:42.083Z [INFO] #7 sha256:2ec76a50fe7c8d5db9ec25590b9217e14e3920513c6e7b5be55db72a16b55f7c 0B / 30.44MB 0.2s
+2025-08-01T21:58:42.203Z [INFO] #7 sha256:7e61b0f758fc9403904ce4d142bac68d88d6f3721bcec8056a24ccae47c75edb 7.21MB / 7.21MB 0.5s done
+2025-08-01T21:58:42.204Z [INFO] #7 sha256:2ec76a50fe7c8d5db9ec25590b9217e14e3920513c6e7b5be55db72a16b55f7c 30.44MB / 30.44MB 0.4s done
+2025-08-01T21:58:42.380Z [INFO] #7 extracting sha256:2ec76a50fe7c8d5db9ec25590b9217e14e3920513c6e7b5be55db72a16b55f7c
+2025-08-01T21:58:42.680Z [INFO] #7 extracting sha256:2ec76a50fe7c8d5db9ec25590b9217e14e3920513c6e7b5be55db72a16b55f7c 0.4s done
+2025-08-01T21:58:42.681Z [INFO] #7 extracting sha256:7e61b0f758fc9403904ce4d142bac68d88d6f3721bcec8056a24ccae47c75edb
+2025-08-01T21:58:43.101Z [INFO] #7 extracting sha256:7e61b0f758fc9403904ce4d142bac68d88d6f3721bcec8056a24ccae47c75edb 0.5s done
+2025-08-01T22:01:40.677Z [INFO] #13 16.70   Downloading pydantic_core-2.33.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.8 kB)
+2025-08-01T22:01:40.679Z [INFO] #13 16.74 Collecting typing-extensions>=4.7 (from langchain-core==0.3.69->-r requirements.txt (line 12))
+2025-08-01T22:01:40.679Z [INFO] #13 16.77   Downloading typing_extensions-4.14.1-py3-none-any.whl.metadata (3.0 kB)
+2025-08-01T22:01:40.680Z [INFO] #13 16.80 Collecting typing-inspection>=0.4.0 (from pydantic==2.11.7->-r requirements.txt (line 74))
+2025-08-01T22:01:40.796Z [INFO] #13 16.83   Downloading typing_inspection-0.4.1-py3-none-any.whl.metadata (2.6 kB)
+2025-08-01T22:01:40.797Z [INFO] #13 16.89 Collecting paho-mqtt>=1.6.0 (from asyncio-mqtt==0.16.2->-r requirements.txt (line 81))
+2025-08-01T22:01:40.798Z [INFO] #13 16.92   Downloading paho_mqtt-2.1.0-py3-none-any.whl.metadata (23 kB)
+2025-08-01T22:01:40.919Z [INFO] #13 16.98 Collecting ipywidgets>=7.0.0 (from vectorbt==0.25.0->-r requirements.txt (line 88))
+2025-08-01T22:01:40.920Z [INFO] #13 17.01   Downloading ipywidgets-8.1.7-py3-none-any.whl.metadata (2.4 kB)
+2025-08-01T22:01:40.921Z [INFO] #13 17.04 Collecting dill (from vectorbt==0.25.0->-r requirements.txt (line 88))
+2025-08-01T22:01:41.056Z [INFO] #13 17.07   Downloading dill-0.4.0-py3-none-any.whl.metadata (10 kB)
+2025-08-01T22:01:41.057Z [INFO] #13 17.11 Collecting dateparser (from vectorbt==0.25.0->-r requirements.txt (line 88))
+2025-08-01T22:01:41.058Z [INFO] #13 17.14   Downloading dateparser-1.2.2-py3-none-any.whl.metadata (29 kB)
+2025-08-01T22:01:41.058Z [INFO] #13 17.18 Collecting imageio (from vectorbt==0.25.0->-r requirements.txt (line 88))
+2025-08-01T22:01:41.175Z [INFO] #13 17.21   Downloading imageio-2.37.0-py3-none-any.whl.metadata (5.2 kB)
+2025-08-01T22:01:41.176Z [INFO] #13 17.24 Collecting schedule (from vectorbt==0.25.0->-r requirements.txt (line 88))
+2025-08-01T22:01:41.177Z [INFO] #13 17.27   Downloading schedule-1.2.2-py3-none-any.whl.metadata (3.8 kB)
+2025-08-01T22:01:41.178Z [INFO] #13 17.30 Collecting mypy-extensions (from vectorbt==0.25.0->-r requirements.txt (line 88))
+2025-08-01T22:01:41.277Z [INFO] #13 17.33   Downloading mypy_extensions-1.1.0-py3-none-any.whl.metadata (1.1 kB)
+2025-08-01T22:01:41.278Z [INFO] #13 17.40 Collecting numba>=0.56.0 (from vectorbt==0.25.0->-r requirements.txt (line 88))
+2025-08-01T22:01:41.405Z [INFO] #13 17.43   Downloading numba-0.56.4-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.8 kB)
+2025-08-01T22:01:41.406Z [INFO] #13 17.53 Collecting osqp>=0.4.1 (from cvxpy==1.3.2->-r requirements.txt (line 95))
+2025-08-01T22:01:41.507Z [INFO] #13 17.56   Downloading osqp-1.0.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.1 kB)
+2025-08-01T22:01:41.508Z [INFO] #13 17.60 Collecting ecos>=2 (from cvxpy==1.3.2->-r requirements.txt (line 95))
+2025-08-01T22:01:41.508Z [INFO] #13 17.63   Downloading ecos-2.0.14-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (8.0 kB)
+2025-08-01T22:01:41.613Z [INFO] #13 17.67 Collecting scs>=1.1.6 (from cvxpy==1.3.2->-r requirements.txt (line 95))
+2025-08-01T22:01:41.615Z [INFO] #13 17.70   Downloading scs-3.2.7.post2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.1 kB)
+2025-08-01T22:01:41.615Z [INFO] #13 17.71 Requirement already satisfied: setuptools>65.5.1 in /opt/conda/lib/python3.10/site-packages (from cvxpy==1.3.2->-r requirements.txt (line 95)) (69.5.1)
+2025-08-01T22:01:41.616Z [INFO] #13 17.74 Collecting plotly (from -r requirements.txt (line 44))
+2025-08-01T22:01:41.730Z [INFO] #13 17.76   Downloading plotly-5.24.1-py3-none-any.whl.metadata (7.3 kB)
+2025-08-01T22:01:41.732Z [INFO] #13 17.83 Collecting cloudpickle>=1.2.0 (from gym==0.26.2->-r requirements.txt (line 99))
+2025-08-01T22:01:41.732Z [INFO] #13 17.85   Downloading cloudpickle-3.1.1-py3-none-any.whl.metadata (7.1 kB)
+2025-08-01T22:01:41.838Z [INFO] #13 17.89 Collecting gym_notices>=0.0.4 (from gym==0.26.2->-r requirements.txt (line 99))
+2025-08-01T22:01:41.839Z [INFO] #13 17.91   Downloading gym_notices-0.1.0-py3-none-any.whl.metadata (1.2 kB)
+2025-08-01T22:01:41.840Z [INFO] #13 17.96 Collecting gymnasium<1.2.0,>=0.29.1 (from stable-baselines3==2.6.0->-r requirements.txt (line 100))
+2025-08-01T22:01:41.946Z [INFO] #13 17.99   Downloading gymnasium-1.1.1-py3-none-any.whl.metadata (9.4 kB)
+2025-08-01T22:01:41.948Z [INFO] #13 18.04 Collecting absl-py>=1.0.0 (from tensorflow==2.19.0->-r requirements.txt (line 103))
+2025-08-01T22:01:41.948Z [INFO] #13 18.07   Downloading absl_py-2.3.1-py3-none-any.whl.metadata (3.3 kB)
+2025-08-01T22:01:42.071Z [INFO] #13 18.07 Requirement already satisfied: astunparse>=1.6.0 in /opt/conda/lib/python3.10/site-packages (from tensorflow==2.19.0->-r requirements.txt (line 103)) (1.6.3)
+2025-08-01T22:01:42.072Z [INFO] #13 18.10 Collecting flatbuffers>=24.3.25 (from tensorflow==2.19.0->-r requirements.txt (line 103))
+2025-08-01T22:01:42.073Z [INFO] #13 18.13   Downloading flatbuffers-25.2.10-py2.py3-none-any.whl.metadata (875 bytes)
+2025-08-01T22:01:42.073Z [INFO] #13 18.17 Collecting gast!=0.5.0,!=0.5.1,!=0.5.2,>=0.2.1 (from tensorflow==2.19.0->-r requirements.txt (line 103))
+2025-08-01T22:01:42.074Z [INFO] #13 18.19   Downloading gast-0.6.0-py3-none-any.whl.metadata (1.3 kB)
+2025-08-01T22:01:42.195Z [INFO] #13 18.23 Collecting google-pasta>=0.1.1 (from tensorflow==2.19.0->-r requirements.txt (line 103))
+2025-08-01T22:01:42.196Z [INFO] #13 18.25   Downloading google_pasta-0.2.0-py3-none-any.whl.metadata (814 bytes)
+2025-08-01T22:01:42.197Z [INFO] #13 18.29 Collecting libclang>=13.0.0 (from tensorflow==2.19.0->-r requirements.txt (line 103))
+2025-08-01T22:01:42.197Z [INFO] #13 18.32   Downloading libclang-18.1.1-py2.py3-none-manylinux2010_x86_64.whl.metadata (5.2 kB)
+2025-08-01T22:01:42.307Z [INFO] #13 18.35 Collecting opt-einsum>=2.3.2 (from tensorflow==2.19.0->-r requirements.txt (line 103))
+2025-08-01T22:01:42.307Z [INFO] #13 18.38   Downloading opt_einsum-3.4.0-py3-none-any.whl.metadata (6.3 kB)
+2025-08-01T22:01:42.308Z [INFO] #13 18.40 Collecting protobuf (from google-generativeai==0.8.0->-r requirements.txt (line 16))
+2025-08-01T22:01:42.309Z [INFO] #13 18.43   Downloading protobuf-5.29.5-cp38-abi3-manylinux2014_x86_64.whl.metadata (592 bytes)
+2025-08-01T22:01:42.446Z [INFO] #13 18.47 Collecting termcolor>=1.1.0 (from tensorflow==2.19.0->-r requirements.txt (line 103))
+2025-08-01T22:01:42.447Z [INFO] #13 18.49   Downloading termcolor-3.1.0-py3-none-any.whl.metadata (6.4 kB)
+2025-08-01T22:01:42.448Z [INFO] #13 18.57 Collecting wrapt>=1.11.0 (from tensorflow==2.19.0->-r requirements.txt (line 103))
+2025-08-01T22:01:42.624Z [INFO] #13 18.60   Downloading wrapt-1.17.2-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.4 kB)
+2025-08-01T22:01:42.984Z [INFO] #13 19.11 Collecting grpcio<2.0,>=1.24.3 (from tensorflow==2.19.0->-r requirements.txt (line 103))
+2025-08-01T22:01:43.117Z [INFO] #13 19.13   Downloading grpcio-1.74.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.8 kB)
+2025-08-01T22:01:43.119Z [INFO] #13 19.17 Collecting tensorboard~=2.19.0 (from tensorflow==2.19.0->-r requirements.txt (line 103))
+2025-08-01T22:01:43.119Z [INFO] #13 19.20   Downloading tensorboard-2.19.0-py3-none-any.whl.metadata (1.8 kB)
+2025-08-01T22:01:43.120Z [INFO] #13 19.24 Collecting keras>=3.5.0 (from tensorflow==2.19.0->-r requirements.txt (line 103))
+2025-08-01T22:01:43.223Z [INFO] #13 19.27   Downloading keras-3.11.1-py3-none-any.whl.metadata (5.9 kB)
+2025-08-01T22:01:43.224Z [INFO] #13 19.32 Collecting h5py>=3.11.0 (from tensorflow==2.19.0->-r requirements.txt (line 103))
+2025-08-01T22:01:43.224Z [INFO] #13 19.35   Downloading h5py-3.14.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.7 kB)
+2025-08-01T22:01:43.336Z [INFO] #13 19.39 Collecting ml-dtypes<1.0.0,>=0.5.1 (from tensorflow==2.19.0->-r requirements.txt (line 103))
+2025-08-01T22:01:43.337Z [INFO] #13 19.41   Downloading ml_dtypes-0.5.3-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (8.9 kB)
+2025-08-01T22:01:43.337Z [INFO] #13 19.46 Collecting tensorflow-io-gcs-filesystem>=0.23.1 (from tensorflow==2.19.0->-r requirements.txt (line 103))
+2025-08-01T22:01:43.513Z [INFO] #13 19.49   Downloading tensorflow_io_gcs_filesystem-0.37.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (14 kB)
+2025-08-01T22:01:43.528Z [INFO] #13 19.65 Requirement already satisfied: filelock in /opt/conda/lib/python3.10/site-packages (from transformers==4.46.3->-r requirements.txt (line 107)) (3.13.1)
+2025-08-01T22:01:43.634Z [INFO] #13 19.76 Collecting safetensors>=0.4.1 (from transformers==4.46.3->-r requirements.txt (line 107))
+2025-08-01T22:01:43.754Z [INFO] #13 19.78   Downloading safetensors-0.5.3-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.8 kB)
+2025-08-01T22:01:43.755Z [INFO] #13 19.85 Collecting sympy>=1.13.3 (from torch==2.7.1->-r requirements.txt (line 108))
+2025-08-01T22:01:43.756Z [INFO] #13 19.88   Downloading sympy-1.14.0-py3-none-any.whl.metadata (12 kB)
+2025-08-01T22:01:43.883Z [INFO] #13 19.88 Requirement already satisfied: networkx in /opt/conda/lib/python3.10/site-packages (from torch==2.7.1->-r requirements.txt (line 108)) (3.2.1)
+2025-08-01T22:01:43.884Z [INFO] #13 19.88 Requirement already satisfied: jinja2 in /opt/conda/lib/python3.10/site-packages (from torch==2.7.1->-r requirements.txt (line 108)) (3.1.4)
+2025-08-01T22:01:43.885Z [INFO] #13 19.88 Requirement already satisfied: fsspec in /opt/conda/lib/python3.10/site-packages (from torch==2.7.1->-r requirements.txt (line 108)) (2024.6.0)
+2025-08-01T22:01:43.886Z [INFO] #13 19.94   Downloading nvidia_cuda_nvrtc_cu12-12.6.77-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
+2025-08-01T22:01:43.886Z [INFO] #13 19.91 Collecting nvidia-cuda-nvrtc-cu12==12.6.77 (from torch==2.7.1->-r requirements.txt (line 108))
+2025-08-01T22:01:43.887Z [INFO] #13 19.98 Collecting nvidia-cuda-runtime-cu12==12.6.77 (from torch==2.7.1->-r requirements.txt (line 108))
+2025-08-01T22:01:43.887Z [INFO] #13 20.01   Downloading nvidia_cuda_runtime_cu12-12.6.77-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.5 kB)
+2025-08-01T22:01:43.985Z [INFO] #13 20.04 Collecting nvidia-cuda-cupti-cu12==12.6.80 (from torch==2.7.1->-r requirements.txt (line 108))
+2025-08-01T22:01:43.986Z [INFO] #13 20.07   Downloading nvidia_cuda_cupti_cu12-12.6.80-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.6 kB)
+2025-08-01T22:01:43.986Z [INFO] #13 20.11 Collecting nvidia-cudnn-cu12==9.5.1.17 (from torch==2.7.1->-r requirements.txt (line 108))
+2025-08-01T22:01:44.111Z [INFO] #13 20.14   Downloading nvidia_cudnn_cu12-9.5.1.17-py3-none-manylinux_2_28_x86_64.whl.metadata (1.6 kB)
+2025-08-01T22:01:44.112Z [INFO] #13 20.17 Collecting nvidia-cublas-cu12==12.6.4.1 (from torch==2.7.1->-r requirements.txt (line 108))
+2025-08-01T22:01:44.113Z [INFO] #13 20.20   Downloading nvidia_cublas_cu12-12.6.4.1-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.5 kB)
+2025-08-01T22:01:44.113Z [INFO] #13 20.23 Collecting nvidia-cufft-cu12==11.3.0.4 (from torch==2.7.1->-r requirements.txt (line 108))
+2025-08-01T22:01:44.236Z [INFO] #13 20.26   Downloading nvidia_cufft_cu12-11.3.0.4-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.5 kB)
+2025-08-01T22:01:44.237Z [INFO] #13 20.30 Collecting nvidia-curand-cu12==10.3.7.77 (from torch==2.7.1->-r requirements.txt (line 108))
+2025-08-01T22:01:44.238Z [INFO] #13 20.32   Downloading nvidia_curand_cu12-10.3.7.77-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.5 kB)
+2025-08-01T22:01:44.238Z [INFO] #13 20.36 Collecting nvidia-cusolver-cu12==11.7.1.2 (from torch==2.7.1->-r requirements.txt (line 108))
+2025-08-01T22:01:44.361Z [INFO] #13 20.39   Downloading nvidia_cusolver_cu12-11.7.1.2-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.6 kB)
+2025-08-01T22:01:44.362Z [INFO] #13 20.42 Collecting nvidia-cusparse-cu12==12.5.4.2 (from torch==2.7.1->-r requirements.txt (line 108))
+2025-08-01T22:01:44.363Z [INFO] #13 20.45   Downloading nvidia_cusparse_cu12-12.5.4.2-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.6 kB)
+2025-08-01T22:01:44.363Z [INFO] #13 20.48 Collecting nvidia-cusparselt-cu12==0.6.3 (from torch==2.7.1->-r requirements.txt (line 108))
+2025-08-01T22:01:44.484Z [INFO] #13 20.51   Downloading nvidia_cusparselt_cu12-0.6.3-py3-none-manylinux2014_x86_64.whl.metadata (6.8 kB)
+2025-08-01T22:01:44.485Z [INFO] #13 20.51 Collecting nvidia-nccl-cu12 (from xgboost==2.1.3->-r requirements.txt (line 27))
+2025-08-01T22:01:44.486Z [INFO] #13 20.54   Downloading nvidia_nccl_cu12-2.26.2-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.0 kB)
+2025-08-01T22:01:44.486Z [INFO] #13 20.58 Collecting nvidia-nvtx-cu12==12.6.77 (from torch==2.7.1->-r requirements.txt (line 108))
+2025-08-01T22:01:44.487Z [INFO] #13 20.61   Downloading nvidia_nvtx_cu12-12.6.77-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.6 kB)
+2025-08-01T22:01:44.608Z [INFO] #13 20.64 Collecting nvidia-nvjitlink-cu12==12.6.85 (from torch==2.7.1->-r requirements.txt (line 108))
+2025-08-01T22:01:44.610Z [INFO] #13 20.67   Downloading nvidia_nvjitlink_cu12-12.6.85-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl.metadata (1.5 kB)
+2025-08-01T22:01:44.610Z [INFO] #13 20.70 Collecting nvidia-cufile-cu12==1.11.1.6 (from torch==2.7.1->-r requirements.txt (line 108))
+2025-08-01T22:01:44.611Z [INFO] #13 20.73   Downloading nvidia_cufile_cu12-1.11.1.6-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.5 kB)
+2025-08-01T22:01:44.758Z [INFO] #13 20.77 Collecting triton==3.3.1 (from torch==2.7.1->-r requirements.txt (line 108))
+2025-08-01T22:01:44.759Z [INFO] #13 20.79   Downloading triton-3.3.1-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (1.5 kB)
+2025-08-01T22:01:44.760Z [INFO] #13 20.82 Requirement already satisfied: Pillow in /opt/conda/lib/python3.10/site-packages (from sentence-transformers==2.7.0->-r requirements.txt (line 109)) (10.3.0)
+2025-08-01T22:01:44.760Z [INFO] #13 20.88 Collecting spacy-legacy<3.1.0,>=3.0.11 (from spacy==3.8.7->-r requirements.txt (line 110))
+2025-08-01T22:01:44.896Z [INFO] #13 20.91   Downloading spacy_legacy-3.0.12-py2.py3-none-any.whl.metadata (2.8 kB)
+2025-08-01T22:01:44.897Z [INFO] #13 20.94 Collecting spacy-loggers<2.0.0,>=1.0.0 (from spacy==3.8.7->-r requirements.txt (line 110))
+2025-08-01T22:01:44.898Z [INFO] #13 20.97   Downloading spacy_loggers-1.0.5-py3-none-any.whl.metadata (23 kB)
+2025-08-01T22:01:44.898Z [INFO] #13 21.02 Collecting murmurhash<1.1.0,>=0.28.0 (from spacy==3.8.7->-r requirements.txt (line 110))
+2025-08-01T22:01:45.038Z [INFO] #13 21.05   Downloading murmurhash-1.0.13-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.2 kB)
+2025-08-01T22:01:45.039Z [INFO] #13 21.09 Collecting cymem<2.1.0,>=2.0.2 (from spacy==3.8.7->-r requirements.txt (line 110))
+2025-08-01T22:01:45.039Z [INFO] #13 21.12   Downloading cymem-2.0.11-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (8.5 kB)
+2025-08-01T22:01:45.040Z [INFO] #13 21.16 Collecting preshed<3.1.0,>=3.0.2 (from spacy==3.8.7->-r requirements.txt (line 110))
+2025-08-01T22:01:45.164Z [INFO] #13 21.19   Downloading preshed-3.0.10-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.4 kB)
+2025-08-01T22:01:45.165Z [INFO] #13 21.29 Collecting thinc<8.4.0,>=8.3.4 (from spacy==3.8.7->-r requirements.txt (line 110))
+2025-08-01T22:01:45.306Z [INFO] #13 21.31   Downloading thinc-8.3.6-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (15 kB)
+2025-08-01T22:01:45.307Z [INFO] #13 21.35 Collecting wasabi<1.2.0,>=0.9.1 (from spacy==3.8.7->-r requirements.txt (line 110))
+2025-08-01T22:01:45.307Z [INFO] #13 21.38   Downloading wasabi-1.1.3-py3-none-any.whl.metadata (28 kB)
+2025-08-01T22:01:45.308Z [INFO] #13 21.43 Collecting srsly<3.0.0,>=2.4.3 (from spacy==3.8.7->-r requirements.txt (line 110))
+2025-08-01T22:01:45.437Z [INFO] #13 21.46   Downloading srsly-2.5.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (19 kB)
+2025-08-01T22:01:45.438Z [INFO] #13 21.49 Collecting catalogue<2.1.0,>=2.0.6 (from spacy==3.8.7->-r requirements.txt (line 110))
+2025-08-01T22:01:45.439Z [INFO] #13 21.53   Downloading catalogue-2.0.10-py3-none-any.whl.metadata (14 kB)
+2025-08-01T22:01:45.439Z [INFO] #13 21.56 Collecting weasel<0.5.0,>=0.1.0 (from spacy==3.8.7->-r requirements.txt (line 110))
+2025-08-01T22:01:45.575Z [INFO] #13 21.59   Downloading weasel-0.4.1-py3-none-any.whl.metadata (4.6 kB)
+2025-08-01T22:01:45.576Z [INFO] #13 21.63 Collecting typer<1.0.0,>=0.3.0 (from spacy==3.8.7->-r requirements.txt (line 110))
+2025-08-01T22:01:45.577Z [INFO] #13 21.65   Downloading typer-0.16.0-py3-none-any.whl.metadata (15 kB)
+2025-08-01T22:01:45.577Z [INFO] #13 21.70 Collecting langcodes<4.0.0,>=3.2.0 (from spacy==3.8.7->-r requirements.txt (line 110))
+2025-08-01T22:01:45.680Z [INFO] #13 21.73   Downloading langcodes-3.5.0-py3-none-any.whl.metadata (29 kB)
+2025-08-01T22:01:45.681Z [INFO] #13 21.80 Collecting property-cached>=1.6.4 (from arch==5.3.1->-r requirements.txt (line 125))
+2025-08-01T22:01:45.808Z [INFO] #13 21.83   Downloading property_cached-1.6.4-py2.py3-none-any.whl.metadata (12 kB)
+2025-08-01T22:01:45.809Z [INFO] #13 21.93 Collecting proto-plus<2.0.0dev,>=1.22.3 (from google-ai-generativelanguage==0.6.9->google-generativeai==0.8.0->-r requirements.txt (line 16))
+2025-08-01T22:01:45.940Z [INFO] #13 21.96   Downloading proto_plus-1.26.1-py3-none-any.whl.metadata (2.2 kB)
+2025-08-01T22:01:45.941Z [INFO] #13 22.06 Collecting importlib-metadata>=6.8.0 (from litellm==1.72.6->crewai==0.148.0->-r requirements.txt (line 2))
+2025-08-01T22:01:46.116Z [INFO] #13 22.09   Downloading importlib_metadata-8.7.0-py3-none-any.whl.metadata (4.8 kB)
+2025-08-01T22:01:46.132Z [INFO] #13 22.25 Collecting coloredlogs (from onnxruntime==1.22.0->crewai==0.148.0->-r requirements.txt (line 2))
+2025-08-01T22:01:46.263Z [INFO] #13 22.28   Downloading coloredlogs-15.0.1-py2.py3-none-any.whl.metadata (12 kB)
+2025-08-01T22:01:46.264Z [INFO] #13 22.39 Collecting tzdata>=2022.7 (from pandas->-r requirements.txt (line 22))
+2025-08-01T22:01:46.374Z [INFO] #13 22.41   Downloading tzdata-2025.2-py2.py3-none-any.whl.metadata (1.4 kB)
+2025-08-01T22:01:46.375Z [INFO] #13 22.47 Collecting multitasking>=0.0.7 (from yfinance->-r requirements.txt (line 38))
+2025-08-01T22:01:46.375Z [INFO] #13 22.50   Downloading multitasking-0.0.12.tar.gz (19 kB)
+2025-08-01T22:01:46.504Z [INFO] #13 22.50   Preparing metadata (setup.py): started
+2025-08-01T22:01:46.505Z [INFO] #13 22.59   Preparing metadata (setup.py): finished with status 'done'
+2025-08-01T22:01:46.506Z [INFO] #13 22.59 Requirement already satisfied: platformdirs>=2.0.0 in /opt/conda/lib/python3.10/site-packages (from yfinance->-r requirements.txt (line 38)) (3.10.0)
+2025-08-01T22:01:46.506Z [INFO] #13 22.59 Requirement already satisfied: frozendict>=2.3.4 in /opt/conda/lib/python3.10/site-packages (from yfinance->-r requirements.txt (line 38)) (2.4.2)
+2025-08-01T22:01:46.507Z [INFO] #13 22.63 Collecting peewee>=3.16.2 (from yfinance->-r requirements.txt (line 38))
+2025-08-01T22:01:46.722Z [INFO] #13 22.65   Downloading peewee-3.18.2.tar.gz (949 kB)
+2025-08-01T22:01:46.722Z [INFO] #13 22.66      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 949.2/949.2 kB 98.4 MB/s eta 0:00:00
+2025-08-01T22:01:46.723Z [INFO] #13 22.69   Installing build dependencies: started
+2025-08-01T22:01:47.728Z [INFO] #13 23.85   Installing build dependencies: finished with status 'done'
+2025-08-01T22:01:47.837Z [INFO] #13 23.85   Getting requirements to build wheel: started
+2025-08-01T22:01:47.839Z [INFO] #13 23.96   Getting requirements to build wheel: finished with status 'done'
+2025-08-01T22:01:47.946Z [INFO] #13 23.96   Preparing metadata (pyproject.toml): started
+2025-08-01T22:01:47.947Z [INFO] #13 24.07   Preparing metadata (pyproject.toml): finished with status 'done'
+2025-08-01T22:01:48.136Z [INFO] #13 24.07 Requirement already satisfied: beautifulsoup4>=4.11.1 in /opt/conda/lib/python3.10/site-packages (from yfinance->-r requirements.txt (line 38)) (4.12.2)
+2025-08-01T22:01:48.137Z [INFO] #13 24.12 Collecting curl_cffi>=0.7 (from yfinance->-r requirements.txt (line 38))
+2025-08-01T22:01:48.138Z [INFO] #13 24.15   Downloading curl_cffi-0.12.0-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (14 kB)
+2025-08-01T22:01:48.138Z [INFO] #13 24.26 Collecting contourpy>=1.0.1 (from matplotlib->-r requirements.txt (line 42))
+2025-08-01T22:01:48.324Z [INFO] #13 24.28   Downloading contourpy-1.3.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.4 kB)
+2025-08-01T22:01:48.325Z [INFO] #13 24.32 Collecting cycler>=0.10 (from matplotlib->-r requirements.txt (line 42))
+2025-08-01T22:01:48.325Z [INFO] #13 24.34   Downloading cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+2025-08-01T22:01:48.326Z [INFO] #13 24.45 Collecting fonttools>=4.22.0 (from matplotlib->-r requirements.txt (line 42))
+2025-08-01T22:01:48.432Z [INFO] #13 24.47   Downloading fonttools-4.59.0-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (107 kB)
+2025-08-01T22:01:48.434Z [INFO] #13 24.47      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 107.9/107.9 kB 557.2 MB/s eta 0:00:00
+2025-08-01T22:01:48.434Z [INFO] #13 24.53 Collecting kiwisolver>=1.3.1 (from matplotlib->-r requirements.txt (line 42))
+2025-08-01T22:01:48.435Z [INFO] #13 24.55   Downloading kiwisolver-1.4.8-cp310-cp310-manylinux_2_12_x86_64.manylinux2010_x86_64.whl.metadata (6.2 kB)
+2025-08-01T22:01:48.589Z [INFO] #13 24.60 Collecting pyparsing>=2.3.1 (from matplotlib->-r requirements.txt (line 42))
+2025-08-01T22:01:48.590Z [INFO] #13 24.62   Downloading pyparsing-3.2.3-py3-none-any.whl.metadata (5.0 kB)
+2025-08-01T22:01:48.591Z [INFO] #13 24.71 Collecting httpcore==1.* (from httpx>=0.27.0->-r requirements.txt (line 54))
+2025-08-01T22:01:48.696Z [INFO] #13 24.74   Downloading httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
+2025-08-01T22:01:48.698Z [INFO] #13 24.78 Requirement already satisfied: cryptography>=2.6.1 in /opt/conda/lib/python3.10/site-packages (from ccxt->-r requirements.txt (line 85)) (42.0.5)
+2025-08-01T22:01:48.698Z [INFO] #13 24.82 Collecting aiodns>=1.1.1 (from ccxt->-r requirements.txt (line 85))
+2025-08-01T22:01:48.846Z [INFO] #13 24.85   Downloading aiodns-3.5.0-py3-none-any.whl.metadata (5.8 kB)
+2025-08-01T22:01:48.847Z [INFO] #13 24.87 Collecting websockets (from -r requirements.txt (line 82))
+2025-08-01T22:01:48.847Z [INFO] #13 24.89   Downloading websockets-14.2-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.8 kB)
+2025-08-01T22:01:48.848Z [INFO] #13 24.97 Collecting urllib3<3,>=1.21.1 (from requests==2.31.0->-r requirements.txt (line 50))
+2025-08-01T22:01:48.947Z [INFO] #13 24.99   Downloading urllib3-1.26.20-py2.py3-none-any.whl.metadata (50 kB)
+2025-08-01T22:01:48.948Z [INFO] #13 25.00      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 50.1/50.1 kB 456.5 MB/s eta 0:00:00
+2025-08-01T22:01:48.949Z [INFO] #13 25.00 INFO: pip is looking at multiple versions of alpaca-trade-api to determine which version is compatible with other requirements. This could take a while.
+2025-08-01T22:01:48.949Z [INFO] #13 25.01 Collecting alpaca-trade-api (from -r requirements.txt (line 87))
+2025-08-01T22:01:48.950Z [INFO] #13 25.03   Downloading alpaca_trade_api-3.1.1-py3-none-any.whl.metadata (29 kB)
+2025-08-01T22:01:48.950Z [INFO] #13 25.07   Downloading alpaca_trade_api-3.1.0-py3-none-any.whl.metadata (29 kB)
+2025-08-01T22:01:49.080Z [INFO] #13 25.10   Downloading alpaca_trade_api-3.0.2-py3-none-any.whl.metadata (29 kB)
+2025-08-01T22:01:49.081Z [INFO] #13 25.14   Downloading alpaca_trade_api-3.0.0-py3-none-any.whl.metadata (29 kB)
+2025-08-01T22:01:49.082Z [INFO] #13 25.17   Downloading alpaca_trade_api-2.3.0-py3-none-any.whl.metadata (28 kB)
+2025-08-01T22:01:49.082Z [INFO] #13 25.20   Downloading alpaca_trade_api-2.2.0-py3-none-any.whl.metadata (28 kB)
+2025-08-01T22:01:49.183Z [INFO] #13 25.24   Downloading alpaca_trade_api-2.1.0-py3-none-any.whl.metadata (28 kB)
+2025-08-01T22:01:49.184Z [INFO] #13 25.24 INFO: pip is still looking at multiple versions of alpaca-trade-api to determine which version is compatible with other requirements. This could take a while.
+2025-08-01T22:01:49.185Z [INFO] #13 25.27   Downloading alpaca_trade_api-2.0.0-py3-none-any.whl.metadata (24 kB)
+2025-08-01T22:01:49.185Z [INFO] #13 25.31   Downloading alpaca_trade_api-1.5.1-py3-none-any.whl.metadata (23 kB)
+2025-08-01T22:01:49.288Z [INFO] #13 25.34   Downloading alpaca_trade_api-1.5.0-py3-none-any.whl.metadata (23 kB)
+2025-08-01T22:01:49.289Z [INFO] #13 25.38   Downloading alpaca_trade_api-1.4.3-py3-none-any.whl.metadata (25 kB)
+2025-08-01T22:01:49.290Z [INFO] #13 25.41   Downloading alpaca_trade_api-1.4.2-py3-none-any.whl.metadata (25 kB)
+2025-08-01T22:01:49.422Z [INFO] #13 25.41 INFO: This is taking longer than usual. You might need to provide the dependency resolver with stricter constraints to reduce runtime. See https://pip.pypa.io/warnings/backtracking for guidance. If you want to abort this run, press Ctrl + C.
+2025-08-01T22:01:49.423Z [INFO] #13 25.44   Downloading alpaca_trade_api-1.4.1-py3-none-any.whl.metadata (25 kB)
+2025-08-01T22:01:49.423Z [INFO] #13 25.48   Downloading alpaca_trade_api-1.4.0-py3-none-any.whl.metadata (23 kB)
+2025-08-01T22:01:49.424Z [INFO] #13 25.51   Downloading alpaca_trade_api-1.3.0-py3-none-any.whl.metadata (23 kB)
+2025-08-01T22:01:49.425Z [INFO] #13 25.54   Downloading alpaca_trade_api-1.2.3-py3-none-any.whl.metadata (21 kB)
+2025-08-01T22:01:49.526Z [INFO] #13 25.58   Downloading alpaca_trade_api-1.2.2-py3-none-any.whl.metadata (21 kB)
+2025-08-01T22:01:49.528Z [INFO] #13 25.61   Downloading alpaca_trade_api-1.2.1-py3-none-any.whl.metadata (21 kB)
+2025-08-01T22:01:49.528Z [INFO] #13 25.62 Collecting websocket-client>=0.54.0 (from praw==7.8.1->-r requirements.txt (line 57))
+2025-08-01T22:01:49.529Z [INFO] #13 25.65   Downloading websocket_client-0.59.0-py2.py3-none-any.whl.metadata (6.5 kB)
+2025-08-01T22:01:49.657Z [INFO] #13 25.65 Collecting alpaca-trade-api (from -r requirements.txt (line 87))
+2025-08-01T22:01:49.658Z [INFO] #13 25.68   Downloading alpaca_trade_api-1.2.0-py3-none-any.whl.metadata (21 kB)
+2025-08-01T22:01:49.659Z [INFO] #13 25.71   Downloading alpaca_trade_api-1.1.0-py3-none-any.whl.metadata (21 kB)
+2025-08-01T22:01:49.659Z [INFO] #13 25.75   Downloading alpaca_trade_api-1.0.1-py3-none-any.whl.metadata (21 kB)
+2025-08-01T22:01:49.660Z [INFO] #13 25.78   Downloading alpaca_trade_api-0.53.0-py3-none-any.whl.metadata (25 kB)
+2025-08-01T22:01:49.758Z [INFO] #13 25.81   Downloading alpaca_trade_api-0.52.0-py3-none-any.whl.metadata (24 kB)
+2025-08-01T22:01:49.759Z [INFO] #13 25.85   Downloading alpaca_trade_api-0.51.0-py3-none-any.whl.metadata (22 kB)
+2025-08-01T22:01:49.760Z [INFO] #13 25.88   Downloading alpaca_trade_api-0.50.1-py3-none-any.whl.metadata (21 kB)
+2025-08-01T22:01:49.867Z [INFO] #13 25.91   Downloading alpaca_trade_api-0.50.0-py3-none-any.whl.metadata (21 kB)
+2025-08-01T22:01:49.869Z [INFO] #13 25.94   Downloading alpaca_trade_api-0.49.1-py3-none-any.whl.metadata (21 kB)
+2025-08-01T22:01:49.869Z [INFO] #13 25.98   Downloading alpaca_trade_api-0.49.0-py3-none-any.whl.metadata (23 kB)
+2025-08-01T22:01:49.870Z [INFO] #13 25.99 Collecting pandas (from -r requirements.txt (line 22))
+2025-08-01T22:01:49.988Z [INFO] #13 26.02   Downloading pandas-1.5.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (11 kB)
+2025-08-01T22:01:49.990Z [INFO] #13 26.02 Collecting alpaca-trade-api (from -r requirements.txt (line 87))
+2025-08-01T22:01:49.990Z [INFO] #13 26.05   Downloading alpaca_trade_api-0.48-py3-none-any.whl.metadata (21 kB)
+2025-08-01T22:01:49.991Z [INFO] #13 26.08 Collecting asyncio-nats-client (from alpaca-trade-api->-r requirements.txt (line 87))
+2025-08-01T22:01:49.991Z [INFO] #13 26.11   Downloading asyncio-nats-client-0.11.5.tar.gz (22 kB)
+2025-08-01T22:01:50.094Z [INFO] #13 26.11   Preparing metadata (setup.py): started
+2025-08-01T22:01:50.095Z [INFO] #13 26.22   Preparing metadata (setup.py): finished with status 'done'
+2025-08-01T22:01:50.202Z [INFO] #13 26.22 Collecting alpaca-trade-api (from -r requirements.txt (line 87))
+2025-08-01T22:01:50.203Z [INFO] #13 26.25   Downloading alpaca_trade_api-0.47-py3-none-any.whl.metadata (21 kB)
+2025-08-01T22:01:50.204Z [INFO] #13 26.29   Downloading alpaca_trade_api-0.46-py3-none-any.whl.metadata (20 kB)
+2025-08-01T22:01:50.205Z [INFO] #13 26.32   Downloading alpaca_trade_api-0.45-py3-none-any.whl.metadata (20 kB)
+2025-08-01T22:01:50.332Z [INFO] #13 26.36   Downloading alpaca_trade_api-0.44-py3-none-any.whl.metadata (20 kB)
+2025-08-01T22:01:50.333Z [INFO] #13 26.39   Downloading alpaca_trade_api-0.43-py3-none-any.whl.metadata (20 kB)
+2025-08-01T22:01:50.334Z [INFO] #13 26.42   Downloading alpaca_trade_api-0.42-py3-none-any.whl.metadata (14 kB)
+2025-08-01T22:01:50.334Z [INFO] #13 26.45   Downloading alpaca_trade_api-0.41-py3-none-any.whl.metadata (14 kB)
+2025-08-01T22:01:50.460Z [INFO] #13 26.49   Downloading alpaca_trade_api-0.40-py3-none-any.whl.metadata (14 kB)
+2025-08-01T22:01:50.461Z [INFO] #13 26.52   Downloading alpaca_trade_api-0.39-py3-none-any.whl.metadata (14 kB)
+2025-08-01T22:01:50.461Z [INFO] #13 26.55   Downloading alpaca_trade_api-0.38-py3-none-any.whl.metadata (14 kB)
+2025-08-01T22:01:50.462Z [INFO] #13 26.58   Downloading alpaca_trade_api-0.37-py3-none-any.whl.metadata (14 kB)
+2025-08-01T22:01:50.560Z [INFO] #13 26.61   Downloading alpaca_trade_api-0.36-py3-none-any.whl.metadata (14 kB)
+2025-08-01T22:01:50.562Z [INFO] #13 26.65   Downloading alpaca_trade_api-0.35-py3-none-any.whl.metadata (14 kB)
+2025-08-01T22:01:50.562Z [INFO] #13 26.68   Downloading alpaca_trade_api-0.34-py3-none-any.whl.metadata (14 kB)
+2025-08-01T22:01:50.689Z [INFO] #13 26.72   Downloading alpaca_trade_api-0.33-py3-none-any.whl.metadata (13 kB)
+2025-08-01T22:01:50.690Z [INFO] #13 26.75   Downloading alpaca_trade_api-0.32-py3-none-any.whl.metadata (12 kB)
+2025-08-01T22:01:50.691Z [INFO] #13 26.78   Downloading alpaca_trade_api-0.31-py3-none-any.whl.metadata (12 kB)
+2025-08-01T22:01:50.691Z [INFO] #13 26.81   Downloading alpaca_trade_api-0.30-py3-none-any.whl.metadata (12 kB)
+2025-08-01T22:01:50.817Z [INFO] #13 26.84   Downloading alpaca_trade_api-0.29-py3-none-any.whl.metadata (12 kB)
+2025-08-01T22:01:50.818Z [INFO] #13 26.87   Downloading alpaca_trade_api-0.28-py3-none-any.whl.metadata (12 kB)
+2025-08-01T22:01:50.819Z [INFO] #13 26.91   Downloading alpaca_trade_api-0.27-py3-none-any.whl.metadata (12 kB)
+2025-08-01T22:01:50.819Z [INFO] #13 26.94   Downloading alpaca_trade_api-0.26-py3-none-any.whl.metadata (12 kB)
+2025-08-01T22:01:50.955Z [INFO] #13 27.00 Collecting QuantLib (from QuantLib-Python->-r requirements.txt (line 89))
+2025-08-01T22:01:50.957Z [INFO] #13 27.03   Downloading quantlib-1.39-cp38-abi3-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (1.1 kB)
+2025-08-01T22:01:50.957Z [INFO] #13 27.08 Collecting nltk>=3.9 (from textblob->-r requirements.txt (line 118))
+2025-08-01T22:01:51.066Z [INFO] #13 27.11   Downloading nltk-3.9.1-py3-none-any.whl.metadata (2.9 kB)
+2025-08-01T22:01:51.067Z [INFO] #13 27.16 Collecting limits>=2.3 (from slowapi->-r requirements.txt (line 119))
+2025-08-01T22:01:51.068Z [INFO] #13 27.19   Downloading limits-5.4.0-py3-none-any.whl.metadata (10 kB)
+2025-08-01T22:01:51.174Z [INFO] #13 27.27 Collecting bcrypt>=3.1.0 (from passlib[bcrypt]->-r requirements.txt (line 121))
+2025-08-01T22:01:51.176Z [INFO] #13 27.30   Downloading bcrypt-4.3.0-cp39-abi3-manylinux_2_34_x86_64.whl.metadata (10 kB)
+2025-08-01T22:01:51.317Z [INFO] #13 27.44 Collecting lxml (from pytrends->-r requirements.txt (line 123))
+2025-08-01T22:01:51.417Z [INFO] #13 27.47   Downloading lxml-6.0.0-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+2025-08-01T22:01:51.419Z [INFO] #13 27.51 Collecting sgmllib3k (from feedparser->-r requirements.txt (line 124))
+2025-08-01T22:01:51.420Z [INFO] #13 27.54   Downloading sgmllib3k-1.0.0.tar.gz (5.8 kB)
+2025-08-01T22:01:51.420Z [INFO] #13 27.54   Preparing metadata (setup.py): started
+2025-08-01T22:01:51.560Z [INFO] #13 27.63   Preparing metadata (setup.py): finished with status 'done'
+2025-08-01T22:01:51.561Z [INFO] #13 27.68 Collecting aiosqlite<=0.17.0 (from asyncpraw->-r requirements.txt (line 126))
+2025-08-01T22:01:51.730Z [INFO] #13 27.71   Downloading aiosqlite-0.17.0-py3-none-any.whl.metadata (4.1 kB)
+2025-08-01T22:01:51.732Z [INFO] #13 27.75 Collecting asyncprawcore<3,>=2.4 (from asyncpraw->-r requirements.txt (line 126))
+2025-08-01T22:01:51.732Z [INFO] #13 27.77   Downloading asyncprawcore-2.4.0-py3-none-any.whl.metadata (5.5 kB)
+2025-08-01T22:01:51.733Z [INFO] #13 27.85 Collecting pycares>=4.9.0 (from aiodns>=1.1.1->ccxt->-r requirements.txt (line 85))
+2025-08-01T22:01:51.850Z [INFO] #13 27.88   Downloading pycares-4.9.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.3 kB)
+2025-08-01T22:01:51.851Z [INFO] #13 27.95 Requirement already satisfied: exceptiongroup>=1.0.2 in /opt/conda/lib/python3.10/site-packages (from anyio<5,>=3.5.0->anthropic==0.57.1->-r requirements.txt (line 13)) (1.2.0)
+2025-08-01T22:01:51.851Z [INFO] #13 27.97 Requirement already satisfied: wheel<1.0,>=0.23.0 in /opt/conda/lib/python3.10/site-packages (from astunparse>=1.6.0->tensorflow==2.19.0->-r requirements.txt (line 103)) (0.43.0)
+2025-08-01T22:01:52.002Z [INFO] #13 28.03 Requirement already satisfied: soupsieve>1.2 in /opt/conda/lib/python3.10/site-packages (from beautifulsoup4>=4.11.1->yfinance->-r requirements.txt (line 38)) (2.5)
+2025-08-01T22:01:52.004Z [INFO] #13 28.12 Collecting build>=1.0.3 (from chromadb>=0.5.23->crewai==0.148.0->-r requirements.txt (line 2))
+2025-08-01T22:01:52.104Z [INFO] #13 28.15   Downloading build-1.3.0-py3-none-any.whl.metadata (5.6 kB)
+2025-08-01T22:01:52.106Z [INFO] #13 28.23 Collecting pybase64>=1.4.1 (from chromadb>=0.5.23->crewai==0.148.0->-r requirements.txt (line 2))
+2025-08-01T22:01:52.282Z [INFO] #13 28.25   Downloading pybase64-1.4.2-cp310-cp310-manylinux1_x86_64.manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_5_x86_64.whl.metadata (8.7 kB)
+2025-08-01T22:01:52.468Z [INFO] #13 28.59 Collecting posthog<6.0.0,>=2.4.0 (from chromadb>=0.5.23->crewai==0.148.0->-r requirements.txt (line 2))
+2025-08-01T22:01:52.570Z [INFO] #13 28.62   Downloading posthog-5.4.0-py3-none-any.whl.metadata (5.7 kB)
+2025-08-01T22:01:52.571Z [INFO] #13 28.66 Collecting opentelemetry-exporter-otlp-proto-grpc>=1.2.0 (from chromadb>=0.5.23->crewai==0.148.0->-r requirements.txt (line 2))
+2025-08-01T22:01:52.572Z [INFO] #13 28.69   Downloading opentelemetry_exporter_otlp_proto_grpc-1.36.0-py3-none-any.whl.metadata (2.4 kB)
+2025-08-01T22:01:52.803Z [INFO] #13 28.74 Collecting pypika>=0.48.9 (from chromadb>=0.5.23->crewai==0.148.0->-r requirements.txt (line 2))
+2025-08-01T22:01:52.804Z [INFO] #13 28.77   Downloading PyPika-0.48.9.tar.gz (67 kB)
+2025-08-01T22:01:52.805Z [INFO] #13 28.77      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 67.3/67.3 kB 506.3 MB/s eta 0:00:00
+2025-08-01T22:01:52.805Z [INFO] #13 28.78   Installing build dependencies: started
+2025-08-01T22:01:53.621Z [INFO] #13 29.74   Installing build dependencies: finished with status 'done'
+2025-08-01T22:01:53.790Z [INFO] #13 29.74   Getting requirements to build wheel: started
+2025-08-01T22:01:53.792Z [INFO] #13 29.83   Getting requirements to build wheel: finished with status 'done'
+2025-08-01T22:01:53.792Z [INFO] #13 29.83   Preparing metadata (pyproject.toml): started
+2025-08-01T22:01:53.793Z [INFO] #13 29.91   Preparing metadata (pyproject.toml): finished with status 'done'
+2025-08-01T22:01:53.906Z [INFO] #13 29.95 Collecting overrides>=7.3.1 (from chromadb>=0.5.23->crewai==0.148.0->-r requirements.txt (line 2))
+2025-08-01T22:01:53.907Z [INFO] #13 29.98   Downloading overrides-7.7.0-py3-none-any.whl.metadata (5.8 kB)
+2025-08-01T22:01:53.908Z [INFO] #13 30.03 Collecting importlib-resources (from chromadb>=0.5.23->crewai==0.148.0->-r requirements.txt (line 2))
+2025-08-01T22:01:54.012Z [INFO] #13 30.05   Downloading importlib_resources-6.5.2-py3-none-any.whl.metadata (3.9 kB)
+2025-08-01T22:01:54.013Z [INFO] #13 30.11 Collecting kubernetes>=28.1.0 (from chromadb>=0.5.23->crewai==0.148.0->-r requirements.txt (line 2))
+2025-08-01T22:01:54.014Z [INFO] #13 30.13   Downloading kubernetes-33.1.0-py2.py3-none-any.whl.metadata (1.7 kB)
+2025-08-01T22:01:54.252Z [INFO] #13 30.20 Collecting mmh3>=4.0.1 (from chromadb>=0.5.23->crewai==0.148.0->-r requirements.txt (line 2))
+2025-08-01T22:01:54.253Z [INFO] #13 30.22   Downloading mmh3-5.2.0-cp310-cp310-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (14 kB)
+2025-08-01T22:01:54.254Z [INFO] #13 30.38 Collecting orjson>=3.9.12 (from chromadb>=0.5.23->crewai==0.148.0->-r requirements.txt (line 2))
+2025-08-01T22:01:54.367Z [INFO] #13 30.40   Downloading orjson-3.11.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (42 kB)
+2025-08-01T22:01:54.367Z [INFO] #13 30.41      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.1/42.1 kB 391.0 MB/s eta 0:00:00
+2025-08-01T22:01:54.368Z [INFO] #13 30.46 Collecting rich>=10.11.0 (from chromadb>=0.5.23->crewai==0.148.0->-r requirements.txt (line 2))
+2025-08-01T22:01:54.369Z [INFO] #13 30.49   Downloading rich-14.1.0-py3-none-any.whl.metadata (18 kB)
+2025-08-01T22:01:54.516Z [INFO] #13 30.54 Requirement already satisfied: cffi>=1.12 in /opt/conda/lib/python3.10/site-packages (from cryptography>=2.6.1->ccxt->-r requirements.txt (line 85)) (1.16.0)
+2025-08-01T22:01:54.517Z [INFO] #13 30.64 Collecting marshmallow<4.0.0,>=3.18.0 (from dataclasses-json<0.7,>=0.5.7->langchain-community==0.3.26->-r requirements.txt (line 4))
+2025-08-01T22:01:54.753Z [INFO] #13 30.67   Downloading marshmallow-3.26.1-py3-none-any.whl.metadata (7.3 kB)
+2025-08-01T22:01:54.755Z [INFO] #13 30.70 Collecting typing-inspect<1,>=0.4.0 (from dataclasses-json<0.7,>=0.5.7->langchain-community==0.3.26->-r requirements.txt (line 4))
+2025-08-01T22:01:54.755Z [INFO] #13 30.73   Downloading typing_inspect-0.9.0-py3-none-any.whl.metadata (1.5 kB)
+2025-08-01T22:01:54.759Z [INFO] #13 30.88 Collecting googleapis-common-protos<2.0.0,>=1.56.2 (from google-api-core->google-generativeai==0.8.0->-r requirements.txt (line 16))
+2025-08-01T22:01:54.898Z [INFO] #13 30.91   Downloading googleapis_common_protos-1.70.0-py3-none-any.whl.metadata (9.3 kB)
+2025-08-01T22:01:54.899Z [INFO] #13 31.02 Collecting cachetools<6.0,>=2.0.0 (from google-auth>=2.15.0->google-generativeai==0.8.0->-r requirements.txt (line 16))
+2025-08-01T22:01:55.025Z [INFO] #13 31.05   Downloading cachetools-5.5.2-py3-none-any.whl.metadata (5.4 kB)
+2025-08-01T22:01:55.026Z [INFO] #13 31.08 Collecting pyasn1-modules>=0.2.1 (from google-auth>=2.15.0->google-generativeai==0.8.0->-r requirements.txt (line 16))
+2025-08-01T22:01:55.026Z [INFO] #13 31.11   Downloading pyasn1_modules-0.4.2-py3-none-any.whl.metadata (3.5 kB)
+2025-08-01T22:01:55.027Z [INFO] #13 31.15 Collecting rsa<5,>=3.1.4 (from google-auth>=2.15.0->google-generativeai==0.8.0->-r requirements.txt (line 16))
+2025-08-01T22:01:55.159Z [INFO] #13 31.17   Downloading rsa-4.9.1-py3-none-any.whl.metadata (5.6 kB)
+2025-08-01T22:01:55.160Z [INFO] #13 31.28 Collecting farama-notifications>=0.0.1 (from gymnasium<1.2.0,>=0.29.1->stable-baselines3==2.6.0->-r requirements.txt (line 100))
+2025-08-01T22:01:55.328Z [INFO] #13 31.31   Downloading Farama_Notifications-0.0.4-py3-none-any.whl.metadata (558 bytes)
+2025-08-01T22:01:55.328Z [INFO] #13 31.45 Collecting hf-xet<2.0.0,>=1.1.3 (from huggingface-hub>=0.21.4->gliner==0.2.8->-r requirements.txt (line 30))
+2025-08-01T22:01:55.481Z [INFO] #13 31.48   Downloading hf_xet-1.1.5-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (879 bytes)
+2025-08-01T22:01:55.483Z [INFO] #13 31.60 Collecting diskcache>=5.6.3 (from instructor>=1.3.3->crewai==0.148.0->-r requirements.txt (line 2))
+2025-08-01T22:01:55.591Z [INFO] #13 31.63   Downloading diskcache-5.6.3-py3-none-any.whl.metadata (20 kB)
+2025-08-01T22:01:55.593Z [INFO] #13 31.67 Collecting docstring-parser<1.0,>=0.16 (from instructor>=1.3.3->crewai==0.148.0->-r requirements.txt (line 2))
+2025-08-01T22:01:55.593Z [INFO] #13 31.69   Downloading docstring_parser-0.17.0-py3-none-any.whl.metadata (3.5 kB)
+2025-08-01T22:01:55.594Z [INFO] #13 31.71 INFO: pip is looking at multiple versions of instructor to determine which version is compatible with other requirements. This could take a while.
+2025-08-01T22:01:55.719Z [INFO] #13 31.72 Collecting instructor>=1.3.3 (from crewai==0.148.0->-r requirements.txt (line 2))
+2025-08-01T22:01:55.720Z [INFO] #13 31.75   Downloading instructor-1.9.2-py3-none-any.whl.metadata (11 kB)
+2025-08-01T22:01:55.721Z [INFO] #13 31.84 Collecting mkdocs-material>=9.5.49 (from instructor>=1.3.3->crewai==0.148.0->-r requirements.txt (line 2))
+2025-08-01T22:01:55.859Z [INFO] #13 31.87   Downloading mkdocs_material-9.6.16-py3-none-any.whl.metadata (19 kB)
+2025-08-01T22:01:55.860Z [INFO] #13 31.91 Collecting mkdocs>=1.6.1 (from instructor>=1.3.3->crewai==0.148.0->-r requirements.txt (line 2))
+2025-08-01T22:01:55.861Z [INFO] #13 31.93   Downloading mkdocs-1.6.1-py3-none-any.whl.metadata (6.0 kB)
+2025-08-01T22:01:55.861Z [INFO] #13 31.98 Collecting pre-commit>=4.2.0 (from instructor>=1.3.3->crewai==0.148.0->-r requirements.txt (line 2))
+2025-08-01T22:01:55.970Z [INFO] #13 32.01   Downloading pre_commit-4.2.0-py2.py3-none-any.whl.metadata (1.3 kB)
+2025-08-01T22:01:55.971Z [INFO] #13 32.01 Collecting instructor>=1.3.3 (from crewai==0.148.0->-r requirements.txt (line 2))
+2025-08-01T22:01:55.971Z [INFO] #13 32.04   Downloading instructor-1.9.1-py3-none-any.whl.metadata (11 kB)
+2025-08-01T22:01:55.972Z [INFO] #13 32.09   Downloading instructor-1.9.0-py3-none-any.whl.metadata (11 kB)
+2025-08-01T22:01:56.094Z [INFO] #13 32.14   Downloading instructor-1.8.3-py3-none-any.whl.metadata (24 kB)
+2025-08-01T22:01:56.095Z [INFO] #13 32.16 Collecting jiter<1,>=0.4.0 (from anthropic==0.57.1->-r requirements.txt (line 13))
+2025-08-01T22:01:56.096Z [INFO] #13 32.19   Downloading jiter-0.8.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.2 kB)
+2025-08-01T22:01:56.096Z [INFO] #13 32.19 Collecting instructor>=1.3.3 (from crewai==0.148.0->-r requirements.txt (line 2))
+2025-08-01T22:01:56.097Z [INFO] #13 32.22   Downloading instructor-1.8.2-py3-none-any.whl.metadata (23 kB)
+2025-08-01T22:01:56.198Z [INFO] #13 32.27   Downloading instructor-1.8.1-py3-none-any.whl.metadata (23 kB)
+2025-08-01T22:01:56.199Z [INFO] #13 32.31   Downloading instructor-1.8.0-py3-none-any.whl.metadata (23 kB)
+2025-08-01T22:01:56.200Z [INFO] #13 32.32 INFO: pip is still looking at multiple versions of instructor to determine which version is compatible with other requirements. This could take a while.
+2025-08-01T22:01:56.313Z [INFO] #13 32.35   Downloading instructor-1.7.9-py3-none-any.whl.metadata (22 kB)
+2025-08-01T22:01:56.315Z [INFO] #13 32.39   Downloading instructor-1.7.8-py3-none-any.whl.metadata (22 kB)
+2025-08-01T22:01:56.315Z [INFO] #13 32.44   Downloading instructor-1.7.7-py3-none-any.whl.metadata (22 kB)
+2025-08-01T22:01:56.441Z [INFO] #13 32.48   Downloading instructor-1.7.6-py3-none-any.whl.metadata (22 kB)
+2025-08-01T22:01:56.442Z [INFO] #13 32.52   Downloading instructor-1.7.5-py3-none-any.whl.metadata (22 kB)
+2025-08-01T22:01:56.442Z [INFO] #13 32.53 INFO: This is taking longer than usual. You might need to provide the dependency resolver with stricter constraints to reduce runtime. See https://pip.pypa.io/warnings/backtracking for guidance. If you want to abort this run, press Ctrl + C.
+2025-08-01T22:01:56.443Z [INFO] #13 32.56   Downloading instructor-1.7.4-py3-none-any.whl.metadata (19 kB)
+2025-08-01T22:01:56.567Z [INFO] #13 32.60   Downloading instructor-1.7.3-py3-none-any.whl.metadata (19 kB)
+2025-08-01T22:01:56.569Z [INFO] #13 32.65   Downloading instructor-1.7.2-py3-none-any.whl.metadata (18 kB)
+2025-08-01T22:01:56.569Z [INFO] #13 32.69   Downloading instructor-1.7.1-py3-none-any.whl.metadata (17 kB)
+2025-08-01T22:01:56.680Z [INFO] #13 32.70 Collecting docstring-parser<0.17,>=0.16 (from instructor>=1.3.3->crewai==0.148.0->-r requirements.txt (line 2))
+2025-08-01T22:01:56.681Z [INFO] #13 32.73   Downloading docstring_parser-0.16-py3-none-any.whl.metadata (3.0 kB)
+2025-08-01T22:01:56.682Z [INFO] #13 32.74 Collecting instructor>=1.3.3 (from crewai==0.148.0->-r requirements.txt (line 2))
+2025-08-01T22:01:56.682Z [INFO] #13 32.76   Downloading instructor-1.7.0-py3-none-any.whl.metadata (17 kB)
+2025-08-01T22:01:56.683Z [INFO] #13 32.78 Collecting jiter<1,>=0.4.0 (from anthropic==0.57.1->-r requirements.txt (line 13))
+2025-08-01T22:01:56.683Z [INFO] #13 32.80   Downloading jiter-0.6.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.2 kB)
+2025-08-01T22:01:56.792Z [INFO] #13 32.81 Collecting instructor>=1.3.3 (from crewai==0.148.0->-r requirements.txt (line 2))
+2025-08-01T22:01:56.793Z [INFO] #13 32.83   Downloading instructor-1.6.4-py3-none-any.whl.metadata (17 kB)
+2025-08-01T22:01:56.793Z [INFO] #13 32.87   Downloading instructor-1.6.3-py3-none-any.whl.metadata (17 kB)
+2025-08-01T22:01:56.794Z [INFO] #13 32.89 Collecting jiter<1,>=0.4.0 (from anthropic==0.57.1->-r requirements.txt (line 13))
+2025-08-01T22:01:56.794Z [INFO] #13 32.91   Downloading jiter-0.5.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.6 kB)
+2025-08-01T22:01:56.917Z [INFO] #13 32.93 Collecting rich>=10.11.0 (from chromadb>=0.5.23->crewai==0.148.0->-r requirements.txt (line 2))
+2025-08-01T22:01:56.919Z [INFO] #13 32.95   Downloading rich-13.9.4-py3-none-any.whl.metadata (18 kB)
+2025-08-01T22:01:56.919Z [INFO] #13 32.99 Requirement already satisfied: decorator in /opt/conda/lib/python3.10/site-packages (from ipython>=3.2.3->pyfolio==0.9.2->-r requirements.txt (line 35)) (5.1.1)
+2025-08-01T22:01:56.920Z [INFO] #13 32.99 Requirement already satisfied: jedi>=0.16 in /opt/conda/lib/python3.10/site-packages (from ipython>=3.2.3->pyfolio==0.9.2->-r requirements.txt (line 35)) (0.18.1)
+2025-08-01T22:01:56.920Z [INFO] #13 32.99 Requirement already satisfied: matplotlib-inline in /opt/conda/lib/python3.10/site-packages (from ipython>=3.2.3->pyfolio==0.9.2->-r requirements.txt (line 35)) (0.1.6)
+2025-08-01T22:01:56.921Z [INFO] #13 32.99 Requirement already satisfied: prompt-toolkit<3.1.0,>=3.0.41 in /opt/conda/lib/python3.10/site-packages (from ipython>=3.2.3->pyfolio==0.9.2->-r requirements.txt (line 35)) (3.0.43)
+2025-08-01T22:01:56.921Z [INFO] #13 32.99 Requirement already satisfied: pygments>=2.4.0 in /opt/conda/lib/python3.10/site-packages (from ipython>=3.2.3->pyfolio==0.9.2->-r requirements.txt (line 35)) (2.15.1)
+2025-08-01T22:01:56.922Z [INFO] #13 32.99 Requirement already satisfied: stack-data in /opt/conda/lib/python3.10/site-packages (from ipython>=3.2.3->pyfolio==0.9.2->-r requirements.txt (line 35)) (0.2.0)
+2025-08-01T22:01:56.922Z [INFO] #13 32.99 Requirement already satisfied: traitlets>=5 in /opt/conda/lib/python3.10/site-packages (from ipython>=3.2.3->pyfolio==0.9.2->-r requirements.txt (line 35)) (5.7.1)
+2025-08-01T22:01:56.923Z [INFO] #13 32.99 Requirement already satisfied: pexpect>4.3 in /opt/conda/lib/python3.10/site-packages (from ipython>=3.2.3->pyfolio==0.9.2->-r requirements.txt (line 35)) (4.8.0)
+2025-08-01T22:01:56.923Z [INFO] #13 33.04 Collecting comm>=0.1.3 (from ipywidgets>=7.0.0->vectorbt==0.25.0->-r requirements.txt (line 88))
+2025-08-01T22:01:57.051Z [INFO] #13 33.07   Downloading comm-0.2.3-py3-none-any.whl.metadata (3.7 kB)
+2025-08-01T22:01:57.052Z [INFO] #13 33.11 Collecting widgetsnbextension~=4.0.14 (from ipywidgets>=7.0.0->vectorbt==0.25.0->-r requirements.txt (line 88))
+2025-08-01T22:01:57.053Z [INFO] #13 33.14   Downloading widgetsnbextension-4.0.14-py3-none-any.whl.metadata (1.6 kB)
+2025-08-01T22:01:57.054Z [INFO] #13 33.17 Collecting jupyterlab_widgets~=3.0.15 (from ipywidgets>=7.0.0->vectorbt==0.25.0->-r requirements.txt (line 88))
+2025-08-01T22:01:57.163Z [INFO] #13 33.20   Downloading jupyterlab_widgets-3.0.15-py3-none-any.whl.metadata (20 kB)
+2025-08-01T22:01:57.164Z [INFO] #13 33.22 Requirement already satisfied: MarkupSafe>=2.0 in /opt/conda/lib/python3.10/site-packages (from jinja2->torch==2.7.1->-r requirements.txt (line 108)) (2.1.3)
+2025-08-01T22:01:57.164Z [INFO] #13 33.26 Requirement already satisfied: jsonpointer>=1.9 in /opt/conda/lib/python3.10/site-packages (from jsonpatch<2.0,>=1.33->langchain-core==0.3.69->-r requirements.txt (line 12)) (2.1)
+2025-08-01T22:01:57.165Z [INFO] #13 33.29 Requirement already satisfied: jsonschema-specifications>=2023.03.6 in /opt/conda/lib/python3.10/site-packages (from jsonschema>=4.20.0->mcp==1.12.0->-r requirements.txt (line 19)) (2023.7.1)
+2025-08-01T22:01:57.274Z [INFO] #13 33.29 Requirement already satisfied: referencing>=0.28.4 in /opt/conda/lib/python3.10/site-packages (from jsonschema>=4.20.0->mcp==1.12.0->-r requirements.txt (line 19)) (0.30.2)
+2025-08-01T22:01:57.276Z [INFO] #13 33.29 Requirement already satisfied: rpds-py>=0.7.1 in /opt/conda/lib/python3.10/site-packages (from jsonschema>=4.20.0->mcp==1.12.0->-r requirements.txt (line 19)) (0.10.6)
+2025-08-01T22:01:57.276Z [INFO] #13 33.33 Collecting namex (from keras>=3.5.0->tensorflow==2.19.0->-r requirements.txt (line 103))
+2025-08-01T22:01:57.277Z [INFO] #13 33.36   Downloading namex-0.1.0-py3-none-any.whl.metadata (322 bytes)
+2025-08-01T22:01:57.277Z [INFO] #13 33.36 Requirement already satisfied: optree in /opt/conda/lib/python3.10/site-packages (from keras>=3.5.0->tensorflow==2.19.0->-r requirements.txt (line 103)) (0.11.0)
+2025-08-01T22:01:57.278Z [INFO] #13 33.40 INFO: pip is looking at multiple versions of langchain-text-splitters to determine which version is compatible with other requirements. This could take a while.
+2025-08-01T22:01:57.386Z [INFO] #13 33.40 Collecting langchain-text-splitters<1.0.0,>=0.3.8 (from langchain==0.3.26->-r requirements.txt (line 3))
+2025-08-01T22:01:57.387Z [INFO] #13 33.43   Downloading langchain_text_splitters-0.3.8-py3-none-any.whl.metadata (1.9 kB)
+2025-08-01T22:01:57.387Z [INFO] #13 33.48 Collecting language-data>=1.2 (from langcodes<4.0.0,>=3.2.0->spacy==3.8.7->-r requirements.txt (line 110))
+2025-08-01T22:01:57.388Z [INFO] #13 33.51   Downloading language_data-1.3.0-py3-none-any.whl.metadata (4.3 kB)
+2025-08-01T22:01:57.543Z [INFO] #13 33.58 Collecting requests-toolbelt<2.0.0,>=1.0.0 (from langsmith>=0.1.17->langchain==0.3.26->-r requirements.txt (line 3))
+2025-08-01T22:01:57.544Z [INFO] #13 33.60   Downloading requests_toolbelt-1.0.0-py2.py3-none-any.whl.metadata (14 kB)
+2025-08-01T22:01:57.545Z [INFO] #13 33.67 Collecting zstandard<0.24.0,>=0.23.0 (from langsmith>=0.1.17->langchain==0.3.26->-r requirements.txt (line 3))
+2025-08-01T22:01:57.664Z [INFO] #13 33.69   Downloading zstandard-0.23.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.0 kB)
+2025-08-01T22:01:57.665Z [INFO] #13 33.76 Collecting deprecated>=1.2 (from limits>=2.3->slowapi->-r requirements.txt (line 119))
+2025-08-01T22:01:57.666Z [INFO] #13 33.79   Downloading Deprecated-1.2.18-py2.py3-none-any.whl.metadata (5.7 kB)
+2025-08-01T22:01:57.827Z [INFO] #13 33.95 Collecting llvmlite<0.40,>=0.39.0dev0 (from numba>=0.56.0->vectorbt==0.25.0->-r requirements.txt (line 88))
+2025-08-01T22:01:57.972Z [INFO] #13 33.98   Downloading llvmlite-0.39.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.7 kB)
+2025-08-01T22:01:57.973Z [INFO] #13 34.09 INFO: pip is looking at multiple versions of numba to determine which version is compatible with other requirements. This could take a while.
+2025-08-01T22:01:58.165Z [INFO] #13 34.11 Collecting pytrends (from -r requirements.txt (line 123))
+2025-08-01T22:01:58.166Z [INFO] #13 34.14   Downloading pytrends-4.9.1-py3-none-any.whl.metadata (13 kB)
+2025-08-01T22:01:58.238Z [INFO] #13 34.36 Collecting pandas (from -r requirements.txt (line 22))
+2025-08-01T22:01:58.418Z [INFO] #13 34.39   Downloading pandas-2.3.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (91 kB)
+2025-08-01T22:01:58.419Z [INFO] #13 34.39      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 91.2/91.2 kB 537.1 MB/s eta 0:00:00
+2025-08-01T22:01:58.491Z [INFO] #13 34.61   Downloading pandas-2.2.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (89 kB)
+2025-08-01T22:01:58.642Z [INFO] #13 34.61      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 89.9/89.9 kB 543.4 MB/s eta 0:00:00
+2025-08-01T22:01:58.705Z [INFO] #13 34.83   Downloading pandas-2.2.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (19 kB)
+2025-08-01T22:01:58.918Z [INFO] #13 35.04   Downloading pandas-2.2.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (19 kB)
+2025-08-01T22:01:59.130Z [INFO] #13 35.25   Downloading pandas-2.2.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (19 kB)
+2025-08-01T22:01:59.307Z [INFO] #13 35.43 INFO: pip is still looking at multiple versions of numba to determine which version is compatible with other requirements. This could take a while.
+2025-08-01T22:01:59.492Z [INFO] #13 35.46   Downloading pandas-2.1.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (18 kB)
+2025-08-01T22:01:59.549Z [INFO] #13 35.67   Downloading pandas-2.1.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (18 kB)
+2025-08-01T22:01:59.755Z [INFO] #13 35.88   Downloading pandas-2.1.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (18 kB)
+2025-08-01T22:01:59.964Z [INFO] #13 36.09   Downloading pandas-2.1.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (18 kB)
+2025-08-01T22:02:00.169Z [INFO] #13 36.29   Downloading pandas-2.1.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (18 kB)
+2025-08-01T22:02:00.344Z [INFO] #13 36.47 INFO: This is taking longer than usual. You might need to provide the dependency resolver with stricter constraints to reduce runtime. See https://pip.pypa.io/warnings/backtracking for guidance. If you want to abort this run, press Ctrl + C.
+2025-08-01T22:02:00.529Z [INFO] #13 36.50   Downloading pandas-2.0.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (18 kB)
+2025-08-01T22:02:00.591Z [INFO] #13 36.71   Downloading pandas-2.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (18 kB)
+2025-08-01T22:02:00.796Z [INFO] #13 36.92   Downloading pandas-2.0.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (18 kB)
+2025-08-01T22:02:01.002Z [INFO] #13 37.12   Downloading pandas-2.0.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (18 kB)
+2025-08-01T22:02:01.360Z [INFO] #13 37.48   Downloading pandas-1.5.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (11 kB)
+2025-08-01T22:02:01.543Z [INFO] #13 37.67   Downloading pandas-1.5.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (11 kB)
+2025-08-01T22:02:01.731Z [INFO] #13 37.85   Downloading pandas-1.5.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (11 kB)
+2025-08-01T22:02:01.936Z [INFO] #13 38.06 ERROR: Cannot install -r requirements.txt (line 100), -r requirements.txt (line 103), -r requirements.txt (line 107), -r requirements.txt (line 109), -r requirements.txt (line 110), -r requirements.txt (line 122), -r requirements.txt (line 125), -r requirements.txt (line 22), -r requirements.txt (line 24), -r requirements.txt (line 25), -r requirements.txt (line 27), -r requirements.txt (line 28), -r requirements.txt (line 29), -r requirements.txt (line 33), -r requirements.txt (line 34), -r requirements.txt (line 35), -r requirements.txt (line 36), -r requirements.txt (line 38), -r requirements.txt (line 4), -r requirements.txt (line 42), -r requirements.txt (line 43), -r requirements.txt (line 88), -r requirements.txt (line 92), -r requirements.txt (line 93), -r requirements.txt (line 95), -r requirements.txt (line 96), -r requirements.txt (line 99), crewai, cvxpy, matplotlib, numpy==1.26.4, stable-baselines3, tensorflow and vectorbt because these package versions have conflicting dependencies.
+2025-08-01T22:02:02.086Z [INFO] #13 38.06
+2025-08-01T22:02:02.088Z [INFO] #13 38.06 The conflict is caused by:
+2025-08-01T22:02:02.088Z [INFO] #13 38.06     The user requested numpy==1.26.4
+2025-08-01T22:02:02.089Z [INFO] #13 38.06     langchain-community 0.3.26 depends on numpy>=1.26.2; python_version < "3.13"
+2025-08-01T22:02:02.090Z [INFO] #13 38.06     scikit-learn 1.3.2 depends on numpy<2.0 and >=1.17.3
+2025-08-01T22:02:02.090Z [INFO] #13 38.06     scipy 1.11.4 depends on numpy<1.28.0 and >=1.21.6
+2025-08-01T22:02:02.091Z [INFO] #13 38.06     xgboost 2.1.3 depends on numpy
+2025-08-01T22:02:02.091Z [INFO] #13 38.06     lightgbm 4.5.0 depends on numpy>=1.17.0
+2025-08-01T22:02:02.092Z [INFO] #13 38.06     catboost 1.2.7 depends on numpy<2.0 and >=1.16.0
+2025-08-01T22:02:02.092Z [INFO] #13 38.06     empyrical 0.5.5 depends on numpy>=1.9.2
+2025-08-01T22:02:02.093Z [INFO] #13 38.06     quantstats 0.0.64 depends on numpy<2.0.0 and >=1.21.0
+2025-08-01T22:02:02.093Z [INFO] #13 38.06     pyfolio 0.9.2 depends on numpy>=1.11.1
+2025-08-01T22:02:02.094Z [INFO] #13 38.06     statsmodels 0.14.0 depends on numpy>=1.18
+2025-08-01T22:02:02.094Z [INFO] #13 38.06     vectorbt 0.25.0 depends on numpy>=1.16.5
+2025-08-01T22:02:02.095Z [INFO] #13 38.06     hmmlearn 0.3.3 depends on numpy>=1.10
+2025-08-01T22:02:02.095Z [INFO] #13 38.06     ruptures 1.1.9 depends on numpy
+2025-08-01T22:02:02.096Z [INFO] #13 38.06     cvxpy 1.3.2 depends on numpy>=1.15
+2025-08-01T22:02:02.097Z [INFO] #13 38.06     pyportfolioopt 1.5.6 depends on numpy>=1.26.0
+2025-08-01T22:02:02.097Z [INFO] #13 38.06     gym 0.26.2 depends on numpy>=1.18.0
+2025-08-01T22:02:02.098Z [INFO] #13 38.06     stable-baselines3 2.6.0 depends on numpy<3.0 and >=1.20
+2025-08-01T22:02:02.098Z [INFO] #13 38.06     tensorflow 2.19.0 depends on numpy<2.2.0 and >=1.26.0
+2025-08-01T22:02:02.099Z [INFO] #13 38.06     transformers 4.46.3 depends on numpy>=1.17
+2025-08-01T22:02:02.099Z [INFO] #13 38.06     sentence-transformers 2.7.0 depends on numpy
+2025-08-01T22:02:02.100Z [INFO] #13 38.06     spacy 3.8.7 depends on numpy>=1.19.0; python_version >= "3.9"
+2025-08-01T22:02:02.100Z [INFO] #13 38.06     opencv-python 4.10.0.84 depends on numpy>=1.21.2; python_version >= "3.10"
+2025-08-01T22:02:02.101Z [INFO] #13 38.06     opencv-python 4.10.0.84 depends on numpy>=1.17.0; python_version >= "3.7"
+2025-08-01T22:02:02.101Z [INFO] #13 38.06     opencv-python 4.10.0.84 depends on numpy>=1.17.3; python_version >= "3.8"
+2025-08-01T22:02:02.102Z [INFO] #13 38.06     opencv-python 4.10.0.84 depends on numpy>=1.19.3; python_version >= "3.9"
+2025-08-01T22:02:02.102Z [INFO] #13 38.06     arch 5.3.1 depends on numpy>=1.17
+2025-08-01T22:02:02.103Z [INFO] #13 38.06     onnxruntime 1.22.0 depends on numpy>=1.21.6
+2025-08-01T22:02:02.103Z [INFO] #13 38.06     pandas 1.5.0 depends on numpy>=1.21.0; python_version >= "3.10"
+2025-08-01T22:02:02.104Z [INFO] #13 38.06     yfinance 0.2.65 depends on numpy>=1.16.5
+2025-08-01T22:02:02.104Z [INFO] #13 38.06     matplotlib 3.10.5 depends on numpy>=1.23
+2025-08-01T22:02:02.105Z [INFO] #13 38.06     seaborn 0.13.2 depends on numpy!=1.24.0 and >=1.20
+2025-08-01T22:02:02.105Z [INFO] #13 38.06     chromadb 1.0.15 depends on numpy>=1.22.5
+2025-08-01T22:02:02.106Z [INFO] #13 38.06     contourpy 1.3.1 depends on numpy>=1.23
+2025-08-01T22:02:02.106Z [INFO] #13 38.06     ecos 2.0.14 depends on numpy>=1.6
+2025-08-01T22:02:02.107Z [INFO] #13 38.06     gymnasium 1.1.1 depends on numpy>=1.21.0
+2025-08-01T22:02:02.107Z [INFO] #13 38.06     h5py 3.14.0 depends on numpy>=1.19.3
+2025-08-01T22:02:02.108Z [INFO] #13 38.06     keras 3.11.1 depends on numpy
+2025-08-01T22:02:02.108Z [INFO] #13 38.06     ml-dtypes 0.5.3 depends on numpy>=1.21
+2025-08-01T22:02:02.109Z [INFO] #13 38.06     ml-dtypes 0.5.3 depends on numpy>=1.21.2; python_version >= "3.10"
+2025-08-01T22:02:02.109Z [INFO] #13 38.06     numba 0.56.4 depends on numpy<1.24 and >=1.18
+2025-08-01T22:02:02.110Z [INFO] #13 38.06     The user requested (constraint) numpy==1.26.4
+2025-08-01T22:02:02.110Z [INFO] #13 38.06
+2025-08-01T22:02:02.111Z [INFO] #13 38.06 To fix this you could try to:
+2025-08-01T22:02:02.111Z [INFO] #13 38.06 1. loosen the range of package versions you've specified
+2025-08-01T22:02:02.112Z [INFO] #13 38.06 2. remove package versions to allow pip attempt to solve the dependency conflict
+2025-08-01T22:02:02.112Z [INFO] #13 38.06
+2025-08-01T22:02:02.113Z [INFO] #13 38.06 ERROR: ResolutionImpossible: for help visit https://pip.pypa.io/en/latest/topics/dependency-resolution/#dealing-with-dependency-conflicts
+2025-08-01T22:02:04.980Z [INFO] #13 ERROR: process "/bin/sh -c pip install --no-cache-dir --constraint /tmp/constraints.txt -r requirements.txt" did not complete successfully: exit code: 1
+2025-08-01T22:02:04.986Z [INFO] ------
+2025-08-01T22:02:04.987Z [INFO] > [ 7/12] RUN pip install --no-cache-dir --constraint /tmp/constraints.txt -r requirements.txt:
+2025-08-01T22:02:04.988Z [INFO] 38.06     ml-dtypes 0.5.3 depends on numpy>=1.21
+2025-08-01T22:02:04.988Z [INFO] 38.06     ml-dtypes 0.5.3 depends on numpy>=1.21.2; python_version >= "3.10"
+2025-08-01T22:02:04.989Z [INFO] 38.06     numba 0.56.4 depends on numpy<1.24 and >=1.18
+2025-08-01T22:02:04.990Z [INFO] 38.06     The user requested (constraint) numpy==1.26.4
+2025-08-01T22:02:04.991Z [INFO] 38.06
+2025-08-01T22:02:04.991Z [INFO] 38.06 To fix this you could try to:
+2025-08-01T22:02:04.992Z [INFO] 38.06 1. loosen the range of package versions you've specified
+2025-08-01T22:02:04.992Z [INFO] 38.06 2. remove package versions to allow pip attempt to solve the dependency conflict
+2025-08-01T22:02:04.993Z [INFO] 38.06
+2025-08-01T22:02:04.993Z [INFO] 38.06 ERROR: ResolutionImpossible: for help visit https://pip.pypa.io/en/latest/topics/dependency-resolution/#dealing-with-dependency-conflicts
+2025-08-01T22:02:04.994Z [INFO] ------
+2025-08-01T22:02:04.995Z [INFO] WARNING: current commit information was not captured by the build: git was not found in the system: exec: "git": executable file not found in $PATH
+2025-08-01T22:02:04.995Z [INFO] Dockerfile.mcp:32
+2025-08-01T22:02:04.996Z [INFO] --------------------
+2025-08-01T22:02:04.996Z [INFO] 30 |
+2025-08-01T22:02:04.997Z [INFO] 32 | >>> RUN pip install --no-cache-dir --constraint /tmp/constraints.txt -r requirements.txt
+2025-08-01T22:02:04.997Z [INFO] 31 |     # Then install the rest with constraints
+2025-08-01T22:02:04.998Z [INFO] 33 |
+2025-08-01T22:02:04.998Z [INFO] 34 |     # Install GPU-optimized PyTorch (compatible with RunPod CUDA)
+2025-08-01T22:02:04.999Z [INFO] --------------------
+2025-08-01T22:02:05.000Z [ERROR] ERROR: failed to build: failed to solve: process "/bin/sh -c pip install --no-cache-dir --constraint /tmp/constraints.txt -r requirements.txt" did not complete successfully: exit code: 1
+2025-08-01T22:02:05.000Z [ERROR] Build finished with wrong exit code: Please view the logs to find out what went wrong.
+2025-08-01T22:02:05.013Z [ERROR] None
+None
+2025-08-01T22:02:05.014Z [INFO] mystifying_chaplygin
