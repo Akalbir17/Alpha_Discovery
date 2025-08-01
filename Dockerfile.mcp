@@ -71,4 +71,4 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
     CMD curl -f http://localhost:8002/ml-health || exit 1
 
 # Set the default command to start the MCP server
-CMD ["python", "-m", "src.mcp.mcp_server"] 
+CMD ["python", "-m", "src.mcp"] 

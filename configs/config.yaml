@@ -68,6 +68,13 @@ trading:
   provider: "alpaca"
   paper_trading: true
 
+# MCP Server Configuration (GPU-powered ML inference)
+mcp:
+  server_url: "https://api.runpod.ai/v2/[YOUR-POD-ID]/run"  # Replace with your actual RunPod endpoint
+  timeout: 30  # seconds
+  retry_attempts: 3
+  health_check_interval: 60  # seconds
+
 # Monitoring Configuration
 monitoring:
   prometheus_port: 9090
