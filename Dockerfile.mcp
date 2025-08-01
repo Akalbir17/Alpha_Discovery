@@ -31,12 +31,12 @@ RUN pip install --no-cache-dir numpy==1.26.4
 # Then install the rest with constraints
 RUN pip install --no-cache-dir --constraint /tmp/constraints.txt -r requirements.txt
 
-# Install GPU-optimized PyTorch (compatible with RunPod CUDA)
-RUN pip install --no-cache-dir \
-    torch==2.7.1+cu121 \
-    torchvision==0.20.1+cu121 \
-    torchaudio==2.7.1+cu121 \
-    --index-url https://download.pytorch.org/whl/cu121
+    # Install GPU-optimized PyTorch (compatible with RunPod CUDA)
+    RUN pip install --no-cache-dir \
+        torch==2.5.1+cu121 \
+        torchvision==0.20.1+cu121 \
+        torchaudio==2.5.1+cu121 \
+        --index-url https://download.pytorch.org/whl/cu121
 
 # Install additional state-of-the-art ML packages matching requirements.txt
 RUN pip install --no-cache-dir \
