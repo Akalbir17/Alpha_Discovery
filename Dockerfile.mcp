@@ -61,28 +61,7 @@ COPY . .
 RUN mkdir -p /app/cache/transformers /app/cache/huggingface /app/cache/torch
 
 # Pre-download and cache critical models to speed up startup
-RUN python -c "\
-from transformers import AutoTokenizer, AutoModel, pipeline; \
-from sentence_transformers import SentenceTransformer; \
-import torch; \
-print('Pre-downloading critical models...'); \
-try: \
-    tokenizer = AutoTokenizer.from_pretrained('ProsusAI/finbert'); \
-    model = AutoModel.from_pretrained('ProsusAI/finbert'); \
-    print('✓ FinBERT cached'); \
-except Exception as e: \
-    print(f'⚠ FinBERT caching failed: {e}'); \
-try: \
-    sentiment_pipeline = pipeline('sentiment-analysis', model='cardiffnlp/twitter-roberta-base-sentiment-latest'); \
-    print('✓ RoBERTa sentiment cached'); \
-except Exception as e: \
-    print(f'⚠ RoBERTa caching failed: {e}'); \
-try: \
-    sentence_model = SentenceTransformer('sentence-transformers/all-mpnet-base-v2'); \
-    print('✓ Sentence Transformer cached'); \
-except Exception as e: \
-    print(f'⚠ Sentence Transformer caching failed: {e}'); \
-print('Model pre-caching complete!');"
+RUN python -c "from transformers import AutoTokenizer, AutoModel, pipeline; from sentence_transformers import SentenceTransformer; import torch; print('Pre-downloading critical models...'); [print('✓ FinBERT cached') if not (AutoTokenizer.from_pretrained('ProsusAI/finbert'), AutoModel.from_pretrained('ProsusAI/finbert')) else None]; [print('✓ RoBERTa sentiment cached') if not pipeline('sentiment-analysis', model='cardiffnlp/twitter-roberta-base-sentiment-latest') else None]; [print('✓ Sentence Transformer cached') if not SentenceTransformer('sentence-transformers/all-mpnet-base-v2') else None]; print('Model pre-caching complete!')"
 
 # Expose ports for WebSocket MCP (8001) and HTTP ML services (8002)
 EXPOSE 8001 8002
