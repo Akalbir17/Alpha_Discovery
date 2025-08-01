@@ -21,9 +21,14 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy requirements and constraints, then install Python dependencies with version constraints
+# Copy requirements and constraints
 COPY requirements.txt .
 COPY constraints.txt /tmp/constraints.txt
+
+# Install numpy first to prevent other packages from pulling incompatible versions
+RUN pip install --no-cache-dir numpy==1.26.4
+
+# Then install the rest with constraints
 RUN pip install --no-cache-dir --constraint /tmp/constraints.txt -r requirements.txt
 
 # Install GPU-optimized PyTorch (compatible with RunPod CUDA)
