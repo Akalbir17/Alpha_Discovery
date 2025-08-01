@@ -119,7 +119,7 @@ textblob
 slowapi
 prometheus-fastapi-instrumentator
 passlib[bcrypt]
-opencv-python
+opencv-python==4.10.0.84
 pytrends
 feedparser
 arch==5.3.1

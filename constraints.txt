@@ -13,3 +13,5 @@ transformers==4.46.3
 arch==5.3.1
 # Fix numpy compilation issue - ensure we get wheels
 numpy==1.26.4
+# Fix opencv-python backtracking and source compilation
+opencv-python==4.10.0.84
