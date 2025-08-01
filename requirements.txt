@@ -33,7 +33,7 @@ gliner==0.2.8
 empyrical==0.5.5
 quantstats
 pyfolio
-statsmodels
+statsmodels==0.14.0
 
 yfinance
 alpha-vantage

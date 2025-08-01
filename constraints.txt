@@ -23,3 +23,5 @@ contourpy==1.3.1
 seaborn==0.13.2
 matplotlib==3.10.5
 ml-dtypes==0.5.3
+# Fix statsmodels Cython compilation issue
+statsmodels==0.14.0
