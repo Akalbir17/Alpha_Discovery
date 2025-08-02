@@ -70,5 +70,11 @@ EXPOSE 8001 8002
 HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
     CMD curl -f http://localhost:8002/ml-health || exit 1
 
+# Debug: List the contents of /app to see if files are copied correctly
+RUN ls -la /app && echo "=== Contents of src/ ===" && ls -la /app/src/ && echo "=== Contents of src/mcp/ ===" && ls -la /app/src/mcp/
+
+# Test if Python can find the module
+RUN python -c "import sys; print('Python path:', sys.path); import src.mcp; print('✓ Module imported successfully')"
+
 # Set the default command to start the MCP server
 CMD ["python", "-m", "src.mcp"] 
