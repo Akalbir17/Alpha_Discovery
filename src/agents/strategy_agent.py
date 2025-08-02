@@ -751,18 +751,18 @@ class ReinforcementLearningTool(BaseTool):
                 
                 # Interpret the RL action for strategy improvement
                 improvements = self._interpret_rl_action(prediction_result, signals)
-            
-            return {
+                
+                return {
                     "rl_model": "PPO_via_ML_Client",
                     "training_status": training_result.get("status", "unknown"),
                     "action": prediction_result.get("action", 0),
                     "prediction_confidence": prediction_result.get("confidence", 0.0),
-                "improvements": improvements,
+                    "improvements": improvements,
                     "confidence": prediction_result.get("confidence", 0.0),
                     "ml_client_used": True,
-                "timestamp": datetime.now().isoformat()
-            }
-            
+                    "timestamp": datetime.now().isoformat()
+                }
+                
             except Exception as rl_error:
                 logger.warning(f"RL model failed, trying A2C: {rl_error}")
                 # Fallback to A2C model
