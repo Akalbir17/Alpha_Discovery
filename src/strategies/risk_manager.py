@@ -357,31 +357,31 @@ class RiskManager:
                 # Fallback to simple covariance calculation
                 logger.warning("ML client not available - using simple covariance estimation")
                 cov_matrix = np.cov(returns.fillna(0).T)
-        
-        # Generate random scenarios
-        mean_returns = returns.mean().values
-        simulated_returns = np.random.multivariate_normal(
-            mean_returns, cov_matrix, n_simulations
-        )
-        
-        # Calculate portfolio returns for each simulation
-        portfolio_returns = simulated_returns.dot(weights)
-        
-        # Scale for time horizon
-        portfolio_returns = portfolio_returns * np.sqrt(time_horizon)
-        
-        # Calculate VaR
-        var = np.percentile(portfolio_returns, (1 - confidence_level) * 100)
-        
-        return {
-            'var': abs(var),
-                'method': 'monte_carlo_ml_enhanced' if ML_CLIENT_AVAILABLE else 'monte_carlo_fallback',
-            'simulations': n_simulations,
-            'confidence_level': confidence_level,
-            'time_horizon': time_horizon,
-            'distribution': portfolio_returns
-        }
             
+            # Generate random scenarios
+            mean_returns = returns.mean().values
+            simulated_returns = np.random.multivariate_normal(
+                mean_returns, cov_matrix, n_simulations
+            )
+            
+            # Calculate portfolio returns for each simulation
+            portfolio_returns = simulated_returns.dot(weights)
+            
+            # Scale for time horizon
+            portfolio_returns = portfolio_returns * np.sqrt(time_horizon)
+            
+            # Calculate VaR
+            var = np.percentile(portfolio_returns, (1 - confidence_level) * 100)
+            
+            return {
+                'var': abs(var),
+                'method': 'monte_carlo_ml_enhanced' if ML_CLIENT_AVAILABLE else 'monte_carlo_fallback',
+                'simulations': n_simulations,
+                'confidence_level': confidence_level,
+                'time_horizon': time_horizon,
+                'distribution': portfolio_returns
+            }
+                
         except Exception as e:
             logger.error(f"Monte Carlo VaR calculation failed: {e}")
             # Fallback to simple calculation
