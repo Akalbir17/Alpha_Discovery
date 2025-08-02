@@ -742,9 +742,9 @@ class RedditScraper:
                         
                         # Add to emotion scores tracking
                         for emotion_name, emotion_score in post_emotions.items():
-                        emotion_scores[emotion_name].append(emotion_score)
-                    
-                    post.emotions = post_emotions
+                            emotion_scores[emotion_name].append(emotion_score)
+                        
+                        post.emotions = post_emotions
                     else: # Fallback to TextBlob
                         blob = TextBlob(text)
                         post_emotions = {}

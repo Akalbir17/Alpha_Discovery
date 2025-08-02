@@ -1,0 +1,501 @@
+2025-08-02T00:17:43.579Z [INFO] #13 86.94    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.4/5.4 MB 176.6 MB/s eta 0:00:00
+2025-08-02T00:17:43.580Z [INFO] #13 86.96 Downloading coloredlogs-15.0.1-py2.py3-none-any.whl (46 kB)
+2025-08-02T00:17:43.692Z [INFO] #13 86.97    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 46.0/46.0 kB 428.8 MB/s eta 0:00:00
+2025-08-02T00:17:43.693Z [INFO] #13 86.99 Downloading et_xmlfile-2.0.0-py3-none-any.whl (18 kB)
+2025-08-02T00:17:43.695Z [INFO] #13 87.02 Downloading importlib_resources-6.5.2-py3-none-any.whl (37 kB)
+2025-08-02T00:17:43.696Z [INFO] #13 87.05 Downloading namex-0.1.0-py3-none-any.whl (5.9 kB)
+2025-08-02T00:17:43.696Z [INFO] #13 87.08 Downloading backoff-2.2.1-py3-none-any.whl (15 kB)
+2025-08-02T00:17:43.811Z [INFO] #13 87.11 Downloading durationpy-0.10-py3-none-any.whl (3.9 kB)
+2025-08-02T00:17:43.812Z [INFO] #13 87.14 Downloading grpcio_status-1.71.2-py3-none-any.whl (14 kB)
+2025-08-02T00:17:43.813Z [INFO] #13 87.17 Downloading httptools-0.6.4-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (442 kB)
+2025-08-02T00:17:43.814Z [INFO] #13 87.17    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 442.1/442.1 kB 132.7 MB/s eta 0:00:00
+2025-08-02T00:17:43.815Z [INFO] #13 87.20 Downloading humanfriendly-10.0-py2.py3-none-any.whl (86 kB)
+2025-08-02T00:17:43.934Z [INFO] #13 87.20    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 86.8/86.8 kB 513.0 MB/s eta 0:00:00
+2025-08-02T00:17:43.935Z [INFO] #13 87.23 Downloading marisa_trie-1.2.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.3 MB)
+2025-08-02T00:17:43.936Z [INFO] #13 87.23    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 435.6 MB/s eta 0:00:00
+2025-08-02T00:17:43.937Z [INFO] #13 87.26 Downloading markdown_it_py-3.0.0-py3-none-any.whl (87 kB)
+2025-08-02T00:17:43.938Z [INFO] #13 87.26    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 87.5/87.5 kB 486.9 MB/s eta 0:00:00
+2025-08-02T00:17:43.938Z [INFO] #13 87.29 Downloading pyasn1-0.6.1-py3-none-any.whl (83 kB)
+2025-08-02T00:17:43.939Z [INFO] #13 87.29    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 83.1/83.1 kB 540.9 MB/s eta 0:00:00
+2025-08-02T00:17:43.940Z [INFO] #13 87.32 Downloading uvloop-0.21.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.8 MB)
+2025-08-02T00:17:44.051Z [INFO] #13 87.35    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.8/3.8 MB 137.1 MB/s eta 0:00:00
+2025-08-02T00:17:44.052Z [INFO] #13 87.38 Downloading watchfiles-1.1.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (453 kB)
+2025-08-02T00:17:44.053Z [INFO] #13 87.38    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 453.1/453.1 kB 363.2 MB/s eta 0:00:00
+2025-08-02T00:17:44.054Z [INFO] #13 87.41 Downloading zipp-3.23.0-py3-none-any.whl (10 kB)
+2025-08-02T00:17:44.054Z [INFO] #13 87.44 Downloading pyproject_hooks-1.2.0-py3-none-any.whl (10 kB)
+2025-08-02T00:17:44.231Z [INFO] #13 87.47 Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+2025-08-02T00:17:47.453Z [INFO] #13 90.84 Building wheels for collected packages: empyrical, pyfolio, gym, multitasking, peewee, asyncio-nats-client, sgmllib3k, pypika
+2025-08-02T00:17:47.581Z [INFO] #13 90.84   Building wheel for empyrical (setup.py): started
+2025-08-02T00:17:47.582Z [INFO] #13 90.97   Building wheel for empyrical (setup.py): finished with status 'done'
+2025-08-02T00:17:47.730Z [INFO] #13 90.97   Created wheel for empyrical: filename=empyrical-0.5.5-py3-none-any.whl size=39756 sha256=3ed983512356e0487197a4af5e5844604133d3dbfc6f37d4682a39e933223f5e
+2025-08-02T00:17:47.731Z [INFO] #13 90.97   Stored in directory: /tmp/pip-ephem-wheel-cache-a836kvuq/wheels/0e/2e/f2/d6d2d9a1eb8fbbd9949bb5d4c00f753e3b74e5bd7ed10b1d36
+2025-08-02T00:17:47.732Z [INFO] #13 90.97   Building wheel for pyfolio (setup.py): started
+2025-08-02T00:17:47.733Z [INFO] #13 91.12   Building wheel for pyfolio (setup.py): finished with status 'done'
+2025-08-02T00:17:47.882Z [INFO] #13 91.12   Created wheel for pyfolio: filename=pyfolio-0.9.2-py3-none-any.whl size=88652 sha256=fb633da131e20ccea00ea5eb726c856c279f6d810adafab0bba958ee01b4b228
+2025-08-02T00:17:47.883Z [INFO] #13 91.12   Stored in directory: /tmp/pip-ephem-wheel-cache-a836kvuq/wheels/71/38/bc/e53700cfd8b0ad6b539d2fbaaf060ed8a299e7622a5b86ef42
+2025-08-02T00:17:47.884Z [INFO] #13 91.12   Building wheel for gym (pyproject.toml): started
+2025-08-02T00:17:47.961Z [INFO] #13 91.35   Building wheel for gym (pyproject.toml): finished with status 'done'
+2025-08-02T00:17:48.083Z [INFO] #13 91.35   Created wheel for gym: filename=gym-0.26.2-py3-none-any.whl size=827729 sha256=b3a835d38206dc0713f0668fff8591f631930039ef9c675b10ad3e783a34593f
+2025-08-02T00:17:48.084Z [INFO] #13 91.35   Stored in directory: /tmp/pip-ephem-wheel-cache-a836kvuq/wheels/b9/22/6d/3e7b32d98451b4cd9d12417052affbeeeea012955d437da1da
+2025-08-02T00:17:48.085Z [INFO] #13 91.35   Building wheel for multitasking (setup.py): started
+2025-08-02T00:17:48.086Z [INFO] #13 91.47   Building wheel for multitasking (setup.py): finished with status 'done'
+2025-08-02T00:17:48.236Z [INFO] #13 91.47   Created wheel for multitasking: filename=multitasking-0.0.12-py3-none-any.whl size=15549 sha256=ab5cca615b0ea6c1a4012d91d8b11c4e4493ab378d2bfd1023a84480e35520b2
+2025-08-02T00:17:48.238Z [INFO] #13 91.47   Stored in directory: /tmp/pip-ephem-wheel-cache-a836kvuq/wheels/e9/25/85/25d2e1cfc0ece64b930b16972f7e4cc3599c43b531f1eba06d
+2025-08-02T00:17:48.239Z [INFO] #13 91.47   Building wheel for peewee (pyproject.toml): started
+2025-08-02T00:17:51.948Z [INFO] #13 95.34   Building wheel for peewee (pyproject.toml): finished with status 'done'
+2025-08-02T00:17:52.088Z [INFO] #13 95.34   Created wheel for peewee: filename=peewee-3.18.2-cp310-cp310-linux_x86_64.whl size=300908 sha256=446a63782e734ddcb324e86015ee00a26045a7e37789d1e72cc19044b655155a
+2025-08-02T00:17:52.089Z [INFO] #13 95.34   Stored in directory: /tmp/pip-ephem-wheel-cache-a836kvuq/wheels/29/22/6c/745744e946d21fdbad1d89887af15cf0659ea76d1a884417ca
+2025-08-02T00:17:52.090Z [INFO] #13 95.34   Building wheel for asyncio-nats-client (setup.py): started
+2025-08-02T00:17:52.090Z [INFO] #13 95.48   Building wheel for asyncio-nats-client (setup.py): finished with status 'done'
+2025-08-02T00:17:52.206Z [INFO] #13 95.48   Created wheel for asyncio-nats-client: filename=asyncio_nats_client-0.11.5-py3-none-any.whl size=26708 sha256=ae05879307e553b92d401d9aabfda77f4562119b3a520fa42be5d16431642e4c
+2025-08-02T00:17:52.207Z [INFO] #13 95.48   Stored in directory: /tmp/pip-ephem-wheel-cache-a836kvuq/wheels/54/35/01/94c384c4d40e89c914d4305d1439f8e818c7c5dea95c8bafa7
+2025-08-02T00:17:52.208Z [INFO] #13 95.48   Building wheel for sgmllib3k (setup.py): started
+2025-08-02T00:17:52.208Z [INFO] #13 95.59   Building wheel for sgmllib3k (setup.py): finished with status 'done'
+2025-08-02T00:17:52.315Z [INFO] #13 95.59   Created wheel for sgmllib3k: filename=sgmllib3k-1.0.0-py3-none-any.whl size=6049 sha256=713d64f143e82dc2dc69d94d3f66e36889ba9cefa13e4a157eaa1758829df326
+2025-08-02T00:17:52.316Z [INFO] #13 95.59   Stored in directory: /tmp/pip-ephem-wheel-cache-a836kvuq/wheels/f0/69/93/a47e9d621be168e9e33c7ce60524393c0b92ae83cf6c6e89c5
+2025-08-02T00:17:52.317Z [INFO] #13 95.60   Building wheel for pypika (pyproject.toml): started
+2025-08-02T00:17:52.317Z [INFO] #13 95.70   Building wheel for pypika (pyproject.toml): finished with status 'done'
+2025-08-02T00:17:52.466Z [INFO] #13 95.70   Created wheel for pypika: filename=pypika-0.48.9-py2.py3-none-any.whl size=53803 sha256=7836d195f840a974baaccd592a47002385e8c5ae6dac446544a08f88bc93ebf7
+2025-08-02T00:17:52.468Z [INFO] #13 95.70   Stored in directory: /tmp/pip-ephem-wheel-cache-a836kvuq/wheels/e1/26/51/d0bffb3d2fd82256676d7ad3003faea3bd6dddc9577af665f4
+2025-08-02T00:17:52.469Z [INFO] #13 95.70 Successfully built empyrical pyfolio gym multitasking peewee asyncio-nats-client sgmllib3k pypika
+2025-08-02T00:17:53.539Z [INFO] #13 96.93 Installing collected packages: sgmllib3k, sentencepiece, QuantLib, pytz, pypika, peewee, passlib, nvidia-cusparselt-cu12, namex, multitasking, libclang, kafka-python, gym_notices, flatbuffers, farama-notifications, durationpy, cymem, asyncio-nats-client, appdirs, zstandard, zipp, wrapt, widgetsnbextension, werkzeug, websockets, websocket-client, watchdog, wasabi, uvloop, uv, uritemplate, tzlocal, tzdata, typing-extensions, triton, tqdm, tomli-w, tomli, threadpoolctl, termcolor, tensorflow-io-gcs-filesystem, tensorboard-data-server, tenacity, tabulate, sympy, structlog, spacy-loggers, spacy-legacy, sniffio, shellingham, sentry-sdk, scipy, schedule, safetensors, requests, regex, QuantLib-Python, pyyaml, python-multipart, python-dotenv, python-dateutil, pyproject_hooks, pypdfium2, pyparsing, pymongo, pyjwt, pybase64, pyasn1, psycopg2-binary, psutil, protobuf, property-cached, propcache, prometheus-client, patsy, paho-mqtt, overrides, orjson, opt-einsum, opencv-python, oauthlib, nvidia-nvtx-cu12, nvidia-nvjitlink-cu12, nvidia-nccl-cu12, nvidia-curand-cu12, nvidia-cufile-cu12, nvidia-cuda-runtime-cu12, nvidia-cuda-nvrtc-cu12, nvidia-cuda-cupti-cu12, nvidia-cublas-cu12, mypy-extensions, murmurhash, mmh3, ml-dtypes, mdurl, marshmallow, markdown, marisa-trie, lxml, llvmlite, kiwisolver, jupyterlab_widgets, jsonref, jsonpickle, json5, json-repair, joblib, jiter, importlib-resources, imageio, humanfriendly, httpx-sse, httptools, hf-xet, h5py, h11, grpcio, greenlet, graphviz, google-pasta, gast, frozenlist, fonttools, feedparser, et-xmlfile, docstring-parser, dill, cycler, contourpy, comm, cloudpickle, click, changepoint, catalogue, cachetools, blis, blinker, bcrypt, backoff, async-timeout, annotated-types, aiohappyeyeballs, aiofiles, absl-py, xgboost, uvicorn, update_checker, typing-inspection, typing-inspect, tiktoken, tensorboard, srsly, sqlalchemy, smart-open, scs, scikit-learn, ruptures, rsa, requests-toolbelt, requests-oauthlib, redis, pydantic-core, pycares, pyasn1-modules, proto-plus, preshed, prawcore, posthog, polygon-api-client, plotly, pandas, osqp, opentelemetry-proto, openpyxl, nvidia-cusparse-cu12, nvidia-cufft-cu12, nvidia-cudnn-cu12, numba, nltk, multidict, matplotlib, markdown-it-py, lightgbm, language-data, importlib-metadata, huggingface-hub, httplib2, httpcore, gymnasium, gym, googleapis-common-protos, ecos, deprecated, dateparser, curl_cffi, coloredlogs, cloudpathlib, build, asyncio-mqtt, anyio, aiosqlite, aiosignal, yfinance, yarl, watchfiles, tweepy, tokenizers, textblob, statsmodels, starlette, sse-starlette, seaborn, rich, pytrends, pydantic, praw, pdfminer.six, pandas-datareader, opentelemetry-exporter-otlp-proto-common, opentelemetry-api, onnxruntime, nvidia-cusolver-cu12, limits, langcodes, jsonschema, httpx, hmmlearn, grpcio-status, google-auth, dataclasses-json, cvxpy, catboost, alpaca-trade-api, aiodns, typer, transformers, torch, slowapi, quantstats, pyvis, PyPortfolioOpt, pydantic-settings, prometheus-fastapi-instrumentator, pdfplumber, opentelemetry-semantic-conventions, openai, ollama, langsmith, kubernetes, keras, ipywidgets, groq, google-auth-httplib2, google-api-core, fastapi, empyrical, confection, arch, anthropic, aiohttp, weasel, vectorbt, thinc, tensorflow, stable-baselines3, sentence-transformers, pyfolio, opentelemetry-sdk, mcp, litellm, langchain-core, instructor, google-api-python-client, gliner, ccxt, asyncprawcore, alpha-vantage, tf-keras, spacy, opentelemetry-exporter-otlp-proto-http, opentelemetry-exporter-otlp-proto-grpc, langchain-text-splitters, langchain-openai, langchain-ollama, langchain-mistralai, langchain-groq, langchain-anthropic, google-ai-generativelanguage, asyncpraw, langchain-together, langchain, google-generativeai, chromadb, langchain-google-genai, langchain-community, crewai
+2025-08-02T00:17:53.868Z [INFO] #13 97.26   Attempting uninstall: pytz
+2025-08-02T00:17:54.090Z [INFO] #13 97.26     Found existing installation: pytz 2024.1
+2025-08-02T00:17:54.092Z [INFO] #13 97.27     Uninstalling pytz-2024.1:
+2025-08-02T00:17:54.092Z [INFO] #13 97.33       Successfully uninstalled pytz-2024.1
+2025-08-02T00:17:55.299Z [INFO] #13 98.69   Attempting uninstall: zstandard
+2025-08-02T00:17:55.454Z [INFO] #13 98.69     Found existing installation: zstandard 0.22.0
+2025-08-02T00:17:55.455Z [INFO] #13 98.69     Uninstalling zstandard-0.22.0:
+2025-08-02T00:17:55.455Z [INFO] #13 98.69       Successfully uninstalled zstandard-0.22.0
+2025-08-02T00:17:55.759Z [INFO] #13 99.15   Attempting uninstall: typing-extensions
+2025-08-02T00:17:55.996Z [INFO] #13 99.15     Found existing installation: typing_extensions 4.11.0
+2025-08-02T00:17:55.998Z [INFO] #13 99.15     Uninstalling typing_extensions-4.11.0:
+2025-08-02T00:17:55.998Z [INFO] #13 99.22       Successfully uninstalled typing_extensions-4.11.0
+2025-08-02T00:17:55.999Z [INFO] #13 99.23   Attempting uninstall: triton
+2025-08-02T00:17:55.999Z [INFO] #13 99.23     Found existing installation: triton 2.3.1
+2025-08-02T00:17:56.000Z [INFO] #13 99.23     Uninstalling triton-2.3.1:
+2025-08-02T00:17:56.004Z [INFO] #13 99.39       Successfully uninstalled triton-2.3.1
+2025-08-02T00:17:57.199Z [INFO] #13 100.6   Attempting uninstall: tqdm
+2025-08-02T00:17:57.362Z [INFO] #13 100.6     Found existing installation: tqdm 4.66.4
+2025-08-02T00:17:57.363Z [INFO] #13 100.6     Uninstalling tqdm-4.66.4:
+2025-08-02T00:17:57.363Z [INFO] #13 100.6       Successfully uninstalled tqdm-4.66.4
+2025-08-02T00:17:57.364Z [INFO] #13 100.6   Attempting uninstall: tomli
+2025-08-02T00:17:57.364Z [INFO] #13 100.6     Found existing installation: tomli 2.0.1
+2025-08-02T00:17:57.365Z [INFO] #13 100.6     Uninstalling tomli-2.0.1:
+2025-08-02T00:17:57.365Z [INFO] #13 100.6       Successfully uninstalled tomli-2.0.1
+2025-08-02T00:17:57.366Z [INFO] #13 100.8   Attempting uninstall: sympy
+2025-08-02T00:17:57.589Z [INFO] #13 100.8     Found existing installation: sympy 1.12.1
+2025-08-02T00:17:57.590Z [INFO] #13 100.8     Uninstalling sympy-1.12.1:
+2025-08-02T00:17:57.840Z [INFO] #13 101.2       Successfully uninstalled sympy-1.12.1
+2025-08-02T00:18:01.546Z [INFO] #13 104.9   Attempting uninstall: requests
+2025-08-02T00:18:01.766Z [INFO] #13 104.9     Found existing installation: requests 2.32.2
+2025-08-02T00:18:01.767Z [INFO] #13 104.9     Uninstalling requests-2.32.2:
+2025-08-02T00:18:01.768Z [INFO] #13 104.9       Successfully uninstalled requests-2.32.2
+2025-08-02T00:18:01.769Z [INFO] #13 105.0   Attempting uninstall: pyyaml
+2025-08-02T00:18:01.769Z [INFO] #13 105.0     Found existing installation: PyYAML 6.0.1
+2025-08-02T00:18:01.770Z [INFO] #13 105.0     Uninstalling PyYAML-6.0.1:
+2025-08-02T00:18:01.770Z [INFO] #13 105.0       Successfully uninstalled PyYAML-6.0.1
+2025-08-02T00:18:01.974Z [INFO] #13 105.4   Attempting uninstall: psutil
+2025-08-02T00:18:02.135Z [INFO] #13 105.4     Found existing installation: psutil 5.9.0
+2025-08-02T00:18:02.136Z [INFO] #13 105.4     Uninstalling psutil-5.9.0:
+2025-08-02T00:18:02.136Z [INFO] #13 105.4       Successfully uninstalled psutil-5.9.0
+2025-08-02T00:18:07.561Z [INFO] #13 110.9   Attempting uninstall: click
+2025-08-02T00:18:07.718Z [INFO] #13 110.9     Found existing installation: click 8.1.7
+2025-08-02T00:18:07.719Z [INFO] #13 111.0     Uninstalling click-8.1.7:
+2025-08-02T00:18:07.719Z [INFO] #13 111.0       Successfully uninstalled click-8.1.7
+2025-08-02T00:18:28.103Z [INFO] #13 131.5   Attempting uninstall: jsonschema
+2025-08-02T00:18:28.267Z [INFO] #13 131.5     Found existing installation: jsonschema 4.19.2
+2025-08-02T00:18:28.268Z [INFO] #13 131.5     Uninstalling jsonschema-4.19.2:
+2025-08-02T00:18:28.269Z [INFO] #13 131.5       Successfully uninstalled jsonschema-4.19.2
+2025-08-02T00:18:31.715Z [INFO] #13 135.1   Attempting uninstall: torch
+2025-08-02T00:18:31.867Z [INFO] #13 135.1     Found existing installation: torch 2.3.1
+2025-08-02T00:18:31.869Z [INFO] #13 135.1     Uninstalling torch-2.3.1:
+2025-08-02T00:18:33.928Z [INFO] #13 137.3       Successfully uninstalled torch-2.3.1
+2025-08-02T00:18:58.522Z [INFO] #13 161.9 Successfully installed PyPortfolioOpt-1.5.6 QuantLib-1.39 QuantLib-Python-1.18 absl-py-2.3.1 aiodns-3.5.0 aiofiles-23.2.1 aiohappyeyeballs-2.6.1 aiohttp-3.12.14 aiosignal-1.4.0 aiosqlite-0.17.0 alpaca-trade-api-0.26 alpha-vantage-3.0.0 annotated-types-0.7.0 anthropic-0.57.1 anyio-4.9.0 appdirs-1.4.4 arch-5.3.1 async-timeout-4.0.3 asyncio-mqtt-0.16.2 asyncio-nats-client-0.11.5 asyncpraw-7.8.1 asyncprawcore-2.4.0 backoff-2.2.1 bcrypt-4.3.0 blinker-1.9.0 blis-1.2.1 build-1.3.0 cachetools-5.5.2 catalogue-2.0.10 catboost-1.2.7 ccxt-4.4.98 changepoint-0.3.2 chromadb-1.0.15 click-8.2.1 cloudpathlib-0.21.1 cloudpickle-3.1.1 coloredlogs-15.0.1 comm-0.2.3 confection-0.1.5 contourpy-1.3.1 crewai-0.148.0 curl_cffi-0.12.0 cvxpy-1.3.2 cycler-0.12.1 cymem-2.0.11 dataclasses-json-0.6.7 dateparser-1.2.2 deprecated-1.2.18 dill-0.4.0 docstring-parser-0.16 durationpy-0.10 ecos-2.0.14 empyrical-0.5.5 et-xmlfile-2.0.0 farama-notifications-0.0.4 fastapi-0.115.9 feedparser-6.0.11 flatbuffers-25.2.10 fonttools-4.59.0 frozenlist-1.7.0 gast-0.6.0 gliner-0.2.8 google-ai-generativelanguage-0.6.9 google-api-core-2.25.1 google-api-python-client-2.177.0 google-auth-2.40.3 google-auth-httplib2-0.2.0 google-generativeai-0.8.0 google-pasta-0.2.0 googleapis-common-protos-1.70.0 graphviz-0.21 greenlet-3.2.3 groq-0.30.0 grpcio-1.74.0 grpcio-status-1.71.2 gym-0.26.2 gym_notices-0.1.0 gymnasium-1.1.1 h11-0.16.0 h5py-3.14.0 hf-xet-1.1.5 hmmlearn-0.3.3 httpcore-1.0.9 httplib2-0.22.0 httptools-0.6.4 httpx-0.28.1 httpx-sse-0.4.1 huggingface-hub-0.34.3 humanfriendly-10.0 imageio-2.37.0 importlib-metadata-8.7.0 importlib-resources-6.5.2 instructor-1.6.3 ipywidgets-8.1.7 jiter-0.5.0 joblib-1.5.1 json-repair-0.25.2 json5-0.12.0 jsonpickle-4.1.1 jsonref-1.1.0 jsonschema-4.25.0 jupyterlab_widgets-3.0.15 kafka-python-2.2.15 keras-3.11.1 kiwisolver-1.4.8 kubernetes-33.1.0 langchain-0.3.26 langchain-anthropic-0.3.16 langchain-community-0.3.26 langchain-core-0.3.69 langchain-google-genai-2.0.4 langchain-groq-0.3.5 langchain-mistralai-0.2.11 langchain-ollama-0.3.5 langchain-openai-0.3.26 langchain-text-splitters-0.3.8 langchain-together-0.3.0 langcodes-3.5.0 langsmith-0.4.10 language-data-1.3.0 libclang-18.1.1 lightgbm-4.5.0 limits-5.4.0 litellm-1.72.6 llvmlite-0.41.1 lxml-6.0.0 marisa-trie-1.2.1 markdown-3.8.2 markdown-it-py-3.0.0 marshmallow-3.26.1 matplotlib-3.10.5 mcp-1.12.0 mdurl-0.1.2 ml-dtypes-0.5.3 mmh3-5.2.0 multidict-6.6.3 multitasking-0.0.12 murmurhash-1.0.13 mypy-extensions-1.1.0 namex-0.1.0 nltk-3.9.1 numba-0.58.1 nvidia-cublas-cu12-12.6.4.1 nvidia-cuda-cupti-cu12-12.6.80 nvidia-cuda-nvrtc-cu12-12.6.77 nvidia-cuda-runtime-cu12-12.6.77 nvidia-cudnn-cu12-9.5.1.17 nvidia-cufft-cu12-11.3.0.4 nvidia-cufile-cu12-1.11.1.6 nvidia-curand-cu12-10.3.7.77 nvidia-cusolver-cu12-11.7.1.2 nvidia-cusparse-cu12-12.5.4.2 nvidia-cusparselt-cu12-0.6.3 nvidia-nccl-cu12-2.26.2 nvidia-nvjitlink-cu12-12.6.85 nvidia-nvtx-cu12-12.6.77 oauthlib-3.3.1 ollama-0.5.1 onnxruntime-1.22.0 openai-1.97.0 opencv-python-4.10.0.84 openpyxl-3.1.5 opentelemetry-api-1.36.0 opentelemetry-exporter-otlp-proto-common-1.36.0 opentelemetry-exporter-otlp-proto-grpc-1.36.0 opentelemetry-exporter-otlp-proto-http-1.36.0 opentelemetry-proto-1.36.0 opentelemetry-sdk-1.36.0 opentelemetry-semantic-conventions-0.57b0 opt-einsum-3.4.0 orjson-3.11.1 osqp-1.0.4 overrides-7.7.0 paho-mqtt-2.1.0 pandas-2.3.1 pandas-datareader-0.10.0 passlib-1.7.4 patsy-1.0.1 pdfminer.six-20250506 pdfplumber-0.11.7 peewee-3.18.2 plotly-5.24.1 polygon-api-client-1.15.3 posthog-5.4.0 praw-7.8.1 prawcore-2.4.0 preshed-3.0.10 prometheus-client-0.22.1 prometheus-fastapi-instrumentator-7.1.0 propcache-0.3.2 property-cached-1.6.4 proto-plus-1.26.1 protobuf-5.29.5 psutil-5.9.8 psycopg2-binary-2.9.10 pyasn1-0.6.1 pyasn1-modules-0.4.2 pybase64-1.4.2 pycares-4.9.0 pydantic-2.11.7 pydantic-core-2.33.2 pydantic-settings-2.10.1 pyfolio-0.9.2 pyjwt-2.9.0 pymongo-4.13.2 pyparsing-3.2.3 pypdfium2-4.30.0 pypika-0.48.9 pyproject_hooks-1.2.0 python-dateutil-2.9.0.post0 python-dotenv-1.1.1 python-multipart-0.0.20 pytrends-4.9.2 pytz-2025.2 pyvis-0.3.2 pyyaml-6.0.2 quantstats-0.0.64 redis-5.3.0 regex-2025.7.34 requests-2.31.0 requests-oauthlib-2.0.0 requests-toolbelt-1.0.0 rich-13.9.4 rsa-4.9.1 ruptures-1.1.9 safetensors-0.5.3 schedule-1.2.2 scikit-learn-1.3.2 scipy-1.11.4 scs-3.2.7.post2 seaborn-0.13.2 sentence-transformers-2.7.0 sentencepiece-0.2.0 sentry-sdk-2.17.0 sgmllib3k-1.0.0 shellingham-1.5.4 slowapi-0.1.9 smart-open-7.3.0.post1 sniffio-1.3.1 spacy-3.8.7 spacy-legacy-3.0.12 spacy-loggers-1.0.5 sqlalchemy-2.0.41 srsly-2.5.1 sse-starlette-3.0.2 stable-baselines3-2.6.0 starlette-0.45.3 statsmodels-0.14.0 structlog-23.3.0 sympy-1.12 tabulate-0.9.0 tenacity-9.1.2 tensorboard-2.19.0 tensorboard-data-server-0.7.2 tensorflow-2.19.0 tensorflow-io-gcs-filesystem-0.37.1 termcolor-3.1.0 textblob-0.19.0 tf-keras-2.19.0 thinc-8.3.4 threadpoolctl-3.6.0 tiktoken-0.9.0 tokenizers-0.20.3 tomli-2.2.1 tomli-w-1.2.0 torch-2.7.1 tqdm-4.67.1 transformers-4.46.3 triton-3.3.1 tweepy-4.16.0 typer-0.16.0 typing-extensions-4.12.1 typing-inspect-0.9.0 typing-inspection-0.4.1 tzdata-2025.2 tzlocal-5.3.1 update_checker-0.18.0 uritemplate-4.2.0 uv-0.8.4 uvicorn-0.35.0 uvloop-0.21.0 vectorbt-0.25.0 wasabi-1.1.3 watchdog-3.0.0 watchfiles-1.1.0 weasel-0.4.1 websocket-client-1.8.0 websockets-14.2 werkzeug-3.1.3 widgetsnbextension-4.0.14 wrapt-1.17.2 xgboost-2.1.3 yarl-1.20.1 yfinance-0.2.65 zipp-3.23.0 zstandard-0.23.0
+2025-08-02T00:18:58.672Z [INFO] #13 161.9 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+2025-08-02T00:19:03.084Z [INFO] #13 DONE 166.5s
+2025-08-02T00:19:03.234Z [INFO] 
+2025-08-02T00:19:03.236Z [INFO] #14 [ 8/14] RUN pip install --no-cache-dir         torch==2.5.1+cu121         torchvision==0.20.1+cu121         torchaudio==2.5.1+cu121         --index-url https://download.pytorch.org/whl/cu121
+2025-08-02T00:19:04.017Z [INFO] #14 0.933 Looking in indexes: https://download.pytorch.org/whl/cu121
+2025-08-02T00:19:04.652Z [INFO] #14 1.567 Collecting torch==2.5.1+cu121
+2025-08-02T00:19:04.810Z [INFO] #14 1.576   Downloading https://download.pytorch.org/whl/cu121/torch-2.5.1%2Bcu121-cp310-cp310-linux_x86_64.whl (780.4 MB)
+2025-08-02T00:19:06.026Z [INFO] #14 2.941      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 780.4/780.4 MB 587.6 MB/s eta 0:00:00
+2025-08-02T00:19:07.112Z [INFO] #14 4.028 Collecting torchvision==0.20.1+cu121
+2025-08-02T00:19:07.283Z [INFO] #14 4.035   Downloading https://download.pytorch.org/whl/cu121/torchvision-0.20.1%2Bcu121-cp310-cp310-linux_x86_64.whl (7.3 MB)
+2025-08-02T00:19:07.285Z [INFO] #14 4.049      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.3/7.3 MB 596.9 MB/s eta 0:00:00
+2025-08-02T00:19:07.690Z [INFO] #14 4.605 Collecting torchaudio==2.5.1+cu121
+2025-08-02T00:19:07.875Z [INFO] #14 4.614   Downloading https://download.pytorch.org/whl/cu121/torchaudio-2.5.1%2Bcu121-cp310-cp310-linux_x86_64.whl (3.4 MB)
+2025-08-02T00:19:07.877Z [INFO] #14 4.621      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/3.4 MB 608.6 MB/s eta 0:00:00
+2025-08-02T00:19:07.878Z [INFO] #14 4.639 Requirement already satisfied: filelock in /opt/conda/lib/python3.10/site-packages (from torch==2.5.1+cu121) (3.13.1)
+2025-08-02T00:19:07.878Z [INFO] #14 4.639 Requirement already satisfied: typing-extensions>=4.8.0 in /opt/conda/lib/python3.10/site-packages (from torch==2.5.1+cu121) (4.12.1)
+2025-08-02T00:19:07.879Z [INFO] #14 4.640 Requirement already satisfied: networkx in /opt/conda/lib/python3.10/site-packages (from torch==2.5.1+cu121) (3.2.1)
+2025-08-02T00:19:07.879Z [INFO] #14 4.640 Requirement already satisfied: jinja2 in /opt/conda/lib/python3.10/site-packages (from torch==2.5.1+cu121) (3.1.4)
+2025-08-02T00:19:07.880Z [INFO] #14 4.640 Requirement already satisfied: fsspec in /opt/conda/lib/python3.10/site-packages (from torch==2.5.1+cu121) (2024.6.0)
+2025-08-02T00:19:08.148Z [INFO] #14 5.064 Collecting nvidia-cuda-nvrtc-cu12==12.1.105 (from torch==2.5.1+cu121)
+2025-08-02T00:19:08.348Z [INFO] #14 5.072   Downloading https://download.pytorch.org/whl/cu121/nvidia_cuda_nvrtc_cu12-12.1.105-py3-none-manylinux1_x86_64.whl (23.7 MB)
+2025-08-02T00:19:08.350Z [INFO] #14 5.113      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 23.7/23.7 MB 590.1 MB/s eta 0:00:00
+2025-08-02T00:19:08.370Z [INFO] #14 5.286 Collecting nvidia-cuda-runtime-cu12==12.1.105 (from torch==2.5.1+cu121)
+2025-08-02T00:19:08.532Z [INFO] #14 5.294   Downloading https://download.pytorch.org/whl/cu121/nvidia_cuda_runtime_cu12-12.1.105-py3-none-manylinux1_x86_64.whl (823 kB)
+2025-08-02T00:19:08.534Z [INFO] #14 5.297      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 823.6/823.6 kB 415.2 MB/s eta 0:00:00
+2025-08-02T00:19:08.791Z [INFO] #14 5.707 Collecting nvidia-cuda-cupti-cu12==12.1.105 (from torch==2.5.1+cu121)
+2025-08-02T00:19:08.975Z [INFO] #14 5.714   Downloading https://download.pytorch.org/whl/cu121/nvidia_cuda_cupti_cu12-12.1.105-py3-none-manylinux1_x86_64.whl (14.1 MB)
+2025-08-02T00:19:08.977Z [INFO] #14 5.740      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 14.1/14.1 MB 583.4 MB/s eta 0:00:00
+2025-08-02T00:19:09.242Z [INFO] #14 6.158 Collecting nvidia-cudnn-cu12==9.1.0.70 (from torch==2.5.1+cu121)
+2025-08-02T00:19:09.400Z [INFO] #14 6.165   Downloading https://download.pytorch.org/whl/cu121/nvidia_cudnn_cu12-9.1.0.70-py3-none-manylinux2014_x86_64.whl (664.8 MB)
+2025-08-02T00:19:10.533Z [INFO] #14 7.298      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 664.8/664.8 MB 582.8 MB/s eta 0:00:00
+2025-08-02T00:19:11.203Z [INFO] #14 8.118 Collecting nvidia-cublas-cu12==12.1.3.1 (from torch==2.5.1+cu121)
+2025-08-02T00:19:11.361Z [INFO] #14 8.126   Downloading https://download.pytorch.org/whl/cu121/nvidia_cublas_cu12-12.1.3.1-py3-none-manylinux1_x86_64.whl (410.6 MB)
+2025-08-02T00:19:11.923Z [INFO] #14 8.838      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 410.6/410.6 MB 589.1 MB/s eta 0:00:00
+2025-08-02T00:19:12.584Z [INFO] #14 9.500 Collecting nvidia-cufft-cu12==11.0.2.54 (from torch==2.5.1+cu121)
+2025-08-02T00:19:12.742Z [INFO] #14 9.507   Downloading https://download.pytorch.org/whl/cu121/nvidia_cufft_cu12-11.0.2.54-py3-none-manylinux1_x86_64.whl (121.6 MB)
+2025-08-02T00:19:15.250Z [INFO] #14 12.16      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 121.6/121.6 MB 46.0 MB/s eta 0:00:00
+2025-08-02T00:19:15.479Z [INFO] #14 12.39 Collecting nvidia-curand-cu12==10.3.2.106 (from torch==2.5.1+cu121)
+2025-08-02T00:19:15.583Z [INFO] #14 12.40   Downloading https://download.pytorch.org/whl/cu121/nvidia_curand_cu12-10.3.2.106-py3-none-manylinux1_x86_64.whl (56.5 MB)
+2025-08-02T00:19:15.734Z [INFO] #14 12.50      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 56.5/56.5 MB 584.0 MB/s eta 0:00:00
+2025-08-02T00:19:16.036Z [INFO] #14 12.95 Collecting nvidia-cusolver-cu12==11.4.5.107 (from torch==2.5.1+cu121)
+2025-08-02T00:19:16.195Z [INFO] #14 12.96   Downloading https://download.pytorch.org/whl/cu121/nvidia_cusolver_cu12-11.4.5.107-py3-none-manylinux1_x86_64.whl (124.2 MB)
+2025-08-02T00:19:16.408Z [INFO] #14 13.17      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 124.2/124.2 MB 580.6 MB/s eta 0:00:00
+2025-08-02T00:19:16.745Z [INFO] #14 13.66 Collecting nvidia-cusparse-cu12==12.1.0.106 (from torch==2.5.1+cu121)
+2025-08-02T00:19:16.904Z [INFO] #14 13.67   Downloading https://download.pytorch.org/whl/cu121/nvidia_cusparse_cu12-12.1.0.106-py3-none-manylinux1_x86_64.whl (196.0 MB)
+2025-08-02T00:19:17.239Z [INFO] #14 14.00      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 196.0/196.0 MB 592.9 MB/s eta 0:00:00
+2025-08-02T00:19:17.672Z [INFO] #14 14.59 Collecting nvidia-nccl-cu12==2.21.5 (from torch==2.5.1+cu121)
+2025-08-02T00:19:17.830Z [INFO] #14 14.60   Downloading https://download.pytorch.org/whl/nvidia_nccl_cu12-2.21.5-py3-none-manylinux2014_x86_64.whl (188.7 MB)
+2025-08-02T00:19:18.002Z [INFO] #14 14.92      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 188.7/188.7 MB 572.2 MB/s eta 0:00:00
+2025-08-02T00:19:18.524Z [INFO] #14 15.44 Collecting nvidia-nvtx-cu12==12.1.105 (from torch==2.5.1+cu121)
+2025-08-02T00:19:18.683Z [INFO] #14 15.45   Downloading https://download.pytorch.org/whl/cu121/nvidia_nvtx_cu12-12.1.105-py3-none-manylinux1_x86_64.whl (99 kB)
+2025-08-02T00:19:18.684Z [INFO] #14 15.45      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 99.1/99.1 kB 520.5 MB/s eta 0:00:00
+2025-08-02T00:19:19.076Z [INFO] #14 15.99 Collecting triton==3.1.0 (from torch==2.5.1+cu121)
+2025-08-02T00:19:19.234Z [INFO] #14 16.00   Downloading https://download.pytorch.org/whl/triton-3.1.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (209.5 MB)
+2025-08-02T00:19:19.597Z [INFO] #14 16.36      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 209.5/209.5 MB 589.0 MB/s eta 0:00:00
+2025-08-02T00:19:19.994Z [INFO] #14 16.91 Collecting sympy==1.13.1 (from torch==2.5.1+cu121)
+2025-08-02T00:19:20.102Z [INFO] #14 16.92   Downloading https://download.pytorch.org/whl/sympy-1.13.1-py3-none-any.whl (6.2 MB)
+2025-08-02T00:19:20.103Z [INFO] #14 16.93      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.2/6.2 MB 571.5 MB/s eta 0:00:00
+2025-08-02T00:19:20.104Z [INFO] #14 16.94 Requirement already satisfied: numpy in /opt/conda/lib/python3.10/site-packages (from torchvision==0.20.1+cu121) (1.26.4)
+2025-08-02T00:19:20.105Z [INFO] #14 16.94 Requirement already satisfied: pillow!=8.3.*,>=5.3.0 in /opt/conda/lib/python3.10/site-packages (from torchvision==0.20.1+cu121) (10.3.0)
+2025-08-02T00:19:20.106Z [INFO] #14 16.95 Requirement already satisfied: nvidia-nvjitlink-cu12 in /opt/conda/lib/python3.10/site-packages (from nvidia-cusolver-cu12==11.4.5.107->torch==2.5.1+cu121) (12.6.85)
+2025-08-02T00:19:20.107Z [INFO] #14 16.96 Requirement already satisfied: mpmath<1.4,>=1.1.0 in /opt/conda/lib/python3.10/site-packages (from sympy==1.13.1->torch==2.5.1+cu121) (1.3.0)
+2025-08-02T00:19:20.107Z [INFO] #14 17.02 Requirement already satisfied: MarkupSafe>=2.0 in /opt/conda/lib/python3.10/site-packages (from jinja2->torch==2.5.1+cu121) (2.1.3)
+2025-08-02T00:19:21.170Z [INFO] #14 18.09 Installing collected packages: triton, sympy, nvidia-nvtx-cu12, nvidia-nccl-cu12, nvidia-cusparse-cu12, nvidia-curand-cu12, nvidia-cufft-cu12, nvidia-cuda-runtime-cu12, nvidia-cuda-nvrtc-cu12, nvidia-cuda-cupti-cu12, nvidia-cublas-cu12, nvidia-cusolver-cu12, nvidia-cudnn-cu12, torch, torchvision, torchaudio
+2025-08-02T00:19:21.172Z [INFO] #14 18.09   Attempting uninstall: triton
+2025-08-02T00:19:21.296Z [INFO] #14 18.09     Found existing installation: triton 3.3.1
+2025-08-02T00:19:21.297Z [INFO] #14 18.10     Uninstalling triton-3.3.1:
+2025-08-02T00:19:21.298Z [INFO] #14 18.21       Successfully uninstalled triton-3.3.1
+2025-08-02T00:19:22.497Z [INFO] #14 19.41   Attempting uninstall: sympy
+2025-08-02T00:19:22.727Z [INFO] #14 19.41     Found existing installation: sympy 1.12
+2025-08-02T00:19:22.729Z [INFO] #14 19.49     Uninstalling sympy-1.12:
+2025-08-02T00:19:23.514Z [INFO] #14 20.43       Successfully uninstalled sympy-1.12
+2025-08-02T00:19:25.769Z [INFO] #14 22.68   Attempting uninstall: nvidia-nvtx-cu12
+2025-08-02T00:19:25.982Z [INFO] #14 22.69     Found existing installation: nvidia-nvtx-cu12 12.6.77
+2025-08-02T00:19:25.983Z [INFO] #14 22.69     Uninstalling nvidia-nvtx-cu12-12.6.77:
+2025-08-02T00:19:25.985Z [INFO] #14 22.70       Successfully uninstalled nvidia-nvtx-cu12-12.6.77
+2025-08-02T00:19:25.986Z [INFO] #14 22.71   Attempting uninstall: nvidia-nccl-cu12
+2025-08-02T00:19:25.986Z [INFO] #14 22.71     Found existing installation: nvidia-nccl-cu12 2.26.2
+2025-08-02T00:19:25.987Z [INFO] #14 22.71     Uninstalling nvidia-nccl-cu12-2.26.2:
+2025-08-02T00:19:25.988Z [INFO] #14 22.75       Successfully uninstalled nvidia-nccl-cu12-2.26.2
+2025-08-02T00:19:26.773Z [INFO] #14 23.69   Attempting uninstall: nvidia-cusparse-cu12
+2025-08-02T00:19:26.968Z [INFO] #14 23.69     Found existing installation: nvidia-cusparse-cu12 12.5.4.2
+2025-08-02T00:19:26.969Z [INFO] #14 23.69     Uninstalling nvidia-cusparse-cu12-12.5.4.2:
+2025-08-02T00:19:26.970Z [INFO] #14 23.73       Successfully uninstalled nvidia-cusparse-cu12-12.5.4.2
+2025-08-02T00:19:27.790Z [INFO] #14 24.71   Attempting uninstall: nvidia-curand-cu12
+2025-08-02T00:19:27.962Z [INFO] #14 24.71     Found existing installation: nvidia-curand-cu12 10.3.7.77
+2025-08-02T00:19:27.963Z [INFO] #14 24.71     Uninstalling nvidia-curand-cu12-10.3.7.77:
+2025-08-02T00:19:27.964Z [INFO] #14 24.73       Successfully uninstalled nvidia-curand-cu12-10.3.7.77
+2025-08-02T00:19:27.979Z [INFO] #14 24.90   Attempting uninstall: nvidia-cufft-cu12
+2025-08-02T00:19:28.173Z [INFO] #14 24.90     Found existing installation: nvidia-cufft-cu12 11.3.0.4
+2025-08-02T00:19:28.175Z [INFO] #14 24.90     Uninstalling nvidia-cufft-cu12-11.3.0.4:
+2025-08-02T00:19:28.176Z [INFO] #14 24.94       Successfully uninstalled nvidia-cufft-cu12-11.3.0.4
+2025-08-02T00:19:28.655Z [INFO] #14 25.57   Attempting uninstall: nvidia-cuda-runtime-cu12
+2025-08-02T00:19:28.860Z [INFO] #14 25.57     Found existing installation: nvidia-cuda-runtime-cu12 12.6.77
+2025-08-02T00:19:28.861Z [INFO] #14 25.57     Uninstalling nvidia-cuda-runtime-cu12-12.6.77:
+2025-08-02T00:19:28.862Z [INFO] #14 25.59       Successfully uninstalled nvidia-cuda-runtime-cu12-12.6.77
+2025-08-02T00:19:28.863Z [INFO] #14 25.61   Attempting uninstall: nvidia-cuda-nvrtc-cu12
+2025-08-02T00:19:28.863Z [INFO] #14 25.61     Found existing installation: nvidia-cuda-nvrtc-cu12 12.6.77
+2025-08-02T00:19:28.864Z [INFO] #14 25.61     Uninstalling nvidia-cuda-nvrtc-cu12-12.6.77:
+2025-08-02T00:19:28.864Z [INFO] #14 25.63       Successfully uninstalled nvidia-cuda-nvrtc-cu12-12.6.77
+2025-08-02T00:19:28.865Z [INFO] #14 25.78   Attempting uninstall: nvidia-cuda-cupti-cu12
+2025-08-02T00:19:28.978Z [INFO] #14 25.78     Found existing installation: nvidia-cuda-cupti-cu12 12.6.80
+2025-08-02T00:19:28.979Z [INFO] #14 25.78     Uninstalling nvidia-cuda-cupti-cu12-12.6.80:
+2025-08-02T00:19:28.980Z [INFO] #14 25.80       Successfully uninstalled nvidia-cuda-cupti-cu12-12.6.80
+2025-08-02T00:19:28.981Z [INFO] #14 25.89   Attempting uninstall: nvidia-cublas-cu12
+2025-08-02T00:19:29.131Z [INFO] #14 25.89     Found existing installation: nvidia-cublas-cu12 12.6.4.1
+2025-08-02T00:19:29.133Z [INFO] #14 25.90     Uninstalling nvidia-cublas-cu12-12.6.4.1:
+2025-08-02T00:19:29.226Z [INFO] #14 26.14       Successfully uninstalled nvidia-cublas-cu12-12.6.4.1
+2025-08-02T00:19:31.562Z [INFO] #14 28.48   Attempting uninstall: nvidia-cusolver-cu12
+2025-08-02T00:19:31.752Z [INFO] #14 28.48     Found existing installation: nvidia-cusolver-cu12 11.7.1.2
+2025-08-02T00:19:31.754Z [INFO] #14 28.48     Uninstalling nvidia-cusolver-cu12-11.7.1.2:
+2025-08-02T00:19:31.755Z [INFO] #14 28.52       Successfully uninstalled nvidia-cusolver-cu12-11.7.1.2
+2025-08-02T00:19:32.282Z [INFO] #14 29.20   Attempting uninstall: nvidia-cudnn-cu12
+2025-08-02T00:19:32.435Z [INFO] #14 29.20     Found existing installation: nvidia-cudnn-cu12 9.5.1.17
+2025-08-02T00:19:32.436Z [INFO] #14 29.20     Uninstalling nvidia-cudnn-cu12-9.5.1.17:
+2025-08-02T00:19:32.587Z [INFO] #14 29.50       Successfully uninstalled nvidia-cudnn-cu12-9.5.1.17
+2025-08-02T00:19:36.200Z [INFO] #14 33.12   Attempting uninstall: torch
+2025-08-02T00:19:36.352Z [INFO] #14 33.12     Found existing installation: torch 2.7.1
+2025-08-02T00:19:36.446Z [INFO] #14 33.36     Uninstalling torch-2.7.1:
+2025-08-02T00:19:38.217Z [INFO] #14 35.13       Successfully uninstalled torch-2.7.1
+2025-08-02T00:19:46.528Z [INFO] #14 43.44   Attempting uninstall: torchvision
+2025-08-02T00:19:46.680Z [INFO] #14 43.44     Found existing installation: torchvision 0.18.1
+2025-08-02T00:19:46.681Z [INFO] #14 43.45     Uninstalling torchvision-0.18.1:
+2025-08-02T00:19:46.940Z [INFO] #14 43.86       Successfully uninstalled torchvision-0.18.1
+2025-08-02T00:19:47.178Z [INFO] #14 44.09   Attempting uninstall: torchaudio
+2025-08-02T00:19:47.331Z [INFO] #14 44.10     Found existing installation: torchaudio 2.3.1
+2025-08-02T00:19:47.332Z [INFO] #14 44.10     Uninstalling torchaudio-2.3.1:
+2025-08-02T00:19:47.580Z [INFO] #14 44.50       Successfully uninstalled torchaudio-2.3.1
+2025-08-02T00:19:47.736Z [INFO] #14 44.65 Successfully installed nvidia-cublas-cu12-12.1.3.1 nvidia-cuda-cupti-cu12-12.1.105 nvidia-cuda-nvrtc-cu12-12.1.105 nvidia-cuda-runtime-cu12-12.1.105 nvidia-cudnn-cu12-9.1.0.70 nvidia-cufft-cu12-11.0.2.54 nvidia-curand-cu12-10.3.2.106 nvidia-cusolver-cu12-11.4.5.107 nvidia-cusparse-cu12-12.1.0.106 nvidia-nccl-cu12-2.21.5 nvidia-nvtx-cu12-12.1.105 sympy-1.13.1 torch-2.5.1+cu121 torchaudio-2.5.1+cu121 torchvision-0.20.1+cu121 triton-3.1.0
+2025-08-02T00:19:47.886Z [INFO] #14 44.65 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+2025-08-02T00:19:49.321Z [INFO] #14 DONE 46.2s
+2025-08-02T00:19:49.471Z [INFO] 
+2025-08-02T00:19:49.472Z [INFO] #15 [ 9/14] RUN pip install --no-cache-dir     transformers==4.46.3     sentence-transformers==2.7.0     xgboost==2.1.3     lightgbm==4.5.0     catboost==1.2.7     gliner==0.2.8     stable-baselines3==2.6.0     gymnasium     scikit-learn     accelerate     bitsandbytes     nltk     textblob
+2025-08-02T00:19:49.715Z [INFO] #15 0.394 Requirement already satisfied: transformers==4.46.3 in /opt/conda/lib/python3.10/site-packages (4.46.3)
+2025-08-02T00:19:49.829Z [INFO] #15 0.395 Requirement already satisfied: sentence-transformers==2.7.0 in /opt/conda/lib/python3.10/site-packages (2.7.0)
+2025-08-02T00:19:49.830Z [INFO] #15 0.395 Requirement already satisfied: xgboost==2.1.3 in /opt/conda/lib/python3.10/site-packages (2.1.3)
+2025-08-02T00:19:49.830Z [INFO] #15 0.395 Requirement already satisfied: lightgbm==4.5.0 in /opt/conda/lib/python3.10/site-packages (4.5.0)
+2025-08-02T00:19:49.831Z [INFO] #15 0.395 Requirement already satisfied: catboost==1.2.7 in /opt/conda/lib/python3.10/site-packages (1.2.7)
+2025-08-02T00:19:49.832Z [INFO] #15 0.396 Requirement already satisfied: gliner==0.2.8 in /opt/conda/lib/python3.10/site-packages (0.2.8)
+2025-08-02T00:19:49.833Z [INFO] #15 0.396 Requirement already satisfied: stable-baselines3==2.6.0 in /opt/conda/lib/python3.10/site-packages (2.6.0)
+2025-08-02T00:19:49.833Z [INFO] #15 0.396 Requirement already satisfied: gymnasium in /opt/conda/lib/python3.10/site-packages (1.1.1)
+2025-08-02T00:19:49.834Z [INFO] #15 0.396 Requirement already satisfied: scikit-learn in /opt/conda/lib/python3.10/site-packages (1.3.2)
+2025-08-02T00:19:49.835Z [INFO] #15 0.508 Collecting accelerate
+2025-08-02T00:19:49.969Z [INFO] #15 0.606   Downloading accelerate-1.9.0-py3-none-any.whl.metadata (19 kB)
+2025-08-02T00:19:49.969Z [INFO] #15 0.649 Collecting bitsandbytes
+2025-08-02T00:19:50.150Z [INFO] #15 0.675   Downloading bitsandbytes-0.46.1-py3-none-manylinux_2_24_x86_64.whl.metadata (10 kB)
+2025-08-02T00:19:50.151Z [INFO] #15 0.679 Requirement already satisfied: nltk in /opt/conda/lib/python3.10/site-packages (3.9.1)
+2025-08-02T00:19:50.152Z [INFO] #15 0.679 Requirement already satisfied: textblob in /opt/conda/lib/python3.10/site-packages (0.19.0)
+2025-08-02T00:19:50.156Z [INFO] #15 0.836 Requirement already satisfied: filelock in /opt/conda/lib/python3.10/site-packages (from transformers==4.46.3) (3.13.1)
+2025-08-02T00:19:50.299Z [INFO] #15 0.836 Requirement already satisfied: huggingface-hub<1.0,>=0.23.2 in /opt/conda/lib/python3.10/site-packages (from transformers==4.46.3) (0.34.3)
+2025-08-02T00:19:50.301Z [INFO] #15 0.837 Requirement already satisfied: numpy>=1.17 in /opt/conda/lib/python3.10/site-packages (from transformers==4.46.3) (1.26.4)
+2025-08-02T00:19:50.301Z [INFO] #15 0.837 Requirement already satisfied: packaging>=20.0 in /opt/conda/lib/python3.10/site-packages (from transformers==4.46.3) (23.2)
+2025-08-02T00:19:50.302Z [INFO] #15 0.837 Requirement already satisfied: pyyaml>=5.1 in /opt/conda/lib/python3.10/site-packages (from transformers==4.46.3) (6.0.2)
+2025-08-02T00:19:50.302Z [INFO] #15 0.837 Requirement already satisfied: regex!=2019.12.17 in /opt/conda/lib/python3.10/site-packages (from transformers==4.46.3) (2025.7.34)
+2025-08-02T00:19:50.303Z [INFO] #15 0.838 Requirement already satisfied: requests in /opt/conda/lib/python3.10/site-packages (from transformers==4.46.3) (2.31.0)
+2025-08-02T00:19:50.303Z [INFO] #15 0.838 Requirement already satisfied: tokenizers<0.21,>=0.20 in /opt/conda/lib/python3.10/site-packages (from transformers==4.46.3) (0.20.3)
+2025-08-02T00:19:50.304Z [INFO] #15 0.838 Requirement already satisfied: safetensors>=0.4.1 in /opt/conda/lib/python3.10/site-packages (from transformers==4.46.3) (0.5.3)
+2025-08-02T00:19:50.305Z [INFO] #15 0.839 Requirement already satisfied: tqdm>=4.27 in /opt/conda/lib/python3.10/site-packages (from transformers==4.46.3) (4.67.1)
+2025-08-02T00:19:50.305Z [INFO] #15 0.842 Requirement already satisfied: torch>=1.11.0 in /opt/conda/lib/python3.10/site-packages (from sentence-transformers==2.7.0) (2.5.1+cu121)
+2025-08-02T00:19:50.306Z [INFO] #15 0.842 Requirement already satisfied: scipy in /opt/conda/lib/python3.10/site-packages (from sentence-transformers==2.7.0) (1.11.4)
+2025-08-02T00:19:50.306Z [INFO] #15 0.842 Requirement already satisfied: Pillow in /opt/conda/lib/python3.10/site-packages (from sentence-transformers==2.7.0) (10.3.0)
+2025-08-02T00:19:50.307Z [INFO] #15 0.848 Requirement already satisfied: nvidia-nccl-cu12 in /opt/conda/lib/python3.10/site-packages (from xgboost==2.1.3) (2.21.5)
+2025-08-02T00:19:50.307Z [INFO] #15 0.854 Requirement already satisfied: graphviz in /opt/conda/lib/python3.10/site-packages (from catboost==1.2.7) (0.21)
+2025-08-02T00:19:50.308Z [INFO] #15 0.854 Requirement already satisfied: matplotlib in /opt/conda/lib/python3.10/site-packages (from catboost==1.2.7) (3.10.5)
+2025-08-02T00:19:50.308Z [INFO] #15 0.854 Requirement already satisfied: pandas>=0.24 in /opt/conda/lib/python3.10/site-packages (from catboost==1.2.7) (2.3.1)
+2025-08-02T00:19:50.309Z [INFO] #15 0.855 Requirement already satisfied: plotly in /opt/conda/lib/python3.10/site-packages (from catboost==1.2.7) (5.24.1)
+2025-08-02T00:19:50.309Z [INFO] #15 0.855 Requirement already satisfied: six in /opt/conda/lib/python3.10/site-packages (from catboost==1.2.7) (1.16.0)
+2025-08-02T00:19:50.310Z [INFO] #15 0.857 Requirement already satisfied: onnxruntime in /opt/conda/lib/python3.10/site-packages (from gliner==0.2.8) (1.22.0)
+2025-08-02T00:19:50.310Z [INFO] #15 0.857 Requirement already satisfied: sentencepiece in /opt/conda/lib/python3.10/site-packages (from gliner==0.2.8) (0.2.0)
+2025-08-02T00:19:50.311Z [INFO] #15 0.865 Requirement already satisfied: cloudpickle in /opt/conda/lib/python3.10/site-packages (from stable-baselines3==2.6.0) (3.1.1)
+2025-08-02T00:19:50.311Z [INFO] #15 0.883 Requirement already satisfied: typing-extensions>=4.3.0 in /opt/conda/lib/python3.10/site-packages (from gymnasium) (4.12.1)
+2025-08-02T00:19:50.312Z [INFO] #15 0.883 Requirement already satisfied: farama-notifications>=0.0.1 in /opt/conda/lib/python3.10/site-packages (from gymnasium) (0.0.4)
+2025-08-02T00:19:50.312Z [INFO] #15 0.896 Requirement already satisfied: joblib>=1.1.1 in /opt/conda/lib/python3.10/site-packages (from scikit-learn) (1.5.1)
+2025-08-02T00:19:50.313Z [INFO] #15 0.896 Requirement already satisfied: threadpoolctl>=2.0.0 in /opt/conda/lib/python3.10/site-packages (from scikit-learn) (3.6.0)
+2025-08-02T00:19:50.313Z [INFO] #15 0.919 Requirement already satisfied: psutil in /opt/conda/lib/python3.10/site-packages (from accelerate) (5.9.8)
+2025-08-02T00:19:50.314Z [INFO] #15 0.932 Requirement already satisfied: click in /opt/conda/lib/python3.10/site-packages (from nltk) (8.2.1)
+2025-08-02T00:19:50.314Z [INFO] #15 0.979 Requirement already satisfied: fsspec>=2023.5.0 in /opt/conda/lib/python3.10/site-packages (from huggingface-hub<1.0,>=0.23.2->transformers==4.46.3) (2024.6.0)
+2025-08-02T00:19:50.400Z [INFO] #15 1.019 Requirement already satisfied: python-dateutil>=2.8.2 in /opt/conda/lib/python3.10/site-packages (from pandas>=0.24->catboost==1.2.7) (2.9.0.post0)
+2025-08-02T00:19:50.400Z [INFO] #15 0.980 Requirement already satisfied: hf-xet<2.0.0,>=1.1.3 in /opt/conda/lib/python3.10/site-packages (from huggingface-hub<1.0,>=0.23.2->transformers==4.46.3) (1.1.5)
+2025-08-02T00:19:50.401Z [INFO] #15 1.019 Requirement already satisfied: pytz>=2020.1 in /opt/conda/lib/python3.10/site-packages (from pandas>=0.24->catboost==1.2.7) (2025.2)
+2025-08-02T00:19:50.402Z [INFO] #15 1.020 Requirement already satisfied: tzdata>=2022.7 in /opt/conda/lib/python3.10/site-packages (from pandas>=0.24->catboost==1.2.7) (2025.2)
+2025-08-02T00:19:50.402Z [INFO] #15 1.073 Requirement already satisfied: networkx in /opt/conda/lib/python3.10/site-packages (from torch>=1.11.0->sentence-transformers==2.7.0) (3.2.1)
+2025-08-02T00:19:50.403Z [INFO] #15 1.074 Requirement already satisfied: jinja2 in /opt/conda/lib/python3.10/site-packages (from torch>=1.11.0->sentence-transformers==2.7.0) (3.1.4)
+2025-08-02T00:19:50.403Z [INFO] #15 1.074 Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.1.105 in /opt/conda/lib/python3.10/site-packages (from torch>=1.11.0->sentence-transformers==2.7.0) (12.1.105)
+2025-08-02T00:19:50.404Z [INFO] #15 1.075 Requirement already satisfied: nvidia-cuda-runtime-cu12==12.1.105 in /opt/conda/lib/python3.10/site-packages (from torch>=1.11.0->sentence-transformers==2.7.0) (12.1.105)
+2025-08-02T00:19:50.404Z [INFO] #15 1.075 Requirement already satisfied: nvidia-cuda-cupti-cu12==12.1.105 in /opt/conda/lib/python3.10/site-packages (from torch>=1.11.0->sentence-transformers==2.7.0) (12.1.105)
+2025-08-02T00:19:50.405Z [INFO] #15 1.076 Requirement already satisfied: nvidia-cudnn-cu12==9.1.0.70 in /opt/conda/lib/python3.10/site-packages (from torch>=1.11.0->sentence-transformers==2.7.0) (9.1.0.70)
+2025-08-02T00:19:50.405Z [INFO] #15 1.077 Requirement already satisfied: nvidia-cublas-cu12==12.1.3.1 in /opt/conda/lib/python3.10/site-packages (from torch>=1.11.0->sentence-transformers==2.7.0) (12.1.3.1)
+2025-08-02T00:19:50.406Z [INFO] #15 1.077 Requirement already satisfied: nvidia-cufft-cu12==11.0.2.54 in /opt/conda/lib/python3.10/site-packages (from torch>=1.11.0->sentence-transformers==2.7.0) (11.0.2.54)
+2025-08-02T00:19:50.406Z [INFO] #15 1.078 Requirement already satisfied: nvidia-curand-cu12==10.3.2.106 in /opt/conda/lib/python3.10/site-packages (from torch>=1.11.0->sentence-transformers==2.7.0) (10.3.2.106)
+2025-08-02T00:19:50.407Z [INFO] #15 1.078 Requirement already satisfied: nvidia-cusolver-cu12==11.4.5.107 in /opt/conda/lib/python3.10/site-packages (from torch>=1.11.0->sentence-transformers==2.7.0) (11.4.5.107)
+2025-08-02T00:19:50.407Z [INFO] #15 1.079 Requirement already satisfied: nvidia-cusparse-cu12==12.1.0.106 in /opt/conda/lib/python3.10/site-packages (from torch>=1.11.0->sentence-transformers==2.7.0) (12.1.0.106)
+2025-08-02T00:19:50.408Z [INFO] #15 1.080 Requirement already satisfied: nvidia-nvtx-cu12==12.1.105 in /opt/conda/lib/python3.10/site-packages (from torch>=1.11.0->sentence-transformers==2.7.0) (12.1.105)
+2025-08-02T00:19:50.579Z [INFO] #15 1.080 Requirement already satisfied: triton==3.1.0 in /opt/conda/lib/python3.10/site-packages (from torch>=1.11.0->sentence-transformers==2.7.0) (3.1.0)
+2025-08-02T00:19:50.580Z [INFO] #15 1.081 Requirement already satisfied: sympy==1.13.1 in /opt/conda/lib/python3.10/site-packages (from torch>=1.11.0->sentence-transformers==2.7.0) (1.13.1)
+2025-08-02T00:19:50.581Z [INFO] #15 1.096 Requirement already satisfied: nvidia-nvjitlink-cu12 in /opt/conda/lib/python3.10/site-packages (from nvidia-cusolver-cu12==11.4.5.107->torch>=1.11.0->sentence-transformers==2.7.0) (12.6.85)
+2025-08-02T00:19:50.581Z [INFO] #15 1.103 Requirement already satisfied: mpmath<1.4,>=1.1.0 in /opt/conda/lib/python3.10/site-packages (from sympy==1.13.1->torch>=1.11.0->sentence-transformers==2.7.0) (1.3.0)
+2025-08-02T00:19:50.582Z [INFO] #15 1.135 Requirement already satisfied: contourpy>=1.0.1 in /opt/conda/lib/python3.10/site-packages (from matplotlib->catboost==1.2.7) (1.3.1)
+2025-08-02T00:19:50.582Z [INFO] #15 1.136 Requirement already satisfied: cycler>=0.10 in /opt/conda/lib/python3.10/site-packages (from matplotlib->catboost==1.2.7) (0.12.1)
+2025-08-02T00:19:50.583Z [INFO] #15 1.136 Requirement already satisfied: fonttools>=4.22.0 in /opt/conda/lib/python3.10/site-packages (from matplotlib->catboost==1.2.7) (4.59.0)
+2025-08-02T00:19:50.583Z [INFO] #15 1.136 Requirement already satisfied: kiwisolver>=1.3.1 in /opt/conda/lib/python3.10/site-packages (from matplotlib->catboost==1.2.7) (1.4.8)
+2025-08-02T00:19:50.584Z [INFO] #15 1.136 Requirement already satisfied: pyparsing>=2.3.1 in /opt/conda/lib/python3.10/site-packages (from matplotlib->catboost==1.2.7) (3.2.3)
+2025-08-02T00:19:50.584Z [INFO] #15 1.148 Requirement already satisfied: coloredlogs in /opt/conda/lib/python3.10/site-packages (from onnxruntime->gliner==0.2.8) (15.0.1)
+2025-08-02T00:19:50.585Z [INFO] #15 1.149 Requirement already satisfied: flatbuffers in /opt/conda/lib/python3.10/site-packages (from onnxruntime->gliner==0.2.8) (25.2.10)
+2025-08-02T00:19:50.585Z [INFO] #15 1.149 Requirement already satisfied: protobuf in /opt/conda/lib/python3.10/site-packages (from onnxruntime->gliner==0.2.8) (5.29.5)
+2025-08-02T00:19:50.586Z [INFO] #15 1.152 Requirement already satisfied: tenacity>=6.2.0 in /opt/conda/lib/python3.10/site-packages (from plotly->catboost==1.2.7) (9.1.2)
+2025-08-02T00:19:50.586Z [INFO] #15 1.161 Requirement already satisfied: charset-normalizer<4,>=2 in /opt/conda/lib/python3.10/site-packages (from requests->transformers==4.46.3) (2.0.4)
+2025-08-02T00:19:50.587Z [INFO] #15 1.162 Requirement already satisfied: idna<4,>=2.5 in /opt/conda/lib/python3.10/site-packages (from requests->transformers==4.46.3) (3.7)
+2025-08-02T00:19:50.587Z [INFO] #15 1.162 Requirement already satisfied: urllib3<3,>=1.21.1 in /opt/conda/lib/python3.10/site-packages (from requests->transformers==4.46.3) (2.2.1)
+2025-08-02T00:19:50.588Z [INFO] #15 1.162 Requirement already satisfied: certifi>=2017.4.17 in /opt/conda/lib/python3.10/site-packages (from requests->transformers==4.46.3) (2024.2.2)
+2025-08-02T00:19:50.588Z [INFO] #15 1.259 Requirement already satisfied: humanfriendly>=9.1 in /opt/conda/lib/python3.10/site-packages (from coloredlogs->onnxruntime->gliner==0.2.8) (10.0)
+2025-08-02T00:19:50.722Z [INFO] #15 1.264 Requirement already satisfied: MarkupSafe>=2.0 in /opt/conda/lib/python3.10/site-packages (from jinja2->torch>=1.11.0->sentence-transformers==2.7.0) (2.1.3)
+2025-08-02T00:19:50.723Z [INFO] #15 1.321 Downloading accelerate-1.9.0-py3-none-any.whl (367 kB)
+2025-08-02T00:19:50.899Z [INFO] #15 1.401    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 367.1/367.1 kB 4.6 MB/s eta 0:00:00
+2025-08-02T00:19:50.900Z [INFO] #15 1.428 Downloading bitsandbytes-0.46.1-py3-none-manylinux_2_24_x86_64.whl (72.9 MB)
+2025-08-02T00:19:51.357Z [INFO] #15 2.036    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 72.9/72.9 MB 133.3 MB/s eta 0:00:00
+2025-08-02T00:19:52.063Z [INFO] #15 2.743 Installing collected packages: bitsandbytes, accelerate
+2025-08-02T00:19:52.688Z [INFO] #15 3.367 Successfully installed accelerate-1.9.0 bitsandbytes-0.46.1
+2025-08-02T00:19:52.839Z [INFO] #15 3.367 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+2025-08-02T00:19:52.949Z [INFO] #15 DONE 3.6s
+2025-08-02T00:19:53.106Z [INFO] 
+2025-08-02T00:19:53.107Z [INFO] #16 [10/14] COPY . .
+2025-08-02T00:19:53.108Z [INFO] #16 DONE 0.0s
+2025-08-02T00:19:53.109Z [INFO] 
+2025-08-02T00:19:53.110Z [INFO] #17 [11/14] RUN mkdir -p /app/cache/transformers /app/cache/huggingface /app/cache/torch
+2025-08-02T00:19:53.110Z [INFO] #17 DONE 0.1s
+2025-08-02T00:19:53.257Z [INFO] 
+2025-08-02T00:19:53.258Z [INFO] #18 [12/14] RUN python -c "from transformers import AutoTokenizer, AutoModel, pipeline; from sentence_transformers import SentenceTransformer; import torch; print('Pre-downloading critical models...'); [print('✓ FinBERT cached') if not (AutoTokenizer.from_pretrained('ProsusAI/finbert'), AutoModel.from_pretrained('ProsusAI/finbert')) else None]; [print('✓ RoBERTa sentiment cached') if not pipeline('sentiment-analysis', model='cardiffnlp/twitter-roberta-base-sentiment-latest') else None]; [print('✓ Sentence Transformer cached') if not SentenceTransformer('sentence-transformers/all-mpnet-base-v2') else None]; print('Model pre-caching complete!')"
+2025-08-02T00:19:54.008Z [INFO] #18 0.901 /opt/conda/lib/python3.10/site-packages/transformers/utils/hub.py:128: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+2025-08-02T00:19:54.009Z [INFO] #18 0.901   warnings.warn(
+2025-08-02T00:19:54.835Z [INFO] #18 1.728 2025-08-02 00:19:54.834744: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-08-02T00:19:55.016Z [INFO] #18 1.736 2025-08-02 00:19:54.842734: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-08-02T00:19:55.018Z [INFO] #18 1.746 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+2025-08-02T00:19:55.019Z [INFO] #18 1.746 E0000 00:00:1754093994.852143      49 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2025-08-02T00:19:55.020Z [INFO] #18 1.749 E0000 00:00:1754093994.855033      49 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-08-02T00:19:55.020Z [INFO] #18 1.757 W0000 00:00:1754093994.863046      49 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+2025-08-02T00:19:55.021Z [INFO] #18 1.757 W0000 00:00:1754093994.863057      49 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+2025-08-02T00:19:55.021Z [INFO] #18 1.757 W0000 00:00:1754093994.863059      49 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+2025-08-02T00:19:55.022Z [INFO] #18 1.757 W0000 00:00:1754093994.863060      49 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+2025-08-02T00:19:55.022Z [INFO] #18 1.759 2025-08-02 00:19:54.865491: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+2025-08-02T00:19:55.023Z [INFO] #18 1.759 To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-08-02T00:20:04.093Z [INFO] #18 10.99 Some weights of the model checkpoint at cardiffnlp/twitter-roberta-base-sentiment-latest were not used when initializing RobertaForSequenceClassification: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+2025-08-02T00:20:04.095Z [INFO] #18 10.99 - This IS expected if you are initializing RobertaForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+2025-08-02T00:20:04.096Z [INFO] #18 10.99 - This IS NOT expected if you are initializing RobertaForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+2025-08-02T00:20:09.496Z [INFO] #18 16.39 Pre-downloading critical models...
+2025-08-02T00:20:09.497Z [INFO] #18 16.39 Model pre-caching complete!
+2025-08-02T00:20:10.722Z [INFO] #18 DONE 17.6s
+2025-08-02T00:20:10.824Z [INFO] 
+2025-08-02T00:20:10.825Z [INFO] #19 [13/14] RUN ls -la /app && echo "=== Contents of src/ ===" && ls -la /app/src/ && echo "=== Contents of src/mcp/ ===" && ls -la /app/src/mcp/
+2025-08-02T00:20:10.826Z [INFO] #19 0.102 total 4084
+2025-08-02T00:20:10.827Z [INFO] #19 0.102 drwxr-xr-x  1 root root     27 Aug  2 00:19 .
+2025-08-02T00:20:10.827Z [INFO] #19 0.102 drwxr-xr-x  1 root root     10 Aug  2 00:20 ..
+2025-08-02T00:20:10.828Z [INFO] #19 0.102 drwxr-xr-x  8 root root   4096 Aug  2 00:08 .git
+2025-08-02T00:20:10.828Z [INFO] #19 0.102 -rw-r--r--  1 root root    869 Aug  2 00:08 .gitignore
+2025-08-02T00:20:10.829Z [INFO] #19 0.102 -rw-r--r--  1 root root  13031 Aug  2 00:08 COMPLETE_DEPLOYMENT_WALKTHROUGH.md
+2025-08-02T00:20:10.829Z [INFO] #19 0.102 -rw-r--r--  1 root root  18262 Aug  2 00:08 DEPLOYMENT.md
+2025-08-02T00:20:10.830Z [INFO] #19 0.102 -rw-r--r--  1 root root   7065 Aug  2 00:08 DEPLOYMENT_CHECKLIST.md
+2025-08-02T00:20:10.830Z [INFO] #19 0.102 -rw-r--r--  1 root root   2304 Aug  2 00:08 Dockerfile
+2025-08-02T00:20:10.831Z [INFO] #19 0.102 -rw-r--r--  1 root root   2818 Aug  2 00:08 Dockerfile.compatible
+2025-08-02T00:20:10.832Z [INFO] #19 0.102 -rw-r--r--  1 root root   3139 Aug  2 00:08 Dockerfile.mcp
+2025-08-02T00:20:10.832Z [INFO] #19 0.102 -rw-r--r--  1 root root   2267 Aug  2 00:08 Dockerfile.optimized
+2025-08-02T00:20:10.833Z [INFO] #19 0.102 -rw-r--r--  1 root root   2545 Aug  2 00:08 Dockerfile.ultra-optimized
+2025-08-02T00:20:10.833Z [INFO] #19 0.102 -rw-r--r--  1 root root   8971 Aug  2 00:08 PHASE4_COMPLETION_SUMMARY.md
+2025-08-02T00:20:10.834Z [INFO] #19 0.102 -rw-r--r--  1 root root   6264 Aug  2 00:08 PHASE5_FINAL_COMPLETION_SUMMARY.md
+2025-08-02T00:20:10.835Z [INFO] #19 0.102 -rw-r--r--  1 root root   7421 Aug  2 00:08 PHASE5_FINAL_INSPECTION_REPORT.md
+2025-08-02T00:20:10.836Z [INFO] #19 0.102 -rw-r--r--  1 root root   6503 Aug  2 00:08 README.md
+2025-08-02T00:20:10.836Z [INFO] #19 0.102 -rw-r--r--  1 root root   5132 Aug  2 00:08 RUNPOD_DEPLOYMENT.md
+2025-08-02T00:20:10.837Z [INFO] #19 0.102 -rw-r--r--  1 root root   5895 Aug  2 00:08 RUNPOD_DEPLOYMENT_GUIDE.md
+2025-08-02T00:20:10.838Z [INFO] #19 0.102 -rw-r--r--  1 root root  64757 Aug  2 00:08 build-logs-18ba95bc-77fd-49f6-964a-3429760fe23c.txt
+2025-08-02T00:20:10.838Z [INFO] #19 0.102 -rw-r--r--  1 root root  49526 Aug  2 00:08 build-logs-1ac62d0c-ff20-40eb-a4ef-84ba40793116.txt
+2025-08-02T00:20:10.839Z [INFO] #19 0.102 -rw-r--r--  1 root root 329854 Aug  2 00:08 build-logs-1ae4b14e-c689-4432-b595-b707d44e8a15.txt
+2025-08-02T00:20:10.840Z [INFO] #19 0.102 -rw-r--r--  1 root root 502882 Aug  2 00:08 build-logs-32445bcb-a601-4a97-a82e-2ce8fd12e9b3.txt
+2025-08-02T00:20:10.840Z [INFO] #19 0.102 -rw-r--r--  1 root root  67153 Aug  2 00:08 build-logs-3d1d7e6e-1c2e-48d2-9d14-f127da4e85cc.txt
+2025-08-02T00:20:10.841Z [INFO] #19 0.102 -rw-r--r--  1 root root  63213 Aug  2 00:08 build-logs-48d4065f-b5da-462f-b9be-0f1db0242d09.txt
+2025-08-02T00:20:10.842Z [INFO] #19 0.102 -rw-r--r--  1 root root  68440 Aug  2 00:08 build-logs-62b0ff7c-927d-4b27-972f-a973350d2d76.txt
+2025-08-02T00:20:10.842Z [INFO] #19 0.102 -rw-r--r--  1 root root 589876 Aug  2 00:08 build-logs-644a78e9-4b44-4b02-850a-f1328e87df7f.txt
+2025-08-02T00:20:10.843Z [INFO] #19 0.102 -rw-r--r--  1 root root 254535 Aug  2 00:08 build-logs-8a14fc84-6592-4493-ae99-1f8574faf47b.txt
+2025-08-02T00:20:10.843Z [INFO] #19 0.102 -rw-r--r--  1 root root 125154 Aug  2 00:08 build-logs-94bdfd37-b77e-46a7-b58b-9a9576d83b67.txt
+2025-08-02T00:20:10.844Z [INFO] #19 0.102 -rw-r--r--  1 root root 124636 Aug  2 00:08 build-logs-fbacfa44-b5e9-4608-891e-1ba1a0534750.txt
+2025-08-02T00:20:10.845Z [INFO] #19 0.102 -rw-r--r--  1 root root    869 Aug  2 00:08 build_optimized.ps1
+2025-08-02T00:20:10.845Z [INFO] #19 0.102 drwxr-xr-x  1 root root     57 Aug  2 00:19 cache
+2025-08-02T00:20:10.846Z [INFO] #19 0.102 -rw-r--r--  1 root root    130 Aug  2 00:08 colab_ml_server.ipynb
+2025-08-02T00:20:10.847Z [INFO] #19 0.102 -rw-r--r--  1 root root      1 Aug  2 00:08 colab_setup.ipynb
+2025-08-02T00:20:10.848Z [INFO] #19 0.102 drwxr-xr-x  4 root root   4096 Aug  2 00:08 configs
+2025-08-02T00:20:10.848Z [INFO] #19 0.102 -rw-r--r--  1 root root    923 Aug  2 00:08 constraints.txt
+2025-08-02T00:20:10.849Z [INFO] #19 0.102 -rw-r--r--  1 root root  32999 Aug  2 00:08 deploy.sh
+2025-08-02T00:20:10.850Z [INFO] #19 0.102 drwxr-xr-x  2 root root     92 Aug  2 00:08 docker
+2025-08-02T00:20:10.850Z [INFO] #19 0.102 -rw-r--r--  1 root root   4846 Aug  2 00:08 docker-compose.production.yml
+2025-08-02T00:20:10.851Z [INFO] #19 0.102 -rw-r--r--  1 root root   4615 Aug  2 00:08 docker-compose.yml
+2025-08-02T00:20:10.852Z [INFO] #19 0.102 drwxr-xr-x  2 root root     41 Aug  2 00:08 docs
+2025-08-02T00:20:10.853Z [INFO] #19 0.102 -rw-r--r--  1 root root   3374 Aug  2 00:08 env.example
+2025-08-02T00:20:10.853Z [INFO] #19 0.102 -rw-r--r--  1 root root 620602 Aug  2 00:08 logs (1).txt
+2025-08-02T00:20:10.854Z [INFO] #19 0.102 -rw-r--r--  1 root root 620602 Aug  2 00:08 logs (2).txt
+2025-08-02T00:20:10.855Z [INFO] #19 0.102 -rw-r--r--  1 root root 407528 Aug  2 00:08 logs.txt
+2025-08-02T00:20:10.855Z [INFO] #19 0.102 drwxr-xr-x  2 root root     39 Aug  2 00:08 migrations
+2025-08-02T00:20:10.856Z [INFO] #19 0.102 -rw-r--r--  1 root root   2035 Aug  2 00:08 requirements.txt
+2025-08-02T00:20:10.857Z [INFO] #19 0.102 -rw-r--r--  1 root root  35384 Aug  2 00:08 run_alpha_discovery.py
+2025-08-02T00:20:10.857Z [INFO] #19 0.102 drwxr-xr-x  2 root root     37 Aug  2 00:08 scripts
+2025-08-02T00:20:10.858Z [INFO] #19 0.102 drwxr-xr-x 19 root root   4096 Aug  2 00:08 src
+2025-08-02T00:20:10.859Z [INFO] #19 0.102 drwxr-xr-x  2 root root     83 Aug  2 00:08 tests
+2025-08-02T00:20:10.859Z [INFO] #19 0.102 -rw-r--r--  1 root root   9632 Aug  2 00:08 verify_deployment.py
+2025-08-02T00:20:10.984Z [INFO] #19 0.102 === Contents of src/ ===
+2025-08-02T00:20:10.986Z [INFO] #19 0.103 total 20
+2025-08-02T00:20:10.987Z [INFO] #19 0.103 drwxr-xr-x 19 root root 4096 Aug  2 00:08 .
+2025-08-02T00:20:10.988Z [INFO] #19 0.103 drwxr-xr-x  1 root root   27 Aug  2 00:19 ..
+2025-08-02T00:20:10.989Z [INFO] #19 0.103 -rw-r--r--  1 root root  593 Aug  2 00:08 __init__.py
+2025-08-02T00:20:10.990Z [INFO] #19 0.103 drwxr-xr-x  2 root root 4096 Aug  2 00:08 agents
+2025-08-02T00:20:10.990Z [INFO] #19 0.103 drwxr-xr-x  2 root root   36 Aug  2 00:08 analytics
+2025-08-02T00:20:10.991Z [INFO] #19 0.103 drwxr-xr-x  5 root root  189 Aug  2 00:08 api
+2025-08-02T00:20:10.992Z [INFO] #19 0.103 drwxr-xr-x  2 root root   47 Aug  2 00:08 core
+2025-08-02T00:20:10.992Z [INFO] #19 0.103 drwxr-xr-x  3 root root  170 Aug  2 00:08 dashboard
+2025-08-02T00:20:10.993Z [INFO] #19 0.103 drwxr-xr-x  2 root root  174 Aug  2 00:08 data
+2025-08-02T00:20:10.994Z [INFO] #19 0.103 drwxr-xr-x  2 root root   62 Aug  2 00:08 execution
+2025-08-02T00:20:10.994Z [INFO] #19 0.103 drwxr-xr-x  2 root root 4096 Aug  2 00:08 mcp
+2025-08-02T00:20:10.995Z [INFO] #19 0.103 drwxr-xr-x  2 root root   33 Aug  2 00:08 monitoring
+2025-08-02T00:20:10.996Z [INFO] #19 0.103 drwxr-xr-x  2 root root   35 Aug  2 00:08 orchestration
+2025-08-02T00:20:10.997Z [INFO] #19 0.103 drwxr-xr-x  2 root root   65 Aug  2 00:08 portfolio
+2025-08-02T00:20:10.997Z [INFO] #19 0.103 drwxr-xr-x  2 root root   60 Aug  2 00:08 risk
+2025-08-02T00:20:10.998Z [INFO] #19 0.103 drwxr-xr-x  2 root root   86 Aug  2 00:08 scrapers
+2025-08-02T00:20:10.998Z [INFO] #19 0.103 drwxr-xr-x  2 root root  120 Aug  2 00:08 strategies
+2025-08-02T00:20:10.999Z [INFO] #19 0.103 drwxr-xr-x  2 root root  120 Aug  2 00:08 tools
+2025-08-02T00:20:11.000Z [INFO] #19 0.103 drwxr-xr-x  2 root root   29 Aug  2 00:08 workers
+2025-08-02T00:20:11.000Z [INFO] #19 0.103 drwxr-xr-x  2 root root 4096 Aug  2 00:08 utils
+2025-08-02T00:20:11.001Z [INFO] #19 0.103 === Contents of src/mcp/ ===
+2025-08-02T00:20:11.002Z [INFO] #19 0.103 total 240
+2025-08-02T00:20:11.002Z [INFO] #19 0.103 drwxr-xr-x  2 root root  4096 Aug  2 00:08 .
+2025-08-02T00:20:11.003Z [INFO] #19 0.103 drwxr-xr-x 19 root root  4096 Aug  2 00:08 ..
+2025-08-02T00:20:11.004Z [INFO] #19 0.103 -rw-r--r--  1 root root  9122 Aug  2 00:08 README.md
+2025-08-02T00:20:11.004Z [INFO] #19 0.103 -rw-r--r--  1 root root   368 Aug  2 00:08 __init__.py
+2025-08-02T00:20:11.005Z [INFO] #19 0.103 -rw-r--r--  1 root root  1011 Aug  2 00:08 __main__.py
+2025-08-02T00:20:11.006Z [INFO] #19 0.103 -rw-r--r--  1 root root 35574 Aug  2 00:08 alpha_discovery_server.py
+2025-08-02T00:20:11.006Z [INFO] #19 0.103 -rw-r--r--  1 root root 46102 Aug  2 00:08 mcp_server.py
+2025-08-02T00:20:11.007Z [INFO] #19 0.103 -rw-r--r--  1 root root 77809 Aug  2 00:08 ml_services.py
+2025-08-02T00:20:11.007Z [INFO] #19 0.103 -rw-r--r--  1 root root  3300 Aug  2 00:08 run_server.py
+2025-08-02T00:20:11.008Z [INFO] #19 0.103 -rw-r--r--  1 root root 20675 Aug  2 00:08 server_sdk.py
+2025-08-02T00:20:11.009Z [INFO] #19 0.103 -rw-r--r--  1 root root 22979 Aug  2 00:08 tool_definitions.py
+2025-08-02T00:20:11.009Z [INFO] #19 DONE 0.1s
+2025-08-02T00:20:11.010Z [INFO] 
+2025-08-02T00:20:11.011Z [INFO] #20 [14/14] RUN python -c "import sys; print('Python path:', sys.path); import src.mcp; print('✓ Module imported successfully')"
+2025-08-02T00:20:13.284Z [INFO] #20 2.450 Ollama Llama 3.3 70B initialized
+2025-08-02T00:20:13.604Z [INFO] #20 2.770 Configuration loaded for environment: development
+2025-08-02T00:20:13.724Z [INFO] #20 2.771 {"event": "ML models initialized for enhanced VPIN", "logger": "src.agents.microstructure_agent", "level": "info", "timestamp": "2025-08-02T00:20:13.604649Z"}
+2025-08-02T00:20:13.725Z [INFO] #20 2.778 Market data exchanges initialized
+2025-08-02T00:20:13.726Z [INFO] #20 2.778 {"event": "Enhanced Microstructure Agent initialized", "logger": "src.agents.microstructure_agent", "level": "info", "timestamp": "2025-08-02T00:20:13.611549Z"}
+2025-08-02T00:20:13.727Z [INFO] #20 2.890 Traceback (most recent call last):
+2025-08-02T00:20:13.727Z [INFO] #20 2.890   File "<string>", line 1, in <module>
+2025-08-02T00:20:13.728Z [INFO] #20 2.890   File "/app/src/__init__.py", line 12, in <module>
+2025-08-02T00:20:13.728Z [INFO] #20 2.890     from . import agents
+2025-08-02T00:20:13.729Z [INFO] #20 2.890   File "/app/src/agents/__init__.py", line 12, in <module>
+2025-08-02T00:20:13.729Z [INFO] #20 2.890     from .altdata_agent import AlternativeDataAgent
+2025-08-02T00:20:13.730Z [INFO] #20 2.890   File "/app/src/agents/altdata_agent.py", line 36, in <module>
+2025-08-02T00:20:13.731Z [INFO] #20 2.890     from src.scrapers.reddit_scraper import RedditScraper
+2025-08-02T00:20:13.731Z [INFO] #20 2.890   File "/app/src/scrapers/__init__.py", line 6, in <module>
+2025-08-02T00:20:13.732Z [INFO] #20 2.890     from .reddit_scraper import RedditScraper
+2025-08-02T00:20:13.732Z [INFO] #20 2.890   File "/app/src/scrapers/reddit_scraper.py", line 745
+2025-08-02T00:20:13.733Z [INFO] #20 2.890     emotion_scores[emotion_name].append(emotion_score)
+2025-08-02T00:20:13.733Z [INFO] #20 2.890     ^^^^^^^^^^^^^^
+2025-08-02T00:20:13.734Z [INFO] #20 2.890 IndentationError: expected an indented block after 'for' statement on line 744
+2025-08-02T00:20:13.875Z [INFO] #20 2.891 Python path: ['', '/app', '/opt/conda/lib/python310.zip', '/opt/conda/lib/python3.10', '/opt/conda/lib/python3.10/lib-dynload', '/opt/conda/lib/python3.10/site-packages']
+2025-08-02T00:20:14.352Z [INFO] #20 ERROR: process "/bin/sh -c python -c \"import sys; print('Python path:', sys.path); import src.mcp; print('✓ Module imported successfully')\"" did not complete successfully: exit code: 1
+2025-08-02T00:20:14.358Z [INFO] ------
+2025-08-02T00:20:14.358Z [INFO] > [14/14] RUN python -c "import sys; print('Python path:', sys.path); import src.mcp; print('✓ Module imported successfully')":
+2025-08-02T00:20:14.359Z [INFO] 2.890     from .altdata_agent import AlternativeDataAgent
+2025-08-02T00:20:14.360Z [INFO] 2.890   File "/app/src/agents/altdata_agent.py", line 36, in <module>
+2025-08-02T00:20:14.361Z [INFO] 2.890     from src.scrapers.reddit_scraper import RedditScraper
+2025-08-02T00:20:14.362Z [INFO] 2.890   File "/app/src/scrapers/__init__.py", line 6, in <module>
+2025-08-02T00:20:14.362Z [INFO] 2.890     from .reddit_scraper import RedditScraper
+2025-08-02T00:20:14.363Z [INFO] 2.890   File "/app/src/scrapers/reddit_scraper.py", line 745
+2025-08-02T00:20:14.363Z [INFO] 2.890     emotion_scores[emotion_name].append(emotion_score)
+2025-08-02T00:20:14.364Z [INFO] 2.890 IndentationError: expected an indented block after 'for' statement on line 744
+2025-08-02T00:20:14.364Z [INFO] 2.890     ^^^^^^^^^^^^^^
+2025-08-02T00:20:14.365Z [INFO] 2.891 Python path: ['', '/app', '/opt/conda/lib/python310.zip', '/opt/conda/lib/python3.10', '/opt/conda/lib/python3.10/lib-dynload', '/opt/conda/lib/python3.10/site-packages']
+2025-08-02T00:20:14.366Z [INFO] ------
+2025-08-02T00:20:14.367Z [INFO] WARNING: current commit information was not captured by the build: git was not found in the system: exec: "git": executable file not found in $PATH
+2025-08-02T00:20:14.367Z [INFO] Dockerfile.mcp:77
+2025-08-02T00:20:14.368Z [INFO] --------------------
+2025-08-02T00:20:14.369Z [INFO] 75 |
+2025-08-02T00:20:14.369Z [INFO] 76 |     # Test if Python can find the module
+2025-08-02T00:20:14.370Z [INFO] 77 | >>> RUN python -c "import sys; print('Python path:', sys.path); import src.mcp; print('✓ Module imported successfully')"
+2025-08-02T00:20:14.371Z [INFO] 78 |
+2025-08-02T00:20:14.371Z [INFO] 79 |     # Set the default command to start the MCP server
+2025-08-02T00:20:14.372Z [INFO] --------------------
+2025-08-02T00:20:14.373Z [ERROR] ERROR: failed to build: failed to solve: process "/bin/sh -c python -c \"import sys; print('Python path:', sys.path); import src.mcp; print('✓ Module imported successfully')\"" did not complete successfully: exit code: 1
+2025-08-02T00:20:14.373Z [ERROR] Build finished with wrong exit code: Please view the logs to find out what went wrong.
+2025-08-02T00:20:14.387Z [ERROR] None
+None
+2025-08-02T00:20:14.389Z [INFO] reverent_mcclintock
