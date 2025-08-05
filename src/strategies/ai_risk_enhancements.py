@@ -557,23 +557,23 @@ class AIRiskEnhancements:
             # Calculate confidence based on clustering and anomaly scores
             confidence = max(0.0, min(1.0, 1.0 - anomaly_result.risk_score))
             signal_strength = anomaly_result.risk_score
-                
-                # Create regime signal
-                regime_signal = RegimeSignal(
-                    timestamp=datetime.now(),
+            
+            # Create regime signal
+            regime_signal = RegimeSignal(
+                timestamp=datetime.now(),
                 regime=regime,
-                    confidence=confidence,
-                    signal_strength=signal_strength,
+                confidence=confidence,
+                signal_strength=signal_strength,
                 features=features.iloc[-1].to_dict()
-                )
-                
+            )
+            
             # Store in history
-                self.regime_history.append(regime_signal)
+            self.regime_history.append(regime_signal)
             if len(self.regime_history) > 100:  # Keep last 100 signals
                 self.regime_history.pop(0)
-                
+            
             logger.info(f"Detected regime {regime} with confidence {confidence:.2f}")
-                return regime_signal
+            return regime_signal
                 
         except Exception as e:
             logger.error(f"Regime change detection failed: {str(e)}")
