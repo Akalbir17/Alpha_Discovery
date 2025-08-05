@@ -960,19 +960,19 @@ class RiskManager:
                     factor_names = [f'Factor_{i+1}' for i in range(5)]
                 
                 # Create factor loadings (simplified)
-        loadings = pd.DataFrame(
+                loadings = pd.DataFrame(
                     np.random.normal(0, 0.3, (len(returns.columns), len(factor_names))),  # Placeholder
                     columns=factor_names,
-            index=returns.columns
-        )
+                    index=returns.columns
+                )
                 
                 # Estimate explained variance
                 explained_variance = [0.3, 0.2, 0.15, 0.1, 0.05][:len(factor_names)]
         
-        return {
+                return {
                     'explained_variance_ratio': explained_variance,
                     'cumulative_variance': np.cumsum(explained_variance),
-            'factor_loadings': loadings,
+                    'factor_loadings': loadings,
                     'first_factor_variance': explained_variance[0] if explained_variance else 0.0,
                     'concentration_risk': explained_variance[0] > 0.5 if explained_variance else False,
                     'effective_factors': len([v for v in explained_variance if v > 0.05]),
